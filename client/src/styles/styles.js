@@ -8,8 +8,17 @@ const styles = {
     }
   },
   icon: {
-    fontSize: "1.5rem",
-    color: "#FFFFFF"
+    color: "#FFFFFF",
+    sizeS: {
+      fontSize: "1.5rem"
+    }
+  },
+  SocialIcon: {
+    color: "#303030",
+    backgroundColor: "#6A6A6A",
+    fontSize: "2rem",
+    borderRadius: "50%",
+    textAlign: "center"
   },
 
   title: {
