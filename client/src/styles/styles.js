@@ -1,16 +1,4 @@
 const styles = {
-  baseColors: {
-    colors: {
-      primary: {
-        color: "#FFFFFF"
-      }
-    },
-    backgroundColors: {
-      primary: {
-        backgroundColor: "#C61017"
-      }
-    }
-  },
   layout: {
     flex: {
       display: "flex",
@@ -20,9 +8,8 @@ const styles = {
     }
   },
   icon: {
-    size: {
-      fontSize: "1.5rem"
-    }
+    fontSize: "1.5rem",
+    color: "#FFFFFF"
   },
 
   title: {
