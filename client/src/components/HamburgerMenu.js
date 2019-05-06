@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import Radium from "radium";
+import colors from "../styles/colors";
 
-export default class HamburgerMenu extends Component {
+class HamburgerMenu extends Component {
   render() {
-    return (
-      <div>
-        <ion-icon size="large" name="menu" />
-      </div>
-    );
+    return <ion-icon style={colors.color.secondary} size="large" name="menu" />;
   }
 }
+
+export default Radium(HamburgerMenu);

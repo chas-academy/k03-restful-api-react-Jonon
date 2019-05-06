@@ -4,15 +4,39 @@ import HamburgerMenu from "./HamburgerMenu";
 import Avatar from "./Avatar";
 import Cart from "./Cart";
 
-export default class Header extends Component {
+// styles
+import Radium from "radium";
+import styles from "../styles/styles";
+import colors from "../styles/colors";
+
+const header = {
+  base: {
+    padding: "0 1rem 0 1rem",
+    height: "2rem",
+    fontFamily: "Fjalla One, sans-serif",
+    lineHeight: "1"
+  }
+};
+
+class Header extends Component {
   render() {
     return (
-      <div>
+      <nav
+        style={[
+          styles.layout.flex,
+          header.base,
+          colors.backgroundcolor.primary
+        ]}
+      >
         <HamburgerMenu />
-        <h1>ComicHaven</h1>
-        <Avatar />
-        <Cart />
-      </div>
+        <h1 style={[styles.title, colors.color.primary]}>ComicHaven</h1>
+        <div style={styles.layout.flex}>
+          <Avatar />
+          <Cart />
+        </div>
+      </nav>
     );
   }
 }
+
+export default Radium(Header);

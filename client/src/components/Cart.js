@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { typicons } from "typicons.font";
 
-export default class Cart extends Component {
+// styles
+import Radium from "radium";
+import styles from "../styles/styles";
+import colors from "../styles/colors";
+
+class Cart extends Component {
   render() {
-    return (
-      <div>
-        <span className="typcn typcn-shopping-cart" />
-      </div>
-    );
+    return <span style={styles.icon} className="typcn typcn-shopping-cart" />;
   }
 }
+
+export default Radium(Cart);
