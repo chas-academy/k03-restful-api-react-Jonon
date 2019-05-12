@@ -3,8 +3,7 @@ import { typicons } from "typicons.font";
 
 // styles
 import Radium from "radium";
-import styles from "../styles/styles";
-import colors from "../styles/colors";
+import styles from "../../../styles/styles";
 
 class Cart extends Component {
   render() {
