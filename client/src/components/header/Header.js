@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
-import Avatar from "./Avatar";
-import Cart from "./Cart";
+import Avatar from "./icons/Avatar";
+import Cart from "./icons/Cart";
 
 // styles
 import Radium from "radium";
-import styles from "../styles/styles";
-import colors from "../styles/colors";
+import styles from "../../styles/styles";
+import colors from "../../styles/colors";
 
 const header = {
   base: {
