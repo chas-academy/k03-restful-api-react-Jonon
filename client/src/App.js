@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // components
 import Home from "./pages/Home";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 import Error from "./pages/Error";
 
 // sticky footer
