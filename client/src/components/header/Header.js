@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 import Icon from "./icons/Icon";
+import Cart from "./cart/Cart";
 
 // styles
 import Radium from "radium";
@@ -22,7 +23,7 @@ class Header extends Component {
         <h1 style={[styles.title, colors.color.primary]}>ComicHaven</h1>
         <div style={styles.layout.flex}>
           <Icon icon={"typcn typcn-user-outline"} />
-          <Icon icon={"typcn typcn-shopping-cart"} />
+          <Cart />
         </div>
       </nav>
     );
