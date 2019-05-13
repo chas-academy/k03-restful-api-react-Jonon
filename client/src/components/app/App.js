@@ -1,29 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+//styles
+import appStyle from "./appStyle";
+
 // components
-import Home from "./pages/Home";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-import Error from "./pages/Error";
-
-// sticky footer
-const container = {
-  display: "flex",
-  minHeight: "100vh",
-  flexDirection: "column"
-};
-
-const maincontent = {
-  flex: "1"
-};
+import Home from "../../pages/Home";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+import Error from "../../pages/Error";
 
 function App() {
   return (
-    <div style={container}>
+    <div style={appStyle.stickyFooter.container}>
       <Router>
         <Header />
-        <div style={maincontent}>
+        <div style={appStyle.stickyFooter.maincontent}>
           <Switch>
             <Route path="/" component={Home} exact />
             <Route component={Error} />
