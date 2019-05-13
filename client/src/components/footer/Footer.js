@@ -1,6 +1,6 @@
 import React from "react";
 import Radium from "radium";
-import SocialIcon from "./socialIcon/SocialIcon";
+import Icon from "./icon/Icon";
 
 import colors from "../../styles/colors";
 
@@ -30,10 +30,10 @@ function Footer() {
   return (
     <div style={[footer, footer.size, footer.position]}>
       <div style={flextest}>
-        <SocialIcon icon={"typcn typcn-social-facebook"} />
-        <SocialIcon icon={"typcn typcn-social-twitter"} />
-        <SocialIcon icon={"typcn typcn-social-youtube"} />
-        <SocialIcon icon={"typcn typcn-social-vimeo"} />
+        <Icon icon={"typcn typcn-social-facebook"} />
+        <Icon icon={"typcn typcn-social-twitter"} />
+        <Icon icon={"typcn typcn-social-youtube"} />
+        <Icon icon={"typcn typcn-social-vimeo"} />
       </div>
       <p style={[copyright, colors.color.primary]}>© ComicHaven 2019</p>
     </div>
