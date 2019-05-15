@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import HamburgerMenu from "./HamburgerMenu";
-import Icon from "./icons/Icon";
+import HamburgerMenu from "./hamburgerMenu/HamburgerMenu";
+import UserIconButton from "./userIconButton/UserIconButton";
 import Cart from "./cart/Cart";
 
 // styles
@@ -22,7 +22,7 @@ class Header extends Component {
         <HamburgerMenu />
         <h1 style={[styles.title, colors.color.primary]}>ComicHaven</h1>
         <div style={styles.layout.flex}>
-          <Icon icon={"typcn typcn-user-outline"} />
+          <UserIconButton />
           <Cart />
         </div>
       </nav>
