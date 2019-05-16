@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import appStyle from "./appStyle";
 
 // components
-import Home from "../../pages/Home";
+import Home from "../pages/home/Home";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import Error from "../../pages/Error";
+import Error from "../pages/Error";
 
 function App() {
   return (
