@@ -1,7 +1,7 @@
 const styles = {
   base: {
     padding: "0 1rem 0 1rem",
-    height: "2rem",
+    height: "2.5rem",
     fontFamily: "Fjalla One, sans-serif",
     lineHeight: "1"
   },
@@ -14,7 +14,7 @@ const styles = {
     }
   },
   title: {
-    fontSize: "18px"
+    fontSize: "1.2rem"
   },
   icon: {
     color: "#FFFFFF",
