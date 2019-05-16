@@ -1,41 +1,23 @@
 import React from "react";
-import Radium from "radium";
 import Icon from "./icon/Icon";
 
+// styling
+import Radium from "radium";
 import colors from "../../styles/colors";
-
-const footer = {
-  size: {
-    height: "100px",
-    padding: "1rem"
-  },
-  position: {
-    display: "flex",
-    flexDirection: "column"
-  },
-  backgroundColor: "#303030",
-  textAlign: "center"
-};
-
-const copyright = {
-  display: "inline-block"
-};
-
-const flextest = {
-  display: "flex",
-  justifyContent: "space-evenly"
-};
+import footerStyle from "./footerStyle";
 
 function Footer() {
   return (
-    <div style={[footer, footer.size, footer.position]}>
-      <div style={flextest}>
+    <div style={[footerStyle.styling, footerStyle.size, footerStyle.position]}>
+      <div style={footerStyle.rowEvenly}>
         <Icon icon={"typcn typcn-social-facebook"} />
         <Icon icon={"typcn typcn-social-twitter"} />
-        <Icon icon={"typcn typcn-social-youtube"} />
+        <Icon icon={"typcn typcn-social-pinterest"} />
         <Icon icon={"typcn typcn-social-vimeo"} />
       </div>
-      <p style={[copyright, colors.color.primary]}>© ComicHaven 2019</p>
+      <p style={[footerStyle.copyright, colors.color.primary]}>
+        © ComicHaven 2019
+      </p>
     </div>
   );
 }
