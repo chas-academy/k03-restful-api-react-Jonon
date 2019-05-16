@@ -6,7 +6,11 @@ import iconStyle from "./iconsStyle";
 
 class Icon extends Component {
   render() {
-    return <span style={iconStyle.default} className={this.props.icon} />;
+    return (
+      <div style={iconStyle}>
+        <span className={this.props.icon} />
+      </div>
+    );
   }
 }
 
