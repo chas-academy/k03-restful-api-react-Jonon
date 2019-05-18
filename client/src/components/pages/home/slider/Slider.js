@@ -7,26 +7,40 @@ import image3 from "./images/image3.jpg";
 import Radium, { StyleRoot } from "radium";
 import sliderStyle from "./sliderStyle";
 
-const images = [image1, image2, image3];
-
-let list = [];
-
-for (let i = 0; i < images.length; i++) {
-  list.push(<li style={sliderStyle.bullet} />);
-}
-
 class Slider extends Component {
   state = {
-    image: images[2]
+    images: [
+      {
+        id: 1,
+        image: image1,
+        active: true
+      },
+      {
+        id: 2,
+        image: image2,
+        active: false
+      },
+      {
+        id: 3,
+        image: image3,
+        active: false
+      }
+    ]
   };
 
   render() {
+    const { images } = this.state;
+
     return (
       <div style={sliderStyle.divContainer}>
         <div>
-          <img src={this.state.image} style={sliderStyle.image} />
+          <img src={this.state.images[0].image} style={sliderStyle.image} />
           <div style={sliderStyle.controller}>
-            <ul style={sliderStyle.row}>{list}</ul>
+            <ul style={sliderStyle.row}>
+              {images.map((images, id) => {
+                return <li key={id} id={id} style={sliderStyle.bullet} />;
+              })}
+            </ul>
           </div>
         </div>
       </div>

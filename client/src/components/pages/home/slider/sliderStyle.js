@@ -30,7 +30,13 @@ const sliderStyle = {
     padding: "0",
     marginLeft: "1.1rem",
     marginRight: "1.1rem",
-    fontSize: "2rem"
+    fontSize: "3rem",
+    cursor: "pointer",
+
+    color: `rgba(0, 0, 0, 0.6)`,
+    ":hover": {
+      color: `rgba(256, 256, 256, 1)`
+    }
   }
 };
 export default sliderStyle;
