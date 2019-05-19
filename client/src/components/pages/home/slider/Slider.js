@@ -8,37 +8,50 @@ import Radium, { StyleRoot } from "radium";
 import sliderStyle from "./sliderStyle";
 
 class Slider extends Component {
-  state = {
-    images: [
-      {
-        id: 1,
-        image: image1,
-        active: true
-      },
-      {
-        id: 2,
-        image: image2,
-        active: false
-      },
-      {
-        id: 3,
-        image: image3,
-        active: false
-      }
-    ]
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      images: [
+        {
+          id: 1,
+          image: image1,
+          active: true
+        },
+        {
+          id: 2,
+          image: image2,
+          active: false
+        },
+        {
+          id: 3,
+          image: image3,
+          active: false
+        }
+      ]
+    };
+  }
 
   render() {
     const { images } = this.state;
+    let activeImages = images.filter(data => data.active == true);
+    const activeImage = activeImages.map(data => data.image);
 
     return (
       <div style={sliderStyle.divContainer}>
         <div>
-          <img src={this.state.images[0].image} style={sliderStyle.image} />
+          <img src={activeImage} style={sliderStyle.image} />
           <div style={sliderStyle.controller}>
             <ul style={sliderStyle.row}>
-              {images.map((images, id) => {
-                return <li key={id} id={id} style={sliderStyle.bullet} />;
+              {images.map((image, id, active) => {
+                return (
+                  <li
+                    key={id}
+                    id={id}
+                    active={active}
+                    style={sliderStyle.bullet}
+                  />
+                );
               })}
             </ul>
           </div>

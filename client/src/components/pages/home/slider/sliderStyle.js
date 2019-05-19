@@ -33,7 +33,7 @@ const sliderStyle = {
     fontSize: "3rem",
     cursor: "pointer",
 
-    color: `rgba(0, 0, 0, 0.6)`,
+    color: `rgba(256, 256, 256, 0.6)`,
     ":hover": {
       color: `rgba(256, 256, 256, 1)`
     }
