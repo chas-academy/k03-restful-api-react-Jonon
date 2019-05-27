@@ -30,7 +30,7 @@ const sliderStyle = {
     padding: "0",
     marginLeft: "1.1rem",
     marginRight: "1.1rem",
-    fontSize: "3rem",
+    fontSize: "2.5rem",
     cursor: "pointer",
 
     color: `rgba(256, 256, 256, 0.6)`,
