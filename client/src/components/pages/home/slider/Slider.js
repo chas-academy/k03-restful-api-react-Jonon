@@ -3,32 +3,40 @@ import React, { Component } from "react";
 import image1 from "./images/image1.png";
 import image2 from "./images/image2.jpg";
 import image3 from "./images/image3.jpg";
+import image4 from "./images/image4.jpg";
+import image5 from "./images/image5.jpg";
+import image6 from "./images/image6.jpg";
 // styles
 import Radium, { StyleRoot } from "radium";
 import sliderStyle from "./sliderStyle";
+
+const timeBetweenImages = 5000;
 
 class Slider extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      images: [image1, image2, image3],
+      images: [image1, image2, image3, image4, image5, image6],
       idx: 0
     };
   }
 
-  changeImage = index => {
-    this.setState({
-      idx: (this.state.idx = index)
-    });
-  };
+  changeImage = index => this.setState({ idx: index });
 
   componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        idx: this.state.idx + 1
-      });
-    }, 5000);
+    setInterval(() => this.nextImage(), timeBetweenImages);
+  }
+
+  nextImage() {
+    let current = this.state.idx;
+    let next = ++current;
+
+    if (next >= this.state.images.length) {
+      next = 0;
+    }
+
+    this.setState({ idx: next });
   }
 
   render() {
