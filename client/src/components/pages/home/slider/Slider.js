@@ -28,7 +28,7 @@ class Slider extends Component {
     };
   }
 
-  changeImage = index => this.setState({ idx: index });
+  onClickChangeActiveImage = index => this.setState({ idx: index });
 
   componentDidMount() {
     setInterval(() => this.nextImage(), timeBetweenImages);
@@ -51,7 +51,7 @@ class Slider extends Component {
     const controller = images.map((control, index) => (
       <li
         key={index}
-        onClick={this.changeImage.bind(this, index)}
+        onClick={this.onClickChangeActiveImage.bind(this, index)}
         style={[
           sliderStyle.bullet,
           this.state.idx !== index
