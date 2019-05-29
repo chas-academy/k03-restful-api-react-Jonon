@@ -18,7 +18,13 @@ class Slider extends Component {
 
     this.state = {
       images: [image1, image2, image3, image4, image5, image6],
-      idx: 0
+      idx: 0,
+      selected: {
+        color: `white`
+      },
+      notSelected: {
+        color: `rgba(256, 256, 256, 0.6)`
+      }
     };
   }
 
@@ -46,7 +52,12 @@ class Slider extends Component {
       <li
         key={index}
         onClick={this.changeImage.bind(this, index)}
-        style={sliderStyle.bullet}
+        style={[
+          sliderStyle.bullet,
+          this.state.idx !== index
+            ? this.state.notSelected
+            : this.state.selected
+        ]}
       />
     ));
 
