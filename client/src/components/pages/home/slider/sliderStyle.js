@@ -1,7 +1,7 @@
 const sliderStyle = {
   divContainer: {
     width: "100%",
-    maxHeight: "48.5vw",
+    maxHeight: "49vw",
     margin: "auto",
     textAlign: "center",
     position: "relative",

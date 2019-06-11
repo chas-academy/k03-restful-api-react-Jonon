@@ -7,7 +7,7 @@ import image4 from "./images/image4.jpg";
 import image5 from "./images/image5.jpg";
 import image6 from "./images/image6.jpg";
 // styles
-import Radium, { StyleRoot } from "radium";
+import Radium from "radium";
 import sliderStyle from "./sliderStyle";
 
 const timeBetweenImages = 5000;
