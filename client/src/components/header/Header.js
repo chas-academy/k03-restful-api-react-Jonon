@@ -20,7 +20,8 @@ class Header extends Component {
         ]}
       >
         <HamburgerMenu />
-        <h1 style={[styles.title, colors.color.primary]}>ComicHaven</h1>
+        <Link to={"/"}><h1 style={[styles.title, colors.color.primary]}>ComicHaven</h1></Link>
+        
         <div style={styles.layout.flex}>
           <UserIconButton />
           <Cart />
