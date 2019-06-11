@@ -1,11 +1,14 @@
 const sliderStyle = {
   divContainer: {
     width: "100%",
-    maxHeight: "49vw",
     margin: "auto",
     textAlign: "center",
     position: "relative",
-    overflow: "hidden"
+    overflow: "hidden",
+    maxHeight: "49vw",
+    '@media (min-width: 768px)': {
+      maxHeight: "30vw",
+    }
   },
   image: {
     backgroundRepeat: "no-repeat",
