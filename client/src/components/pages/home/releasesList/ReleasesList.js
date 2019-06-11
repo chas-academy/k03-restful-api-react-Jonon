@@ -24,14 +24,16 @@ import Radium from "radium";
 
     render() {
         let {items} = this.state;
-        
+        let poster = items.map((item, index) => 
+        <img src={item.poster} alt="poster" style={style.poster} key={index}/>
+        )
         return (
             <div style={style.container}>
+                <h2 style={style.title} >New Releases</h2>
                 <div style={style.posterList}>
-                    {items.map((item, index) => 
-                    <img src={item.poster} style={style.poster} key={index}/>
-                    )}
+                    {poster}
                 </div>
+                <h3 style={style.viewMoreLink}>View More</h3>
             </div>
         )
     }
