@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import Icon from '../../../header/icons/Icon';
 import style from "./styles"
 import Radium from "radium";
+import './style.css';
 
  class ReleasesList extends Component {
     constructor(props) {
@@ -20,20 +22,27 @@ import Radium from "radium";
         }
     }
 
-    
-
     render() {
         let {items} = this.state;
         let poster = items.map((item, index) => 
-        <img src={item.poster} alt="poster" style={style.poster} key={index}/>
+        <img ref={ (posterlist) => this.posterlist = posterlist} src={item.poster} alt="poster" style={style.poster} key={index}/>
         )
         return (
             <div style={style.container}>
+                <div>
                 <h2 style={style.title} >New Releases</h2>
-                <div style={style.posterList}>
-                    {poster}
+                <div style={style.posterContainer}>
+                    <div 
+                     style={style.posterList} className="posterlist">
+                        {poster}
+                    </div>
+                    <div style={style.buttons}>
+                        <span className="typcn typcn-chevron-left" style={[style.slideButton, style.prevSlide]} ></span>
+                        <span className="typcn typcn-chevron-right" style={[style.slideButton, style.nextSlide]} ></span>
+                    </div>
                 </div>
                 <h3 style={style.viewMoreLink}>View More</h3>
+                </div>
             </div>
         )
     }

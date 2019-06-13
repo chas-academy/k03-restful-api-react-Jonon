@@ -1,0 +1,9 @@
+.typcn-chevron-left::before, .typcn-chevron-right::before {
+    height: 0px;
+    line-height: 0;
+    width: 0;
+}
+
+.typcn-chevron-right::before {
+    
+}
