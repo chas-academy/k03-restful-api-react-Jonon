@@ -9,19 +9,19 @@ const style = {
         fontWeight: '100'
     },
     posterList: {
-        width: '300%',
+        width: '100%',
+        gridTemplateColumns: '1fr 1fr 1fr',
         '@media (min-width: 768px) and (max-width: 1024px)' : {
-            width: '225%'
+            gridTemplateColumns: '1fr 1fr 1fr 1fr',
         },
         '@media (min-width: 1024px)' : {
-            width: '180%'
+            gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
         },
-        display: 'flex',
-        alignItems: 'flex-end'
+        display: 'grid',
+        
     },
     poster: {
-        flexGrow: '1',
-        width: '10%',
+        width: '100%',
         zIndex: '10',
         ':hover': {
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
