@@ -81,12 +81,12 @@ class DesktopList extends Component {
             </div>
             <div style={style.buttons}>
               <span
-                className="typcn typcn-chevron-left"
+                className="typcn typcn-chevron-left" key="btn + 1"
                 style={[style.slideButton, style.prevSlide]}
                 onClick={this.prevSlide.bind(this)}
               />
               <span
-                className="typcn typcn-chevron-right"
+                className="typcn typcn-chevron-right" key="btn + 2"
                 style={[style.slideButton, style.nextSlide]}
                 onClick={this.nextSlide.bind(this)}
               />

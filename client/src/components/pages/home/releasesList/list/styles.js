@@ -55,7 +55,10 @@ const style = {
         bottom: '0',
         lineHeight: '0',
         height: '0px',
-        color: 'grey',
+        color: `rgba(240, 240, 240, 0.8)`,
+        ':hover': {
+            color: `rgb(256, 256, 256)`,
+        },
         fontSize: '3em',
         '@media (min-width: 768px) and (max-width: 1024px)': {
             fontSize: '4em',
