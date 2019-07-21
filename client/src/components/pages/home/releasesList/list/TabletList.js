@@ -56,9 +56,7 @@ class TabletList extends Component {
     let current = this.state.idx;
     let prev = --current;
 
-    let posterLength = this.state.posters.length - 1;
-
-    if (prev < posterLength) {
+    if (prev < 0) {
       prev = 0;
     }
 
