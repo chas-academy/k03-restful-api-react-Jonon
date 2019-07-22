@@ -8,7 +8,7 @@ class Icon extends Component {
   render() {
     return (
       <div style={iconStyle}>
-        <span className={this.props.icon} />
+        <span className={this.props.icon} style={iconStyle.align} />
       </div>
     );
   }

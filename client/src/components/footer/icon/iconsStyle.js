@@ -5,9 +5,10 @@ const iconStyle = {
   color: "#303030",
   borderRadius: "50%",
   backgroundColor: "#6A6A6A",
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center"
+  align: {
+    display: 'flex',
+    alignItems: 'center'
+  }
 };
 
 export default iconStyle;
