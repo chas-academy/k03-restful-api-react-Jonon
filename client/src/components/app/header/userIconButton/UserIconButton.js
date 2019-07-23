@@ -8,25 +8,39 @@ class UserIconButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      onHover: "typcn typcn-user-outline"
+      onHover: "typcn typcn-user-outline",
+      modalIsOpen: false
     }
   }
 
   handleMouseEnter = () => {
-    console.log("enter")
     this.setState({onHover: "typcn typcn-user"})
     
   };
 
   handleMouseLeave = () => {
-    console.log("leave")
     this.setState({onHover: "typcn typcn-user-outline"})
+  }
+
+  ShowModal = () => {
+    this.setState({modalIsOpen: true})
   }
   
   render() {
+    console.log(this.state.modalIsOpen)
+    let {modalIsOpen} = this.state;
+
+    const isModal = modalIsOpen == true;
+
+    if (isModal) {
+      return (
+          <p>hej</p>
+        );
+  }
+
     return (
         <div style={userIconButtonStyle}>
-          <span onMouseEnter={this.handleMouseEnter.bind(this)} onMouseLeave={this.handleMouseLeave.bind(this)}>
+          <span onMouseEnter={this.handleMouseEnter.bind(this)} onMouseLeave={this.handleMouseLeave.bind(this)} onClick={this.ShowModal.bind(this)}>
             <Icon icon={this.state.onHover} />
         </span>
     </div>
