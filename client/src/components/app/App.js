@@ -6,20 +6,31 @@ import appStyle from "./appStyle";
 import Radium, { StyleRoot } from "radium";
 
 // components
-import Home from "../pages/home/Home";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
-import Error from "../pages/Error";
+import Home from "./pages/home/Home";
+import Header from "./header/Header";
+import Footer from "./footer/Footer";
+import Error from "./pages/error/Error";
 
-function App() {
-  return (
+class App extends React.Component {
+  state = {
+    showModal: false
+  }
+
+  toggleModal = () => {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  }
+
+render() {
+  return(
     <StyleRoot>
       <div style={appStyle.stickyFooter.container}>
         <Router>
-          <Header />
+          <Header showModal={this.toggleModal.bind(this)}/>
           <div style={appStyle.stickyFooter.maincontent}>
-            <Switch>
-              <Route path="/" component={Home} exact />
+            <Switch> 
+              <Route path="/" render={() => <Home show={this.state.showModal} />} exact/> 
               <Route component={Error} />
             </Switch>
           </div>
@@ -28,6 +39,7 @@ function App() {
       </div>
     </StyleRoot>
   );
+}
 }
 
 export default Radium(App);

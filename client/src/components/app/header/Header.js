@@ -7,10 +7,11 @@ import Cart from "./cart/Cart";
 // styles
 import Radium from "radium";
 import styles from "./headerStyle";
-import colors from "../../styles/colors";
+import colors from "../styles/colors";
 
 class Header extends Component {
   render() {
+    console.log(this.props.showModal)
     return (
       <nav
         style={[
@@ -23,7 +24,7 @@ class Header extends Component {
         <Link to={"/"}><h1 style={[styles.title, colors.color.primary]}>ComicHaven</h1></Link>
         
         <div style={styles.layout.flex}>
-          <UserIconButton />
+          <UserIconButton modal={this.props.showModal} />
           <Cart />
         </div>
       </nav>
