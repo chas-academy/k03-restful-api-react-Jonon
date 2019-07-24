@@ -5,9 +5,10 @@ import Modal from "../../modal/modal";
 
 class Home extends Component {
   render() {
+    console.log(this.props.hideModal)
     return (
       <div>
-        <Modal show={this.props.show}
+        <Modal show={this.props.show} hideModal={this.props.hideModal}
           />
         <Slider />
         <ReleasesList />

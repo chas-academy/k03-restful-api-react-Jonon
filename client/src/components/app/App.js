@@ -22,6 +22,12 @@ class App extends React.Component {
     });
   }
 
+  hideModal = () => {
+    this.setState({
+      showModal: false
+    });
+  }
+
 render() {
   return(
     <StyleRoot>
@@ -30,7 +36,7 @@ render() {
           <Header showModal={this.toggleModal.bind(this)}/>
           <div style={appStyle.stickyFooter.maincontent}>
             <Switch> 
-              <Route path="/" render={() => <Home show={this.state.showModal} />} exact/> 
+              <Route path="/" render={() => <Home show={this.state.showModal} hideModal={this.hideModal.bind(this)} />} exact/> 
               <Route component={Error} />
             </Switch>
           </div>
