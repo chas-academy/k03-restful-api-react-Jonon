@@ -1,6 +1,8 @@
 const styles = {
     modalOverlay: {
         position: 'fixed',
+        top: '0',
+        left: '0',
         zIndex: '11',
         width: '100%',
         height: '100%', 
