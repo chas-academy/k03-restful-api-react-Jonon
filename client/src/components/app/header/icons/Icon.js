@@ -3,7 +3,7 @@ import { typicons } from "typicons.font";
 
 // styles
 import Radium from "radium";
-import colors from "../../../styles/colors";
+import colors from "../../styles/colors";
 import iconStyle from "./iconsStyle";
 
 class Icon extends Component {
