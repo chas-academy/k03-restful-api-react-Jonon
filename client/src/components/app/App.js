@@ -12,40 +12,62 @@ import Footer from "./footer/Footer";
 import Error from "./pages/error/Error";
 
 class App extends React.Component {
-  state = {
-    showModal: false
-  }
-
-  toggleModal = () => {
-    this.setState({
-      showModal: !this.state.showModal
-    });
-  }
-
-  hideModal = () => {
-    this.setState({
+  constructor(props) {
+    super(props);
+    this.state = {
       showModal: false
-    });
+    };
   }
 
-render() {
-  return(
-    <StyleRoot>
-      <div style={appStyle.stickyFooter.container}>
-        <Router>
-          <Header showModal={this.toggleModal.bind(this)}/>
-          <div style={appStyle.stickyFooter.maincontent}>
-            <Switch> 
-              <Route path="/" render={() => <Home show={this.state.showModal} hideModal={this.hideModal.bind(this)} />} exact/> 
-              <Route component={Error} />
-            </Switch>
-          </div>
-          <Footer />
-        </Router>
-      </div>
-    </StyleRoot>
-  );
-}
+  showModal = () => {
+    this.setState({
+      showModal: true
+    });
+  };
+
+  // hide modal if click outside
+  componentWillMount() {
+    document.addEventListener("click", this.handleClick, false);
+  }
+
+  componentWillUnmount() {
+    document.addEventListener("click", this.handleClick, false);
+  }
+
+  handleClick = e => {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    this.setState({ showModal: false });
+  };
+
+  render() {
+    return (
+      <StyleRoot>
+        <div style={appStyle.stickyFooter.container}>
+          <Router>
+            <Header showModal={this.showModal.bind(this)} />
+            <div style={appStyle.stickyFooter.maincontent}>
+              <Switch>
+                <Route
+                  path="/"
+                  render={() => (
+                    <Home
+                      show={this.state.showModal}
+                      outside={node => (this.node = node)}
+                    />
+                  )}
+                  exact
+                />
+                <Route component={Error} />
+              </Switch>
+            </div>
+            <Footer />
+          </Router>
+        </div>
+      </StyleRoot>
+    );
+  }
 }
 
 export default Radium(App);

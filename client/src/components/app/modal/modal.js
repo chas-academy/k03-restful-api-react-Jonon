@@ -1,14 +1,42 @@
-import React, { Component } from 'react'
-import styles from "./style"
+import React, { Component } from "react";
+import styles from "./style";
 import Radium from "radium";
+import Button from "../buttons/Button";
+import ReactDOM from "react-dom";
 
-const Modal = (props) => (
-    <div style={[{ display: props.show ? 'block' : 'none'}, styles.modalOverlay]} onClick={props.hideModal}>
-        <div style={styles.center} >
-            <div style={styles.modalBox}>
+class Modal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: {
+        color: "#4B3A39"
+      },
+      notSelected: {
+        backgroundColor: "#C61017",
+        color: "#FFFFFF"
+      }
+    };
+  }
+
+  render() {
+    return (
+      <div
+        style={[
+          { display: this.props.show ? "block" : "none" },
+          styles.modalOverlay
+        ]}
+      >
+        <div style={styles.center}>
+          <div style={styles.modalBox} ref={this.props.outside}>
+            <div style={{ width: "100%" }}>
+              <Button title="Login" activeButton={this.state.selected} />
+              <Button title="Register" btnInactive={this.state.notSelected} />
             </div>
+          </div>
         </div>
-    </div>
-  );
+      </div>
+    );
+  }
+}
 
-export default Radium(Modal)
+export default Radium(Modal);
