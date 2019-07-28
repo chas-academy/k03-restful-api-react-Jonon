@@ -9,7 +9,7 @@ class LoginForm extends Component {
             <div style={styles.base}>
                 <form style={styles.container}>
                     <input type="text" placeholder="Username or E-mail" style={[styles.input]} />
-                    <input type="text" placeholder="Password" style={[styles.input]} />
+                    <input type="password" placeholder="Password" style={[styles.input]} />
                     <Login styles={styles.button} />
                 </form>
             </div>

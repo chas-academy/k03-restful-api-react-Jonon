@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
+import styles from './style'
+import Radium from "radium";
 
 class Register extends Component {
     render() {
         return (
-            <div>
-                
+            <div style={this.props.styles}>
+                <button style={[styles.base]}>Register</button>
             </div>
         )
     }
 }
 
-export default Register;
+export default Radium(Register);
