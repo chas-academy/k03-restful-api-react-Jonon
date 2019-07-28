@@ -12,18 +12,13 @@ const styles = {
     marginTop: "1rem",
     border: "0.5px solid #FF0000",
     paddingTop: "0.4rem",
-    paddingBottom: "0.4rem"
-  },
-  button: {
-    border: "none",
-    backgroundColor: "#C61017",
-    color: "#FFFFFF",
-    marginTop: '2rem',
-    paddingTop: "0.5rem",
-    paddingBottom: "0.5rem"
-  },
-  width: {
+    paddingBottom: "0.4rem",
     width: "90%"
+  },
+
+  button: {
+    width: "91%",
+    marginTop: "1rem"
   }
 };
 
