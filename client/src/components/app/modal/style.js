@@ -16,21 +16,9 @@ const styles = {
     },
     modalBox: {
         backgroundColor: '#FFFFFF',
-        width: '30rem',
-        height: '20rem',
+        width: '25rem',
         borderRadius: '1%',
         boxShadow: '1px 0px 4px 0px rgba(0, 0, 0, 0.5)'
-    },
-    buttonWrapper: {
-        width: '100%',
-        float: 'left',
-    },
-    button: {
-        width: "50%",
-        border: 'none',
-        padding: '0.5rem',
-        fontFamily: "Fjalla One, sans-serif",
-        cursor: 'pointer'
     }
   };
   
