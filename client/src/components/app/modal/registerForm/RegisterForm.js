@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styles from "./style"
 import Radium from "radium";
-import Register from '../../buttons/Register';
+import Button from '../../buttons/Button';
 
 class RegisterForm extends Component {
     render() {
@@ -11,7 +11,7 @@ class RegisterForm extends Component {
                     <input type="text" placeholder="Username" style={[styles.input]} />
                     <input type="email" placeholder="E-mail" style={[styles.input]} />
                     <input type="password" placeholder="Password" style={[styles.input]} />
-                    <Register styles={styles.button} />
+                    <Button title="Register" kind="primary" type="submit" width="91%" />
                 </form>
             </div>
         )
