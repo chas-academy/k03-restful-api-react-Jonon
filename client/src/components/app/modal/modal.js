@@ -11,13 +11,27 @@ class Modal extends Component {
     super(props);
     this.state = {
       showLogin: true,
-      showRegister: false
+      showRegister: false,
     };
   }
 
-  
+  showLogin = () => {
+    this.setState({
+      showLogin: true,
+      showRegister: false
+    });
+  };
+
+  showRegister = () => {
+    this.setState({
+      showLogin: false,
+      showRegister: true
+    });
+  };
 
   render() {
+    console.log(this.state.showLogin);
+    console.log(this.state.showRegister)
     return (
       <div
         style={[
@@ -27,14 +41,22 @@ class Modal extends Component {
       >
         <div style={styles.center}>
           <div style={styles.modalBox} ref={this.props.outside}>
-            <Tabs />
+            <Tabs
+              showLogin={this.showLogin.bind(this)}
+              showRegister={this.showRegister.bind(this)}
+              loginBtn={this.state.showLogin}
+              registerBtn={this.state.showRegister}
+              selected={this.state.selected}
+              notSelected={this.state.notSelected}
+            />
             <div style={{ display: this.state.showLogin ? "block" : "none" }}>
               <LoginForm />
             </div>
-            <div style={{ display: this.state.showRegister ? "block" : "none" }}>
-            <RegisterForm />
+            <div
+              style={{ display: this.state.showRegister ? "block" : "none" }}
+            >
+              <RegisterForm />
             </div>
-            
           </div>
         </div>
       </div>

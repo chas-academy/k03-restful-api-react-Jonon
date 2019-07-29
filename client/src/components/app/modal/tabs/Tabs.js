@@ -14,35 +14,20 @@ class Tabs extends Component {
         backgroundColor: "#C61017",
         color: "#FFFFFF"
       },
-      loginBtn: true,
-      registerBtn: false
     };
   }
 
-  selectLogin = () => {
-    this.setState({
-      loginBtn: true,
-      registerBtn: false
-    });
-  };
-
-  selectRegister = () => {
-    this.setState({
-      loginBtn: false,
-      registerBtn: true
-    });
-  };
     render() {
         return (
             <div style={styles.buttonWrapper}>
               <button
                 style={[
                   styles.button,
-                  this.state.loginBtn
+                  this.props.loginBtn
                     ? this.state.selected
                     : this.state.notSelected
                 ]}
-                onClick={this.selectLogin.bind(this)}
+                onClick={this.props.showLogin}
                 key={"btn" + 1}
               >
                 Login
@@ -50,11 +35,11 @@ class Tabs extends Component {
               <button
                 style={[
                   styles.button,
-                  this.state.registerBtn
+                  this.props.registerBtn
                     ? this.state.selected
                     : this.state.notSelected
                 ]}
-                onClick={this.selectRegister.bind(this)}
+                onClick={this.props.showRegister}
                 key={"btn" + 2}
               >
                 Register
