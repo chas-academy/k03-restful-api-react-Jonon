@@ -43,12 +43,14 @@ class Modal extends Component {
               title="Login"
               width="50%"
               kind={this.state.showLogin ? "secondary" : "primary"}
+              fontFamily="Fjalla One, sans-serif"
               onClick={() => this.showLogin()}
             />
             <Button
               title="Register"
               width="50%"
               kind={this.state.showRegister ? "secondary" : "primary"}
+              fontFamily="Fjalla One, sans-serif"
               onClick={() => this.showRegister()}
             />
             <div style={{ display: this.state.showLogin ? "block" : "none" }}>

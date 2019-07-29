@@ -17,7 +17,7 @@ class Button extends React.Component {
       <button
         type={this.props.type}
         onClick={() => this.props.onClick()}
-        style={[styles.base, styles[this.props.kind], {width: this.props.width}]}
+        style={[styles.base, styles[this.props.kind], {width: this.props.width, fontFamily: this.props.fontFamily}]}
       >
         {this.props.title}
       </button>

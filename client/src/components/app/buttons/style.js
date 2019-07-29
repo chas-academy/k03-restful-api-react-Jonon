@@ -6,6 +6,7 @@ const styles = {
     color: "grey",
     borderRadius: "0px",
     padding: "0.3rem",
+    fontFamily: "Roboto, sans-serif",
 
   },
   primary: {
