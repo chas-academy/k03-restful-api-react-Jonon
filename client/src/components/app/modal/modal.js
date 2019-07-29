@@ -30,8 +30,6 @@ class Modal extends Component {
   };
 
   render() {
-    console.log(this.state.showLogin);
-    console.log(this.state.showRegister)
     return (
       <div
         style={[
