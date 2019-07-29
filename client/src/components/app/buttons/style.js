@@ -1,11 +1,14 @@
 const styles = {
   base: {
     border: "none",
-    backgroundColor: "#C61017",
-    color: "#FFFFFF",
-    paddingTop: "0.5rem",
-    paddingBottom: "0.5rem",
-    width: '100%'
+    color: "grey",
+    borderRadius: "0px",
+    padding: "0.3rem"
+
+  },
+  primary: {
+    background: "#C61017",
+    color: "#FFFFFF"
   }
 };
 
