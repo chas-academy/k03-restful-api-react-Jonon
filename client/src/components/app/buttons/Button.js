@@ -9,7 +9,7 @@ import styles from './style';
 
 class Button extends React.Component {
   static propTypes = {
-    kind: PropTypes.oneOf(["primary", "warning"]).isRequired
+    kind: PropTypes.oneOf(["primary", "secondary"]).isRequired
   };
 
   render() {

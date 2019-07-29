@@ -5,12 +5,16 @@ const styles = {
     border: "none",
     color: "grey",
     borderRadius: "0px",
-    padding: "0.3rem"
+    padding: "0.3rem",
 
   },
   primary: {
     background: "#C61017",
     color: "#FFFFFF",
+  },
+  secondary: {
+    background: "#ffffff",
+    color: "#4B3A39",
   }
 };
 
