@@ -3,8 +3,8 @@ import styles from "./style";
 import Radium from "radium";
 
 import Tabs from "./tabs/Tabs";
-import LoginForm from "./loginForm/LoginForm";
-import RegisterForm from "./registerForm/RegisterForm";
+import Login from "./login/Login";
+import Register from "./register/Register";
 
 class Modal extends Component {
   constructor(props) {
@@ -50,12 +50,12 @@ class Modal extends Component {
               notSelected={this.state.notSelected}
             />
             <div style={{ display: this.state.showLogin ? "block" : "none" }}>
-              <LoginForm />
+              <Login />
             </div>
             <div
               style={{ display: this.state.showRegister ? "block" : "none" }}
             >
-              <RegisterForm />
+              <Register />
             </div>
           </div>
         </div>

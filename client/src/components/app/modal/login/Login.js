@@ -3,7 +3,7 @@ import styles from './style';
 import Radium from "radium";
 import Button from '../../buttons/Button';
 
-class LoginForm extends Component {
+class Login extends Component {
 
     render() {
         return (
@@ -18,4 +18,4 @@ class LoginForm extends Component {
     }
 }
 
-export default Radium(LoginForm);
+export default Radium(Login);
