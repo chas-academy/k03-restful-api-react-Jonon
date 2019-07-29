@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import styles from "./style"
+import styles from "../style"
 import Radium from "radium";
-import Button from '../../buttons/Button';
+import Button from "../../../buttons/Button";
 
 class Register extends Component {
     render() {

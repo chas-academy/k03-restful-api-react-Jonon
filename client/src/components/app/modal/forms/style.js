@@ -14,11 +14,6 @@ const styles = {
     paddingTop: "0.4rem",
     paddingBottom: "0.4rem",
     width: "90%"
-  },
-
-  button: {
-    width: "91%",
-    marginTop: "1rem"
   }
 };
 

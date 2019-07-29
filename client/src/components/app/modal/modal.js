@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import styles from "./style";
 import Radium from "radium";
 
-import Login from "./login/Login";
-import Register from "./register/Register";
+import Login from "./forms/login/Login";
+import Register from "./forms/register/Register";
 import Button from "../buttons/Button";
 
 class Modal extends Component {
