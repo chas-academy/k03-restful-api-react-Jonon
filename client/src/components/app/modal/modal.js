@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import styles from "./style";
 import Radium from "radium";
 
-import Tabs from "./tabs/Tabs";
 import Login from "./login/Login";
 import Register from "./register/Register";
+import Button from "../buttons/Button";
 
 class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showLogin: true,
-      showRegister: false,
+      showRegister: false
     };
   }
 
@@ -39,13 +39,17 @@ class Modal extends Component {
       >
         <div style={styles.center}>
           <div style={styles.modalBox} ref={this.props.outside}>
-            <Tabs
-              showLogin={this.showLogin.bind(this)}
-              showRegister={this.showRegister.bind(this)}
-              loginBtn={this.state.showLogin}
-              registerBtn={this.state.showRegister}
-              selected={this.state.selected}
-              notSelected={this.state.notSelected}
+            <Button
+              title="Login"
+              width="50%"
+              kind={this.state.showLogin ? "secondary" : "primary"}
+              onClick={() => this.showLogin()}
+            />
+            <Button
+              title="Register"
+              width="50%"
+              kind={this.state.showRegister ? "secondary" : "primary"}
+              onClick={() => this.showRegister()}
             />
             <div style={{ display: this.state.showLogin ? "block" : "none" }}>
               <Login />
