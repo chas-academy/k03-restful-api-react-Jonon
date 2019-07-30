@@ -4,7 +4,7 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     clear: "left",
-    marginTop: "3rem",
+    marginTop: "1rem",
     paddingBottom: '2rem'
   },
   input: {

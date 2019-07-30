@@ -7,7 +7,6 @@ const styles = {
     borderRadius: "0px",
     padding: "0.3rem",
     fontFamily: "Roboto, sans-serif",
-
   },
   primary: {
     background: "#C61017",
@@ -16,6 +15,11 @@ const styles = {
   secondary: {
     background: "#ffffff",
     color: "#4B3A39",
+  },
+  size: {
+    md: {
+      padding: '0.5rem'
+    }
   }
 };
 

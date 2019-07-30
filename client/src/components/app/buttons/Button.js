@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import Radium from "radium";
 import PropTypes from "prop-types";
-import styles from './style';
-
-// const Button = props => (
-//     <button onClick={() => props.onClick()} style={[styles.base, props.kind]} >{props.title} {props.kind}</button>
-// )
+import styles from "./style";
 
 class Button extends React.Component {
   static propTypes = {
@@ -17,7 +13,16 @@ class Button extends React.Component {
       <button
         type={this.props.type}
         onClick={() => this.props.onClick()}
-        style={[styles.base, styles[this.props.kind], {width: this.props.width, fontFamily: this.props.fontFamily}]}
+        style={[
+          styles.base,
+          styles[this.props.kind],
+          styles.size[this.props.size],
+          {
+            width: this.props.width,
+            fontFamily: this.props.fontFamily,
+            marginTop: this.props.marginTop
+          }
+        ]}
       >
         {this.props.title}
       </button>
