@@ -7,6 +7,7 @@ const styles = {
     borderRadius: "0px",
     padding: "0.3rem",
     fontFamily: "Roboto, sans-serif",
+    cursor: 'pointer'
   },
   primary: {
     background: "#C61017",
