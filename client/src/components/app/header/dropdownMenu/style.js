@@ -2,7 +2,7 @@ const styles = {
     position: 'fixed',
     zIndex: "11",
     backgroundColor: "#FFFFFF",
-    height: '95%',
+    height: '100%',
     width: "85%"
 }
 
