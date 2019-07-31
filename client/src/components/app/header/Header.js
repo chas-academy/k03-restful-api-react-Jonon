@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import HamburgerMenu from "./hamburgerMenu/HamburgerMenu";
 import UserIconButton from "./userIconButton/UserIconButton";
 import Cart from "./cart/Cart";
-import DropdownMenu from "./dropdownMenu/DropdownMenu"
+import DropdownMenu from "./dropdownMenu/DropdownMenu";
 
 // styles
 import Radium from "radium";
@@ -21,19 +21,22 @@ class Header extends Component {
             colors.backgroundcolor.primary
           ]}
         >
-          <HamburgerMenu />
+          <div style={{marginLeft: "1rem"}}>
+            <HamburgerMenu />
+          </div>
+
           <Link to={"/"}>
             <h1 style={[styles.title, colors.color.primary]}>ComicHaven</h1>
           </Link>
 
-          <div style={styles.layout.flex}>
+          <div style={[styles.layout.flex, { marginRight: "1rem"}]}>
             <UserIconButton modal={this.props.showModal} />
             <Cart />
           </div>
         </nav>
         {/* push nav */}
         <div style={{ marginTop: "2.5rem" }} />
-          <DropdownMenu />
+        <DropdownMenu />
       </div>
     );
   }

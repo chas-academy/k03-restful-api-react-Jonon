@@ -1,12 +1,11 @@
 const styles = {
   base: {
-    padding: "0 1rem 0 1rem",
     height: "2.5rem",
     fontFamily: "Fjalla One, sans-serif",
     lineHeight: "1",
     position: "fixed",
     zIndex: "1",
-    width: "98.3%"
+    width: "100%"
   },
   layout: {
     flex: {
