@@ -6,6 +6,7 @@ const styles = {
     height: "100%",
     width: "85%",
     boxShadow: "1px 0px 4px 0px rgba(0, 0, 0, 0.5)",
+    marginTop: "2.5rem"
 
   },
   container: {
