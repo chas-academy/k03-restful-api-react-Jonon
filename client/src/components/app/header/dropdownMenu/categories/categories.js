@@ -5,21 +5,40 @@ class Categories extends Component {
     super(props);
     this.state = {
       categories: [
-        { name: "All", subcategories: [] },
-        { name: "Marvel", subcategories: ["Doctor Aphra", "Doctor Strange"] }
+        { id: 1, show: false, name: "All", subcategories: [] },
+        {
+          id: 2,
+          show: false,
+          name: "Marvel",
+          subcategories: ["Doctor Aphra", "Doctor Strange"]
+        }
       ]
     };
   }
+
+  toggleSubItem = id => {
+    let newArray = {...this.state.categories}
+    newArray[id].show = !newArray[id].show;
+    this.setState({newArray})
+    
+  };
   render() {
     let { categories } = this.state;
 
-    let category = categories.map(item => {
+    let category = categories.map((item, id) => {
       let subcategories = item.subcategories.map(item => <li>{item}</li>);
       return (
-        <li>
-          {item.name}
-          {subcategories}
-        </li>
+        <div>
+          <li
+            onClick={this.toggleSubItem.bind(this, id)}
+            id={id}
+          >
+            {item.name}
+          </li>
+          <li style={{ display: item.show ? "block" : "none" }}>
+            {subcategories}
+          </li>
+        </div>
       );
     });
 
