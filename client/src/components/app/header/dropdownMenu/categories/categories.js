@@ -11,6 +11,18 @@ class Categories extends Component {
           show: false,
           name: "Marvel",
           subcategories: ["Doctor Aphra", "Doctor Strange"]
+        },
+        {
+          id: 2,
+          show: false,
+          name: "DC",
+          subcategories: ["The Killing Joke", "Wonder Woman"]
+        },
+        {
+          id: 2,
+          show: false,
+          name: "Dark Horse",
+          subcategories: ["Aliens", "Predator"]
         }
       ]
     };
