@@ -11,9 +11,40 @@ import styles from "./headerStyle";
 import colors from "../styles/colors";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state= {
+      show: false
+    }
+  }
+
+  showDropdown = () => {
+    this.setState({
+      show: true
+    })
+  }
+  
+
+  // hide modal if click outside
+  componentWillMount() {
+    document.addEventListener("click", this.handleClick, false);
+  }
+
+  componentWillUnmount() {
+    document.addEventListener("click", this.handleClick, false);
+  }
+
+  handleClick = e => {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    this.setState({ show: false });
+  };
+
   render() {
+   
     return (
-      <div>
+      <div >
         <nav
           style={[
             styles.layout.flex,
@@ -22,7 +53,7 @@ class Header extends Component {
           ]}
         >
           <div style={{marginLeft: "1rem"}}>
-            <HamburgerMenu />
+            <HamburgerMenu showMenu={this.showDropdown.bind()} />
           </div>
 
           <Link to={"/"}>
@@ -36,7 +67,8 @@ class Header extends Component {
         </nav>
         {/* push nav */}
         <div style={{ marginTop: "2.5rem" }} />
-        <DropdownMenu />
+        <DropdownMenu show={this.state.show}  
+        outside={node => (this.node = node)}/>
       </div>
     );
   }

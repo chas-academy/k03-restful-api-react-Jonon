@@ -6,7 +6,12 @@ class HamburgerMenu extends Component {
   render() {
     return (
       <div>
-        <ion-icon style={[colors.color.secondary, {cursor: "pointer"}]} size="large" name="menu" />
+        <ion-icon
+          style={[colors.color.secondary, { cursor: "pointer" }]}
+          size="large"
+          name="menu"
+          onClick={this.props.showMenu}
+        />
       </div>
     );
   }
