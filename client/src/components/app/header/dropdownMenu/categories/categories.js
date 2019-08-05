@@ -1,25 +1,24 @@
 import React, { Component } from "react";
+import styles from "./style";
+import Radium from "radium";
 
 class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
       categories: [
-        { id: 1, show: false, name: "All", subcategories: [] },
+        { show: false, name: "All", subcategories: [] },
         {
-          id: 2,
           show: false,
           name: "Marvel",
           subcategories: ["Doctor Aphra", "Doctor Strange"]
         },
         {
-          id: 2,
           show: false,
           name: "DC",
           subcategories: ["The Killing Joke", "Wonder Woman"]
         },
         {
-          id: 2,
           show: false,
           name: "Dark Horse",
           subcategories: ["Aliens", "Predator"]
@@ -29,10 +28,9 @@ class Categories extends Component {
   }
 
   toggleSubItem = id => {
-    let newArray = {...this.state.categories}
+    let newArray = { ...this.state.categories };
     newArray[id].show = !newArray[id].show;
-    this.setState({newArray})
-    
+    this.setState({ newArray });
   };
   render() {
     let { categories } = this.state;
@@ -41,10 +39,7 @@ class Categories extends Component {
       let subcategories = item.subcategories.map(item => <li>{item}</li>);
       return (
         <div>
-          <li
-            onClick={this.toggleSubItem.bind(this, id)}
-            id={id}
-          >
+          <li onClick={this.toggleSubItem.bind(this, id)} id={id}>
             {item.name}
           </li>
           <li style={{ display: item.show ? "block" : "none" }}>
