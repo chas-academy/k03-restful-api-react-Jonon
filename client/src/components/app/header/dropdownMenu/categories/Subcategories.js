@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styles from "./style";
 import Radium from "radium";
 
- class Subcategories extends Component {
+class Subcategories extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,34 +16,29 @@ import Radium from "radium";
         { id: 7, title: "Promethee 13:13", publisher: "Delcourt" },
         { id: 8, title: "Death: The Deluxe Edition", publisher: "Vertigo" },
         { id: 9, title: "Venom vs. Carnage", publisher: "Marvel" }
-      ],
+      ]
     };
   }
 
   render() {
     let { items } = this.state;
 
-    // Filter to only show publishers comics 
+    // Filter to only show publishers comics
     let testing = items.filter(item => {
-      return item.publisher == this.props.publisher || this.props.publisher == "All";
+      return (
+        item.publisher == this.props.publisher || this.props.publisher == "All"
+      );
     });
 
     let comicList = testing.map(item => {
       return (
-        <li
-          style={styles.subCategory
-          } key={item.id}
-        >
+        <li style={[styles.subCategory, styles.item]} key={item.id}>
           {item.title}
         </li>
       );
     });
 
-    return (
-      <div>
-        {comicList}
-      </div>
-    );
+    return <div>{comicList}</div>;
   }
 }
 

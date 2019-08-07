@@ -6,10 +6,12 @@ const styles = {
         paddingLeft: "2rem",
         paddingTop: "1rem",
         paddingBottom: "1rem",
-        cursor: "pointer"
+        cursor: "pointer",
+        fontFamily: "Roboto, sans-serif",
 
     },
     category: {
+        fontWeight: "400",
         borderLeft: "5px solid white",
         ":hover": {
             borderLeft: "5px solid #C61017",
@@ -17,9 +19,7 @@ const styles = {
         }
     },
     subCategory: {
-        paddingLeft: "2rem",
-        paddingTop: "1rem",
-        paddingBottom: "1rem",
+        fontWeight: "200",
         backgroundColor: "#FAFAFA",
         ":hover": {
             backgroundColor: "#F0F0F0"
