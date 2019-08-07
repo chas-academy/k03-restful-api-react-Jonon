@@ -11,6 +11,7 @@ import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import Error from "./pages/error/Error";
 import Modal from "./modal/modal";
+import Products from "./pages/products/Products";
 
 class App extends React.Component {
   constructor(props) {
@@ -59,6 +60,9 @@ class App extends React.Component {
                     />
                   )}
                   exact
+                />
+                <Route 
+                path="/products" component={Products}
                 />
                 <Route render={() => (
                     <Route component={Error} />
