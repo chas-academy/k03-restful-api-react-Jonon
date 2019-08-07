@@ -6,8 +6,8 @@ const styles = {
     height: "100%",
     width: "20rem",
     boxShadow: "1px 0px 4px 0px rgba(0, 0, 0, 0.5)",
-    marginTop: "2.5rem"
-
+    marginTop: "2.5rem",
+    overflow: "scroll"
   },
   container: {
       position: "fixed",
