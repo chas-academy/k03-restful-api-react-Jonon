@@ -10,6 +10,7 @@ import Home from "./pages/home/Home";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import Error from "./pages/error/Error";
+import Modal from "./modal/modal";
 
 class App extends React.Component {
   constructor(props) {
@@ -59,12 +60,15 @@ class App extends React.Component {
                   )}
                   exact
                 />
-                <Route component={Error} />
+                <Route render={() => (
+                    <Route component={Error} />
+                  )} />
               </Switch>
             </div>
             <Footer />
           </Router>
         </div>
+        <Modal show={this.state.showModal} outside={node => (this.node = node)} />
       </StyleRoot>
     );
   }
