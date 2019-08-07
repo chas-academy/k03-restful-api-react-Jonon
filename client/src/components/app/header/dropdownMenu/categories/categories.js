@@ -1,27 +1,36 @@
 import React, { Component } from "react";
 import styles from "./style";
 import Radium from "radium";
+import Subcategories from "./Subcategories";
 
 class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
       categories: [
-        { show: false, name: "All", subcategories: [] },
         {
+          id: 1,
+          show: false,
+          name: "All",
+          subcategories: [<Subcategories publisher="All" />]
+        },
+        {
+          id: 2,
           show: false,
           name: "Marvel",
-          subcategories: ["Doctor Aphra", "Doctor Strange"]
+          subcategories: [<Subcategories publisher="Marvel" />]
         },
         {
+          id: 3,
           show: false,
           name: "DC",
-          subcategories: ["The Killing Joke", "Wonder Woman"]
+          subcategories: [<Subcategories publisher="DC" />]
         },
         {
+          id: 4,
           show: false,
           name: "Dark Horse",
-          subcategories: ["Aliens", "Predator"]
+          subcategories: [<Subcategories publisher="Darke Horse" />]
         }
       ]
     };
@@ -36,24 +45,26 @@ class Categories extends Component {
     let { categories } = this.state;
 
     let category = categories.map((item, id) => {
-      let subcategories = item.subcategories.map(item => <li>{item}</li>);
       return (
-        <div>
-          <li onClick={this.toggleSubItem.bind(this, id)} id={id}>
-            {item.name}
-          </li>
-          <li style={{ display: item.show ? "block" : "none" }}>
-            {subcategories}
-          </li>
+        <div style={styles.base}>
+          <ul style={{ padding: "0", margin: "0px" }}>
+            <li
+              key={"category" + id}
+              style={[styles.item, styles.category]}
+              onClick={this.toggleSubItem.bind(this, id)}
+              id={id}
+            >
+              {item.name}
+            </li>
+            <div style={[{ display: item.show ? "block" : "none" }]}>
+              {item.subcategories}
+            </div>
+          </ul>
         </div>
       );
     });
 
-    return (
-      <div>
-        <ul>{category}</ul>
-      </div>
-    );
+    return <div>{category}</div>;
   }
 }
-export default Categories;
+export default Radium(Categories);
