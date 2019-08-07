@@ -17,8 +17,8 @@ class Categories extends Component {
         {
           id: 2,
           show: false,
-          name: "Marvel",
-          subcategories: [<Subcategories publisher="Marvel" />]
+          name: "Dark Horse",
+          subcategories: [<Subcategories publisher="Darke Horse" />]
         },
         {
           id: 3,
@@ -29,8 +29,20 @@ class Categories extends Component {
         {
           id: 4,
           show: false,
-          name: "Dark Horse",
-          subcategories: [<Subcategories publisher="Darke Horse" />]
+          name: "Delcourt",
+          subcategories: [<Subcategories publisher="Delcourt" />]
+        },
+        {
+          id: 5,
+          show: false,
+          name: "Marvel",
+          subcategories: [<Subcategories publisher="Marvel" />]
+        },
+        {
+          id: 5,
+          show: false,
+          name: "Vertigo",
+          subcategories: [<Subcategories publisher="Vertigo" />]
         }
       ]
     };
