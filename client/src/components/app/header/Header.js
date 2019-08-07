@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import HamburgerMenu from "./hamburgerMenu/HamburgerMenu";
 import UserIconButton from "./userIconButton/UserIconButton";
 import Cart from "./cart/Cart";
-import DropdownMenu from "./dropdownMenu/DropdownMenu";
+import Menu from "../Menu/Menu";
 
 // styles
 import Radium from "radium";
@@ -67,7 +67,7 @@ class Header extends Component {
         </nav>
         {/* push nav */}
         <div style={{ marginTop: "2.5rem" }} />
-        <DropdownMenu show={this.state.show}  
+        <Menu show={this.state.show}  
         outside={node => (this.node = node)}/>
       </div>
     );
