@@ -20,6 +20,7 @@ const styles = {
         paddingLeft: "2rem",
         paddingTop: "1rem",
         paddingBottom: "1rem",
+        backgroundColor: "#FAFAFA",
         ":hover": {
             backgroundColor: "#F0F0F0"
         }

@@ -62,7 +62,16 @@ class Categories extends Component {
           <ul style={{ padding: "0", margin: "0px" }}>
             <li
               key={"category" + id}
-              style={[styles.item, styles.category]}
+              style={[
+                styles.item,
+                styles.category,
+                {
+                  borderLeft: item.show
+                    ? `5px solid #C61017`
+                    : "5px solid white",
+                  backgroundColor: item.show ? `#FAFAFA` : "white"
+                }
+              ]}
               onClick={this.toggleSubItem.bind(this, id)}
               id={id}
             >
