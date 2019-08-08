@@ -8,12 +8,12 @@ const styles = {
   searchField: {
     borderRadius: "none",
     border: "none",
-    width: "83%",
-    marginLeft: "3rem",
+    width: "15rem",
+    marginLeft: "1rem",
     fontSize: "1.25em",
   },
   searchIcon: {
-    position: "absolute", 
+    
     marginLeft: "1rem",
     fontSize: "1.5em",
     textAlign: "center",
