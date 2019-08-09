@@ -94,7 +94,7 @@ class Header extends Component {
           >
             <div style={{ marginLeft: "1rem" }}>
             <Link to={"/products"}>
-              <h3 style={[colors.color.primary]} >Comics</h3>
+              <h3 style={[colors.color.primary, {fontSize: `1rem`, ":hover": {textDecoration: "underline"}}]} >Comics</h3>
             </Link>
             </div>
 
