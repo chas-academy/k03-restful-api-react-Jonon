@@ -51,28 +51,18 @@ class App extends React.Component {
             <Header showModal={this.showModal.bind(this)} />
             <div style={appStyle.stickyFooter.maincontent}>
               <Switch>
-                <Route
-                  path="/"
-                  render={() => (
-                    <Home
-                      show={this.state.showModal}
-                      outside={node => (this.node = node)}
-                    />
-                  )}
-                  exact
-                />
-                <Route 
-                path="/products" component={Products}
-                />
-                <Route render={() => (
-                    <Route component={Error} />
-                  )} />
+                <Route path="/" component={Home} exact />
+                <Route path="/products" component={Products} />
+                <Route render={() => <Route component={Error} />} />
               </Switch>
             </div>
             <Footer />
           </Router>
         </div>
-        <Modal show={this.state.showModal} outside={node => (this.node = node)} />
+        <Modal
+          show={this.state.showModal}
+          outside={node => (this.node = node)}
+        />
       </StyleRoot>
     );
   }
