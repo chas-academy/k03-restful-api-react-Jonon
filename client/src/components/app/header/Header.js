@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import HamburgerMenu from "./hamburgerMenu/HamburgerMenu";
 import UserIconButton from "./userIconButton/UserIconButton";
 import Cart from "./cart/Cart";
-import DropdownMenu from "../Menu/DropdownMenu";
+import DropdownMenu from "../menu/DropdownMenu";
 
 // styles
 import Radium from "radium";

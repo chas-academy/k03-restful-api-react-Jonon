@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Menu from "..//../Menu/Menu";
+import Menu from "../../menu/Menu";
 
 class Products extends Component {
   constructor(props) {
