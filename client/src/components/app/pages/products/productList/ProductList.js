@@ -101,7 +101,7 @@ class ProductList extends Component {
               title="Add to cart"
               kind="primary"
               width="100%"
-              padding="0.5rem"
+              size="md"
             /> 
         </div>
       );
