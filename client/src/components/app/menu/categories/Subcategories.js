@@ -12,9 +12,9 @@ class Subcategories extends Component {
         { id: 3, title: "Justice League Dark", publisher: "DC" },
         { id: 4, title: "Aquaman", publisher: "DC" },
         { id: 5, title: "Wonder Woman", publisher: "DC" },
-        { id: 6, title: "The Killing Joke", publisher: "DC" },
+        { id: 6, title: "Batman", publisher: "DC" },
         { id: 7, title: "Promethee 13:13", publisher: "Delcourt" },
-        { id: 8, title: "Death: The Deluxe Edition", publisher: "Vertigo" },
+        { id: 8, title: "Death", publisher: "Vertigo" },
         { id: 9, title: "Venom vs. Carnage", publisher: "Marvel" }
       ]
     };
