@@ -20,7 +20,8 @@ class Button extends React.Component {
           {
             width: this.props.width,
             fontFamily: this.props.fontFamily,
-            marginTop: this.props.marginTop
+            marginTop: this.props.marginTop,
+            padding: this.props.padding
           }
         ]}
       >
