@@ -1,6 +1,6 @@
 const styles = {
   base: {
-    width: "99.5%",
+    width: "100%%",
     paddingTop: ".5em",
     paddingBottom: ".5em",
     border: "1px solid #C61017",
@@ -9,11 +9,12 @@ const styles = {
     borderRadius: "none",
     border: "none",
     width: "15rem",
-    marginLeft: "1rem",
+    marginLeft: "3rem",
     fontSize: "1.25em",
   },
   searchIcon: {
-    
+    position: "absolute",
+    left: "0",
     marginLeft: "1rem",
     fontSize: "1.5em",
     textAlign: "center",
