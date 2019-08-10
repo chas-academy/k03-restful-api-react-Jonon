@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Menu from "../../menu/Menu";
+import ProductList from "./productList/ProductList";
 
 class Products extends Component {
   constructor(props) {
@@ -23,17 +24,20 @@ class Products extends Component {
 
   render() {
     let { width } = this.state;
-    const isMobileAndIsTablet = width >= 1440;
+    const isMobileAndIsTablet = width <= 1440;
 
     if (isMobileAndIsTablet) {
       return (
         <div>
-          <Menu />
+          <ProductList />
         </div>
       );
     } else {
         return (
-            <div></div>
+          <div style={{display: "flex"}} >
+            <Menu />
+            <ProductList />
+          </div>
         );
     }
   }
