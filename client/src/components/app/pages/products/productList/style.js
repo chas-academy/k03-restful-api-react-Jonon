@@ -22,6 +22,11 @@ const styles = {
     },
     posterBox: {
         backgroundColor: "#F0EFEF",
+        borderRadius: "1%",
+        boxShadow: `0px 0px 2px rgba(0, 0, 0, 0.25)`,
+        ":hover": {
+            boxShadow: `0px 0px 5px rgba(186, 45, 0, 0.75)`
+        }
     },
     posterText: {
         margin: "0px",

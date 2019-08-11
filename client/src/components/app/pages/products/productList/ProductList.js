@@ -88,7 +88,7 @@ class ProductList extends Component {
     let { issues } = this.state;
     let comics = issues.map(item => {
       return (
-        <div style={[{display: "flex", flexDirection: "column"}, style.posterBox]}>
+        <div style={[{display: "flex", flexDirection: "column"}, style.posterBox]} key={item.id} >
         <div style={{flex: "1"}} >
           <li style={{padding: "1rem"}} >
               <img src={item.poster} style={style.image} />
