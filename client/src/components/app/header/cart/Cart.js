@@ -9,7 +9,7 @@ class Cart extends Component {
   render() {
     return (
       <div style={cartStyle.align}>
-        <Icon icon={"typcn typcn-shopping-cart"} />
+        <Icon icon={"typcn typcn-shopping-cart"} color="primary"  />
         <Counter />
       </div>
     );

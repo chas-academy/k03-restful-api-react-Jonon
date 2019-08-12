@@ -10,7 +10,7 @@ class Icon extends Component {
   render() {
     return (
       <span
-        style={[iconStyle, colors.color.primary]}
+        style={[iconStyle, colors.color[this.props.color]]}
         className={this.props.icon}
       />
     );
