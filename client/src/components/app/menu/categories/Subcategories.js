@@ -26,7 +26,7 @@ class Subcategories extends Component {
     // Filter to only show publishers comics
     let testing = items.filter(item => {
       return (
-        item.publisher == this.props.publisher || this.props.publisher == "All"
+        item.publisher == this.props.publisher
       );
     });
 
