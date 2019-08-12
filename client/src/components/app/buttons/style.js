@@ -20,6 +20,9 @@ const styles = {
   size: {
     md: {
       padding: '0.5rem'
+    },
+    lg: {
+      padding: "1rem"
     }
   }
 };
