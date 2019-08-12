@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Icon from "../icons/Icon";
+import Icon from "../../icons/Icon";
 
 // styles
 import userIconButtonStyle from "./UserIconButtonStyle";

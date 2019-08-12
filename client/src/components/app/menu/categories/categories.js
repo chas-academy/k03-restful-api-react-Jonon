@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./style";
 import Radium from "radium";
 import Subcategories from "./Subcategories";
+import Icon from "../../icons/Icon";
 
 class Categories extends Component {
   constructor(props) {
