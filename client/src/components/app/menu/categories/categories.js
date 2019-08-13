@@ -76,7 +76,21 @@ class Categories extends Component {
               onClick={this.toggleSubItem.bind(this, id)}
               id={id}
             >
-              {item.name}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "90% 10%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  width: "90%"
+                }}
+              >
+                {item.name}
+                <span style={[item.show ? styles.rotateIcon : "", {display: "inline-block",} ]} >
+                <Icon icon="typcn typcn-chevron-right" color="secondary" />
+                </span>
+              </div>
             </li>
             <div style={[{ display: item.show ? "block" : "none" }]}>
               {item.subcategories}

@@ -24,6 +24,12 @@ const styles = {
         ":hover": {
             backgroundColor: "#F0F0F0"
         }
+    },
+
+
+    rotateIcon: {
+        transform: `rotate(90deg)`,
+    
     }
 }
    
