@@ -7,8 +7,8 @@ class Subcategories extends Component {
     super(props);
     this.state = {
       items: [
-        { id: 1, title: "Alien", publisher: "Darke Horse" },
-        { id: 2, title: "Predator", publisher: "Darke Horse" },
+        { id: 1, title: "Alien", publisher: "Dark Horse" },
+        { id: 2, title: "Predator", publisher: "Dark Horse" },
         { id: 3, title: "Justice League Dark", publisher: "DC" },
         { id: 4, title: "Aquaman", publisher: "DC" },
         { id: 5, title: "Wonder Woman", publisher: "DC" },

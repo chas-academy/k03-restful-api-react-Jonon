@@ -9,45 +9,21 @@ class Categories extends Component {
     super(props);
     this.state = {
       categories: [
-        {
-          id: 1,
-          show: false,
-          name: "All",
-          subcategories: [<Subcategories publisher="All" />]
-        },
-        {
-          id: 2,
-          show: false,
-          name: "Dark Horse",
-          subcategories: [<Subcategories publisher="Darke Horse" />]
-        },
-        {
-          id: 3,
-          show: false,
-          name: "DC",
-          subcategories: [<Subcategories publisher="DC" />]
-        },
-        {
-          id: 4,
-          show: false,
-          name: "Delcourt",
-          subcategories: [<Subcategories publisher="Delcourt" />]
-        },
-        {
-          id: 5,
-          show: false,
-          name: "Marvel",
-          subcategories: [<Subcategories publisher="Marvel" />]
-        },
-        {
-          id: 5,
-          show: false,
-          name: "Vertigo",
-          subcategories: [<Subcategories publisher="Vertigo" />]
-        }
+        
       ]
     };
   }
+
+  componentDidMount() {
+    fetch("http://localhost:3004/categories")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          categories: data
+        });
+      });
+  }
+
 
   toggleSubItem = id => {
     let newArray = { ...this.state.categories };
@@ -87,13 +63,18 @@ class Categories extends Component {
                 }}
               >
                 {item.name}
-                <span style={[item.show ? styles.rotateIcon : "", {display: "inline-block",} ]} >
-                <Icon icon="typcn typcn-chevron-right" color="secondary" />
+                <span
+                  style={[
+                    item.show ? styles.rotateIcon : "",
+                    { display: "inline-block" }
+                  ]}
+                >
+                  <Icon icon="typcn typcn-chevron-right" color="secondary" />
                 </span>
               </div>
             </li>
             <div style={[{ display: item.show ? "block" : "none" }]}>
-              {item.subcategories}
+              <Subcategories publisher={item.name} />
             </div>
           </ul>
         </div>
