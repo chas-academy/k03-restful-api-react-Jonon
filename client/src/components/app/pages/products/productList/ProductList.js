@@ -13,7 +13,7 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3004/comics")
+    fetch("http://192.168.11.197:3004/comics")
       .then(res => res.json())
       .then(data => {
         this.setState({
