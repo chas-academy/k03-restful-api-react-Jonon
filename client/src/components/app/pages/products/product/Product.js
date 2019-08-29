@@ -44,21 +44,21 @@ class Product extends Component {
             <h4>Creators</h4>
             <ul style={styles.disableListStyle}>
               <li>
-                Writer
+                <span style={styles.listHeader} >Writer</span>
                 <ul style={styles.disableListStyle}>
-                  <li>{items.writer}</li>
+                  <li style={styles.listItem} >{items.writer}</li>
                 </ul>
               </li>
               <li>
-                Artist
+              <span style={styles.listHeader} >Artist</span>
                 <ul style={styles.disableListStyle}>
-                  <li>{items.artist}</li>
+                  <li style={styles.listItem} >{items.artist}</li>
                 </ul>
               </li>
               <li>
-                Cover Artist
+              <span style={styles.listHeader} >Cover artist</span>
                 <ul style={styles.disableListStyle}>
-                  <li>{items.coverArtist}</li>
+                  <li style={styles.listItem} >{items.coverArtist}</li>
                 </ul>
               </li>
             </ul>
@@ -67,21 +67,21 @@ class Product extends Component {
             <h4>Publication</h4>
             <ul style={styles.disableListStyle}>
               <li>
-                Publisher
+              <span style={styles.listHeader} >Publisher</span>
                 <ul style={styles.disableListStyle}>
-                  <li>{items.publisher}</li>
+                  <li style={styles.listItem} >{items.publisher}</li>
                 </ul>
               </li>
               <li>
-                Publication date
+              <span style={styles.listHeader} >Publication date</span>
                 <ul style={styles.disableListStyle}>
-                  <li>{items.publicationDate}</li>
+                  <li style={styles.listItem} >{items.publicationDate}</li>
                 </ul>
               </li>
               <li>
-                Pages
+              <span style={styles.listHeader} >Pages</span>
                 <ul style={styles.disableListStyle}>
-                  <li>{items.pages}</li>
+                  <li style={styles.listItem} >{items.pages}</li>
                 </ul>
               </li>
             </ul>
