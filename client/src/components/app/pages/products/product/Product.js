@@ -29,36 +29,38 @@ class Product extends Component {
     let { items } = this.state;
 
     return (
-      <div style={{ margin: "1em" }}>
-        <div>
-          <img src={items.poster} width="100%" />
-          <h3>{items.title}</h3>
-          <h4>
-            Price <span>{items.price}</span>
-          </h4>
-          <Button title="Add to cart" kind="primary" width="100%" size="lg" />
+      <div style={[styles.base, styles.threeColumns]}>
+        <div style={styles.desktopLayout} >
+          <div>
+            <img src={items.poster} style={styles.image} />
+            <h3>{items.title}</h3>
+            <h4>
+              Price <span>{items.price}</span>
+            </h4>
+            <Button title="Add to cart" kind="primary" width="100%" size="lg" />
+          </div>
+          <p style={styles.margin} >{items.description}</p>
         </div>
-        <p>{items.description}</p>
-        <div>
+        <div style={[styles.gridColumn, styles.margin]}>
           <div>
             <h4>Creators</h4>
             <ul style={styles.disableListStyle}>
               <li>
-                <span style={styles.listHeader} >Writer</span>
+                <span style={styles.listHeader}>Writer</span>
                 <ul style={styles.disableListStyle}>
-                  <li style={styles.listItem} >{items.writer}</li>
+                  <li style={styles.listItem}>{items.writer}</li>
                 </ul>
               </li>
               <li>
-              <span style={styles.listHeader} >Artist</span>
+                <span style={styles.listHeader}>Artist</span>
                 <ul style={styles.disableListStyle}>
-                  <li style={styles.listItem} >{items.artist}</li>
+                  <li style={styles.listItem}>{items.artist}</li>
                 </ul>
               </li>
               <li>
-              <span style={styles.listHeader} >Cover artist</span>
+                <span style={styles.listHeader}>Cover artist</span>
                 <ul style={styles.disableListStyle}>
-                  <li style={styles.listItem} >{items.coverArtist}</li>
+                  <li style={styles.listItem}>{items.coverArtist}</li>
                 </ul>
               </li>
             </ul>
@@ -67,21 +69,21 @@ class Product extends Component {
             <h4>Publication</h4>
             <ul style={styles.disableListStyle}>
               <li>
-              <span style={styles.listHeader} >Publisher</span>
+                <span style={styles.listHeader}>Publisher</span>
                 <ul style={styles.disableListStyle}>
-                  <li style={styles.listItem} >{items.publisher}</li>
+                  <li style={styles.listItem}>{items.publisher}</li>
                 </ul>
               </li>
               <li>
-              <span style={styles.listHeader} >Publication date</span>
+                <span style={styles.listHeader}>Publication date</span>
                 <ul style={styles.disableListStyle}>
-                  <li style={styles.listItem} >{items.publicationDate}</li>
+                  <li style={styles.listItem}>{items.publicationDate}</li>
                 </ul>
               </li>
               <li>
-              <span style={styles.listHeader} >Pages</span>
+                <span style={styles.listHeader}>Pages</span>
                 <ul style={styles.disableListStyle}>
-                  <li style={styles.listItem} >{items.pages}</li>
+                  <li style={styles.listItem}>{items.pages}</li>
                 </ul>
               </li>
             </ul>
