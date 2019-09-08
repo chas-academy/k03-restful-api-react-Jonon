@@ -11,11 +11,12 @@
     "typicons.font": "^2.0.9"
   },
   "scripts": {
-    "start": "BROWSER=firefox react-scripts start & json-server --watch store.json --host 192.168.11.197 --port 3004",
+    "start": "BROWSER=firefox react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3003",
   "eslintConfig": {
     "extends": "react-app"
   },
