@@ -8,7 +8,8 @@ const Product = require("../models/Product");
 router.get("/", async (req, res) => {
   try {
     const product = await Product.find()
-    
+    //Sort title in the ascending order
+    .sort({"title": 1})
     res.status(200).json(product);
   } catch (err) {
     res.json({ message: err });
@@ -53,7 +54,7 @@ router.patch("/:productId", async (req, res) => {
   try {
     const updateProduct = await Product.updateOne(
       { _id: req.params.productId },
-      { $set: { inventory: req.body.inventory } }
+      { $set: { inventory: req.body.inventory, description: req.body.description } }
     );
     res.status(200).json(updateProduct);
   } catch (err) {
