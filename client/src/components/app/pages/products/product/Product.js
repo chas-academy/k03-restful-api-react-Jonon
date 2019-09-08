@@ -16,7 +16,7 @@ class Product extends Component {
       match: { params }
     } = this.props;
 
-    fetch(`http://192.168.11.197:3004/comics/${params.id}`)
+    fetch(`/products/${params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({

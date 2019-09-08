@@ -14,7 +14,7 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch("http://192.168.11.197:3004/comics")
+    fetch("/products")
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -35,11 +35,11 @@ class ProductList extends Component {
           key={item.id}
         >
           <div style={{ flex: "1" }}>
-            <Link to={`products/${item.id}`} >
+            <Link to={`products/${item._id}`} >
               <li style={{ padding: "1rem" }} key={item.id}>
                 <img src={item.poster} style={style.image} />
                 <h3 style={[style.posterText, style.title]}>{item.title}</h3>
-                <h4 style={[style.posterText, style.price]}>{item.price}</h4>
+                <h4 style={[style.posterText, style.price]}>{item.price}€</h4>
               </li>
             </Link>
           </div>
