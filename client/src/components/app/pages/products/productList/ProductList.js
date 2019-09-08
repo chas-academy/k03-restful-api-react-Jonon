@@ -32,11 +32,11 @@ class ProductList extends Component {
             { display: "flex", flexDirection: "column" },
             style.posterBox
           ]}
-          key={item.id}
+          key={item._id}
         >
           <div style={{ flex: "1" }}>
             <Link to={`products/${item._id}`} >
-              <li style={{ padding: "1rem" }} key={item.id}>
+              <li style={{ padding: "1rem" }} key={item._id}>
                 <img src={item.poster} style={style.image} />
                 <h3 style={[style.posterText, style.title]}>{item.title}</h3>
                 <h4 style={[style.posterText, style.price]}>{item.price}€</h4>
