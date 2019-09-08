@@ -1,18 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const productSchema = mongoose.Schema({
-    
-    title: String,
-    poster: String,
-    description: String,
-    writer: String,
-    artist: String,
-    coverArtist: String,
-    publisher: String,
-    publicationDate: { type: Date, default: Date.now },
-    pages: Number,
-    price: Number,
-    inventory: Number
-})
+  title: { type: String, required: true },
+  poster: { type: String, required: true },
+  description: { type: String, required: true },
+  writer: { type: String, required: true },
+  artist: { type: String, required: true },
+  coverArtist: { type: String, required: true },
+  publisher: { type: String, required: true },
+  publicationDate: { type: Date, default: Date.now },
+  pages: { type: Number, required: true },
+  price: { type: Number, required: true },
+  inventory: { type: Number, required: true }
+});
 
-module.exports = mongoose.model('Product', productSchema)
+module.exports = mongoose.model("Product", productSchema);
