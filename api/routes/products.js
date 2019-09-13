@@ -54,7 +54,7 @@ router.patch("/:productId", async (req, res) => {
   try {
     const updateProduct = await Product.updateOne(
       { _id: req.params.productId },
-      { $set: { inventory: req.body.inventory, description: req.body.description } }
+      { $set: { title: req.body.title, inventory: req.body.inventory, description: req.body.description } }
     );
     res.status(200).json(updateProduct);
   } catch (err) {
