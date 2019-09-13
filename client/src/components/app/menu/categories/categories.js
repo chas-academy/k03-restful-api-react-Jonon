@@ -15,7 +15,7 @@ class Categories extends Component {
   }
 
   componentDidMount() {
-    fetch("http://192.168.11.197:3004/categories")
+    fetch("/category")
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -33,12 +33,14 @@ class Categories extends Component {
   render() {
     let { categories } = this.state;
 
-    let category = categories.map((item, id) => {
+    console.log(categories)
+
+    let category = categories.map((item, _id) => {
       return (
         <div style={styles.base}>
           <ul style={{ padding: "0", margin: "0px" }}>
             <li
-              key={"category" + id}
+              key={"category" + _id}
               style={[
                 styles.item,
                 styles.category,
@@ -49,8 +51,8 @@ class Categories extends Component {
                   backgroundColor: item.show ? `#FAFAFA` : "white"
                 }
               ]}
-              onClick={this.toggleSubItem.bind(this, id)}
-              id={id}
+              onClick={this.toggleSubItem.bind(this, _id)}
+              _id={_id}
             >
               <div
                 style={{
@@ -62,7 +64,7 @@ class Categories extends Component {
                   width: "90%"
                 }}
               >
-                {item.name}
+                {item.title}
                 <span
                   style={[
                     item.show ? styles.rotateIcon : "",
