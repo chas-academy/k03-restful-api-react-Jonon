@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Icon from '../../../icons/Icon';
 import Radium from "radium";
 import MobileList from './list/MobileList';
 import TabletList from './list/TabletList';

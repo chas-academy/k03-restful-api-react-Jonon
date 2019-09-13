@@ -32,7 +32,7 @@ class Product extends Component {
       <div style={[styles.base, styles.threeColumns]}>
         <div style={styles.desktopLayout} >
           <div>
-            <img src={items.poster} style={styles.image} />
+            <img src={items.poster} style={styles.image} alt="poster" />
             <h3>{items.title}</h3>
             <h4>
               Price <span>{items.price}</span>

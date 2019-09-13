@@ -23,9 +23,6 @@ class UserIconButton extends Component {
 
   
   render() {
-    console.log(this.state.modalIsOpen)
-    let {modalIsOpen} = this.state;
-
     return (
         <div style={userIconButtonStyle}>
           <span onMouseEnter={this.handleMouseEnter.bind(this)} onMouseLeave={this.handleMouseLeave.bind(this)} onClick={this.props.modal}>

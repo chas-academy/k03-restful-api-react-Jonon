@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Radium from "radium";
 import style from "./style";
 import Button from "../../../buttons/Button";
-import styles from "../../../buttons/style";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 
 class ProductList extends Component {
   constructor(props) {
@@ -37,7 +36,7 @@ class ProductList extends Component {
           <div style={{ flex: "1" }}>
             <Link to={`products/${item._id}`} >
               <li style={{ padding: "1rem" }} key={item._id}>
-                <img src={item.poster} style={style.image} />
+                <img src={item.poster} style={style.image} alt="poster" />
                 <h3 style={[style.posterText, style.title]}>{item.title}</h3>
                 <h4 style={[style.posterText, style.price]}>{item.price}€</h4>
               </li>

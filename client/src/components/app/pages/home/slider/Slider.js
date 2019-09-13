@@ -67,6 +67,7 @@ class Slider extends Component {
           <img
             src={this.state.images[this.state.idx]}
             style={sliderStyle.image}
+            alt=""
           />
           <div style={sliderStyle.controller}>
             <ul style={sliderStyle.row}>{controller}</ul>
