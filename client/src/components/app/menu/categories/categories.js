@@ -8,9 +8,7 @@ class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categories: [
-        
-      ]
+      categories: []
     };
   }
 
@@ -24,7 +22,6 @@ class Categories extends Component {
       });
   }
 
-
   toggleSubItem = id => {
     let newArray = { ...this.state.categories };
     newArray[id].show = !newArray[id].show;
@@ -33,9 +30,15 @@ class Categories extends Component {
   render() {
     let { categories } = this.state;
 
-    console.log(categories)
+    let categoryList = categories.map((category, _id) => {
+      let subcategories = category.subcategories.map((subcategory, _id) => {
+        return (
+          <li 
+          key={"subcategory" + subcategory._id}          
+          style={[styles.subCategory, styles.item]}>{subcategory.title}</li>
+        );
+      });
 
-    let category = categories.map((item, _id) => {
       return (
         <div style={styles.base}>
           <ul style={{ padding: "0", margin: "0px" }}>
@@ -45,10 +48,10 @@ class Categories extends Component {
                 styles.item,
                 styles.category,
                 {
-                  borderLeft: item.show
+                  borderLeft: category.show
                     ? `5px solid #C61017`
                     : "5px solid white",
-                  backgroundColor: item.show ? `#FAFAFA` : "white"
+                  backgroundColor: category.show ? `#FAFAFA` : "white"
                 }
               ]}
               onClick={this.toggleSubItem.bind(this, _id)}
@@ -64,10 +67,10 @@ class Categories extends Component {
                   width: "90%"
                 }}
               >
-                {item.title}
+                {category.title}
                 <span
                   style={[
-                    item.show ? styles.rotateIcon : "",
+                    category.show ? styles.rotateIcon : "",
                     { display: "inline-block" }
                   ]}
                 >
@@ -75,15 +78,15 @@ class Categories extends Component {
                 </span>
               </div>
             </li>
-            <div style={[{ display: item.show ? "block" : "none" }]}>
-              <Subcategories publisher={item.name} />
+            <div style={[{ display: category.show ? "block" : "none" }]}>
+              {subcategories}
             </div>
           </ul>
         </div>
       );
     });
 
-    return <div>{category}</div>;
+    return <div>{categoryList}</div>;
   }
 }
 export default Radium(Categories);
