@@ -11,7 +11,7 @@ import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import Error from "./pages/error/Error";
 import Modal from "./modal/modal";
-import Products from "./pages/products/Products";
+import ProductsList from "./pages/products/productList/ProductList";
 import Product from "./pages/products/product/Product";
 
 class App extends React.Component {
@@ -53,8 +53,11 @@ class App extends React.Component {
             <div style={appStyle.stickyFooter.maincontent}>
               <Switch>
                 <Route path="/" component={Home} exact />
-                <Route path="/products" component={Products} exact />
-                <Route path="/products/:id" component={Product} />
+                <Route 
+                path="/products/:category" 
+                component={ProductsList} exact />
+                <Route path="/products/:category/:subcategory" component={ProductsList} exact />
+                 <Route path="/products/:category/:subcategory/:id" component={Product} />
                 <Route render={() => <Route component={Error} />} />
               </Switch>
             </div>
