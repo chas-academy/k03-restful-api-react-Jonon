@@ -13,7 +13,7 @@ class Categories extends Component {
   }
 
   componentDidMount() {
-    fetch("/category")
+    fetch("/categories")
       .then(res => res.json())
       .then(data => {
         this.setState({
