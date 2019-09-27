@@ -19,12 +19,10 @@ app.use(cors());
 const productsRoute = require("./routes/products");
 const orderRoute = require("./routes/orders");
 const categoryRoute = require("./routes/category");
-const subcategoryRoute = require("./routes/subcategory");
 
 app.use("/products", productsRoute);
 app.use("/orders", orderRoute);
 app.use("/category", categoryRoute);
-app.use("/subcategory", subcategoryRoute);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
