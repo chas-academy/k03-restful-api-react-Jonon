@@ -18,11 +18,11 @@ app.use(cors());
 //Import routes
 const productsRoute = require("./routes/products");
 const orderRoute = require("./routes/orders");
-const categoryRoute = require("./routes/category");
+const categoriesRoute = require("./routes/categories");
 
 app.use("/products", productsRoute);
 app.use("/orders", orderRoute);
-app.use("/category", categoryRoute);
+app.use("/categories", categoriesRoute);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
