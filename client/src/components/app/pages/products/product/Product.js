@@ -16,7 +16,7 @@ class Product extends Component {
       match: { params }
     } = this.props;
 
-    fetch(`/products/${params.id}`)
+    fetch(`/products/${params.category}/${params.subcategory}/${params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
