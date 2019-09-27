@@ -7,10 +7,9 @@ const Category = require("../models/Category");
 //Get all categories
 router.get("/", async (req, res) => {
   try {
-    const category = await Category.find().populate("subcategories")
+    const category = await Category.find()
     //Sort title in the ascending order
-    .sort({"title": 1})
-    console.log(category)
+    .sort({title: 1})
     res.status(200).json(category);
   } catch (err) {
     res.json({ message: err });
@@ -22,36 +21,25 @@ router.post("/", async (req, res) => {
   const category = new Category(req.body);
   try {
     const savedCategory = await category.save();
+    console.log(savedCategory);
     res.status(201).json(savedCategory);
   } catch (err) {
     res.json({ message: err });
   }
 });
 
-//get category by id
-router.get("/:categoryId", async (req, res) => {
-  try {
-    const category = await Category.findById(req.params.categoryId).populate(
-      "subcategories"
-    );
-    res.status(200).json(category);
-  } catch (err) {
-    res.json({ message: err });
-  }
-});
 
 //Update category
 router.patch("/:categoryId", async (req, res) => {
   try {
-    const updatecategory = await Category.update(
+    const updateCategory = await Category.updateMany(
       { _id: req.params.categoryId },
       {
-        $addToSet: {subcategories: mongoose.Types.ObjectId()}
-        
+        $addToSet: req.body
       }
-    ).populate("subcategories");
-    console.log(updatecategory)
-    res.status(200).json(updatecategory);
+    );
+    console.log(updateCategory);
+    res.status(200).json(updateCategory);
   } catch (err) {
     res.json({ message: err });
   }
@@ -60,11 +48,13 @@ router.patch("/:categoryId", async (req, res) => {
 //Delete category
 router.delete("/:categoryId", async (req, res) => {
   try {
-    const removeCategory = await Category.deleteOne({ _id: req.params.categoryId })
+    const removeCategory = await Category.deleteOne({
+      _id: req.params.categoryId
+    });
     res.status(200).json(removeCategory);
   } catch (err) {
     res.json({ message: err });
   }
-})
+});
 
 module.exports = router;
