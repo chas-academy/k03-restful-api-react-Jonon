@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styles from "./style";
 import Radium from "radium";
-import Subcategories from "./Subcategories";
 import Icon from "../../icons/Icon";
 
 class Categories extends Component {
@@ -61,7 +60,6 @@ class Categories extends Component {
                 style={{
                   display: "grid",
                   gridTemplateColumns: "90% 10%",
-                  display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
                   width: "90%"

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { typicons } from "typicons.font";
+import "typicons.font";
 
 // styles
 import Radium from "radium";
