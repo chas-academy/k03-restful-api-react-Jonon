@@ -13,7 +13,7 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch("/products")
+    fetch(`${this.props.location.pathname}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -34,13 +34,13 @@ class ProductList extends Component {
           key={item._id}
         >
           <div style={{ flex: "1" }}>
-            <Link to={`products/${item._id}`} >
+             <Link to={`${this.props.location.pathname}/${item._id}`} >
               <li style={{ padding: "1rem" }} key={item._id}>
                 <img src={item.poster} style={style.image} alt="poster" />
                 <h3 style={[style.posterText, style.title]}>{item.title}</h3>
                 <h4 style={[style.posterText, style.price]}>{item.price}€</h4>
               </li>
-            </Link>
+             </Link> 
           </div>
           <Button title="Add to cart" kind="primary" width="100%" size="lg" />
         </div>
