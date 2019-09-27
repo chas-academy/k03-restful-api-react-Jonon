@@ -8,8 +8,8 @@ const Product = require("../models/Product");
 router.get("/", async (req, res) => {
   try {
     const product = await Product.find()
-    //Sort title in the ascending order
-    .sort({"title": 1})
+      //Sort title in the ascending order
+      .sort({ title: 1 });
     res.status(200).json(product);
   } catch (err) {
     res.json({ message: err });
@@ -29,7 +29,9 @@ router.post("/", async (req, res) => {
     publicationDate: req.body.publicationDate,
     pages: req.body.pages,
     price: req.body.price,
-    inventory: req.body.inventory
+    inventory: req.body.inventory,
+    category: req.body.category,
+    series: req.body.series
   });
   try {
     const savedPost = await product.save();
@@ -39,8 +41,28 @@ router.post("/", async (req, res) => {
   }
 });
 
-//get By Id
-router.get("/:productId", async (req, res) => {
+//get By category
+router.get("/:category", async (req, res) => {
+  try {
+    const product = await Product.find({ category: req.params.category });
+    res.status(200).json(product);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+//get By subcategory
+router.get("/:category/:subcategory", async (req, res) => {
+  try {
+    const product = await Product.find({ series: req.params.subcategory });
+    res.status(200).json(product);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+// //get By productid
+router.get("/:category/:subcategory/:productId", async (req, res) => {
   try {
     const product = await Product.findById(req.params.productId);
     res.status(200).json(product);
@@ -54,7 +76,14 @@ router.patch("/:productId", async (req, res) => {
   try {
     const updateProduct = await Product.updateOne(
       { _id: req.params.productId },
-      { $set: { title: req.body.title, inventory: req.body.inventory, description: req.body.description } }
+      {
+        $set: {
+          title: req.body.title,
+          inventory: req.body.inventory,
+          description: req.body.description,
+          category: req.body.category
+        }
+      }
     );
     res.status(200).json(updateProduct);
   } catch (err) {
@@ -65,7 +94,9 @@ router.patch("/:productId", async (req, res) => {
 //Delete product
 router.delete("/:productId", async (req, res) => {
   try {
-    const removeProduct = await Product.deleteOne({ _id: req.params.productId });
+    const removeProduct = await Product.deleteOne({
+      _id: req.params.productId
+    });
     res.status(200).json(removeProduct);
   } catch (err) {
     res.json({ message: err });

@@ -11,7 +11,9 @@ const productSchema = mongoose.Schema({
   publicationDate: { type: Date, default: Date.now },
   pages: { type: Number, required: true },
   price: { type: Number, required: true },
-  inventory: { type: Number, required: true }
+  inventory: { type: Number, required: true, default: 0  },
+  category: [String],
+  series: {type: String}
 });
 
 module.exports = mongoose.model("Product", productSchema);
