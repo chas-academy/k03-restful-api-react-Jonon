@@ -5,6 +5,9 @@ const mongoose = require("mongoose");
 const cors = require('cors')
 require("dotenv/config");
 
+// Fix deprication warning
+mongoose.set('useCreateIndex', true);
+
 //logger
 app.use(morgan("dev"));
 
