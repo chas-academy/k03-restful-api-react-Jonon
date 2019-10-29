@@ -16,10 +16,13 @@ app.use(express.json());
 app.use(cors());
 
 //Import routes
+const usersRoute = require("./routes/users");
 const productsRoute = require("./routes/products");
 const orderRoute = require("./routes/orders");
 const categoriesRoute = require("./routes/categories");
 
+// Handle routes
+app.use("/users", usersRoute)
 app.use("/products", productsRoute);
 app.use("/orders", orderRoute);
 app.use("/categories", categoriesRoute);
