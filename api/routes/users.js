@@ -9,28 +9,26 @@ const User = require("../models/User");
 
 //Get
 router.get("/", (req, res) => {
-    const user = User.find()
+  const user = User.find()
     .then(doc => {
-      console.log(doc)
+      console.log(doc);
       return res.status(200).json(doc);
     })
-    .catch (err => {
+    .catch(err => {
       res.json({ message: err });
-    })
+    });
 });
 
 router.post("/register", (req, res) => {
-  User.findOne({ email: req.body.email }).then(user => {
-    if (user) {
-      // Check if user exist
-      return res.status(409).json({
-        message: "Mail exist"
-      });
-    } else {
-      hashedPassword = bcrypt.hash(
-        req.body.password,
-        saltRounds,
-         (err, hash) => {
+  User.findOne({ email: req.body.email })
+    .then(user => {
+      if (user) {
+        // Check if user exist
+        return res.status(409).json({
+          message: "Mail exist"
+        });
+      } else {
+        bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
           if (err) {
             return res.status(500).json({
               error: err
@@ -42,25 +40,24 @@ router.post("/register", (req, res) => {
               email: req.body.email,
               password: hash
             });
-              const savedUser = user.save()
-              .then(res => {
-                res.status(201).json({
-                  message: "User Created"
-                });
+            user
+            .save()
+            .then(result => {
+              console.log(result);
+              res.status(201).json({
+                message: "User Created"
               })
+            })
               .catch(err => {
-                console.log(err)
+                console.log(err);
                 res.status(500).json({
                   error: err
                 });
-              })
-              console.log(savedUser);
-            
+              });
           }
-        }
-      );
-    }
-  });
+        });
+      }
+    });
 });
 
 router.post("/login", async (req, res) => {
