@@ -77,16 +77,17 @@ router.delete("/:userId", (req, res) => {
   User.findById({ _id: req.params.userId })
     .then(user => {
       if (!user) {
-        res.status(200).json({ message: "User Not Found" });
-      } else {
-        User.deleteOne({ _id: req.params.userId });
-        res.status(200).json({ message: "User deleted" });
-      }
+        res.status(200).json({ message: `User with ID ${req.params.userId} Not Found` });
+      } 
     })
+    User.deleteOne({ _id: req.params.userId })
+    .then(result => {
+      res.status(200).json({ message: "User deleted" });
+    }) 
     .catch(err => {
       console.log(err);
       res.status(500).json({
-        Error: "err"
+        Error: err
       });
     });
 });
