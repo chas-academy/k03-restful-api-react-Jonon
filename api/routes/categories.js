@@ -5,56 +5,62 @@ const mongoose = require("mongoose");
 const Category = require("../models/Category");
 
 //Get all categories
-router.get("/", async (req, res) => {
-  try {
-    const category = await Category.find()
+router.get("/", (req, res) => {
+    const category = Category.find()
     //Sort title in the ascending order
     .sort({title: 1})
-    res.status(200).json(category);
-  } catch (err) {
-    res.json({ message: err });
-  }
+    .then(doc => {
+      console.log(doc);
+      return res.status(200).json(doc);
+    })
+    .catch(err => {
+      res.json({ message: err });
+    });
 });
 
 //Post category
-router.post("/", async (req, res) => {
+router.post("/", (req, res) => {
   const category = new Category(req.body);
-  try {
-    const savedCategory = await category.save();
-    console.log(savedCategory);
-    res.status(201).json(savedCategory);
-  } catch (err) {
-    res.json({ message: err });
-  }
+    const savedCategory =  category.save()
+    .then(doc => {
+      console.log(doc);
+      return res.status(201).json(doc);
+    })
+    .catch(err => {
+      res.json({ message: err });
+    });
 });
 
 
 //Update category
-router.patch("/:categoryId", async (req, res) => {
-  try {
-    const updateCategory = await Category.updateMany(
+router.patch("/:categoryId", (req, res) => {
+    const updateCategory = Category.updateMany(
       { _id: req.params.categoryId },
       {
         $addToSet: req.body
       }
-    );
-    console.log(updateCategory);
-    res.status(200).json(updateCategory);
-  } catch (err) {
-    res.json({ message: err });
-  }
+    )
+    .then(doc => {
+      console.log(doc);
+      return res.status(200).json(doc);
+    })
+    .catch(err => {
+      res.json({ message: err });
+    });
 });
 
 //Delete category
-router.delete("/:categoryId", async (req, res) => {
-  try {
-    const removeCategory = await Category.deleteOne({
+router.delete("/:categoryId", (req, res) => {
+    const removeCategory = Category.deleteOne({
       _id: req.params.categoryId
+    })
+    .then(doc => {
+      console.log(doc);
+      return res.status(200).json(doc);
+    })
+    .catch(err => {
+      res.json({ message: err });
     });
-    res.status(200).json(removeCategory);
-  } catch (err) {
-    res.json({ message: err });
-  }
 });
 
 module.exports = router;
