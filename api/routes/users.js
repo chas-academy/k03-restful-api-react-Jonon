@@ -8,13 +8,15 @@ const saltRounds = 10;
 const User = require("../models/User");
 
 //Get
-router.get("/", async (req, res) => {
-  try {
-    const user = await User.find();
-    res.status(200).json(user);
-  } catch (err) {
-    res.json({ message: err });
-  }
+router.get("/", (req, res) => {
+    const user = User.find()
+    .then(doc => {
+      console.log(doc)
+      return res.status(200).json(doc);
+    })
+    .catch (err => {
+      res.json({ message: err });
+    })
 });
 
 router.post("/register", (req, res) => {
@@ -28,7 +30,7 @@ router.post("/register", (req, res) => {
       hashedPassword = bcrypt.hash(
         req.body.password,
         saltRounds,
-        async (err, hash) => {
+         (err, hash) => {
           if (err) {
             return res.status(500).json({
               error: err
@@ -40,15 +42,20 @@ router.post("/register", (req, res) => {
               email: req.body.email,
               password: hash
             });
-            try {
-              const savedUser = await user.save();
-              res.status(201).json({
-                message: "User Created"
-              });
+              const savedUser = user.save()
+              .then(res => {
+                res.status(201).json({
+                  message: "User Created"
+                });
+              })
+              .catch(err => {
+                console.log(err)
+                res.status(500).json({
+                  error: err
+                });
+              })
               console.log(savedUser);
-            } catch (err) {
-              res.status(500).json({ message: err });
-            }
+            
           }
         }
       );
@@ -56,26 +63,35 @@ router.post("/register", (req, res) => {
   });
 });
 
-
-router.delete("/:userId", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
-    const findUser = await User.find({ _id: req.params.userId })
-    .then(
-      result => {
-        console.log(result);
-        if (result.length == 0) {
-          return res.status(400).json({ message: "Id not found" });
-        }
+    await User.find({ email: req.body.email }).then(user => {
+      if (user.length < 1) {
+        return res.status(401).json({
+          message: "Auth failed"
+        });
       }
-    );
-    const removeUser = await User.deleteOne({
-      _id: req.params.userId
+      console.log(user[0].password);
     });
-    res.status(200).json({ message: "User deleted" });
+  } catch (error) {}
+});
 
-  } catch (error) {
-    res.json({ message: "Something went wrong." });
-  }
+router.delete("/:userId", (req, res) => {
+  User.findById({ _id: req.params.userId })
+    .then(user => {
+      if (!user) {
+        res.status(200).json({ message: "User Not Found" });
+      } else {
+        User.deleteOne({ _id: req.params.userId });
+        res.status(200).json({ message: "User deleted" });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        Error: "err"
+      });
+    });
 });
 
 module.exports = router;
