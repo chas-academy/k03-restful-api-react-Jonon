@@ -53,17 +53,54 @@ router.post(
     });
 
     product
-    .save()
-    .then(doc => {
-      return res.status(201).json(doc);
-    })
-    .catch(err => {
-      res.json({ message: err });
-    });
+      .save()
+      .then(doc => {
+        return res.status(201).json(doc);
+      })
+      .catch(err => {
+        res.json({ message: err });
+      });
   }
 );
 
 // Update product
+router.patch(
+  "/products/:productId",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const role = req.user.role;
+    // Check if user is admin
+    if (!role) {
+      return res.status(401).json({ Message: "Authentication failed." });
+    }
+
+    const updateProduct = Product.updateOne(
+      { _id: req.params.productId },
+      {
+        $set: {
+            title: req.body.title,
+            poster: req.body.poster,
+            description: req.body.description,
+            writer: req.body.writer,
+            artist: req.body.artist,
+            coverArtist: req.body.coverArtist,
+            publisher: req.body.publisher,
+            pages: req.body.pages,
+            price: req.body.price,
+            inventory: req.body.inventory,
+            category: req.body.category,
+            series: req.body.series
+        }
+      }
+    )
+      .then(doc => {
+        res.status(200).json(doc);
+      })
+      .catch(err => {
+        res.json({ message: err });
+      });
+  }
+);
 
 // Delete product
 
