@@ -78,18 +78,18 @@ router.patch(
       { _id: req.params.productId },
       {
         $set: {
-            title: req.body.title,
-            poster: req.body.poster,
-            description: req.body.description,
-            writer: req.body.writer,
-            artist: req.body.artist,
-            coverArtist: req.body.coverArtist,
-            publisher: req.body.publisher,
-            pages: req.body.pages,
-            price: req.body.price,
-            inventory: req.body.inventory,
-            category: req.body.category,
-            series: req.body.series
+          title: req.body.title,
+          poster: req.body.poster,
+          description: req.body.description,
+          writer: req.body.writer,
+          artist: req.body.artist,
+          coverArtist: req.body.coverArtist,
+          publisher: req.body.publisher,
+          pages: req.body.pages,
+          price: req.body.price,
+          inventory: req.body.inventory,
+          category: req.body.category,
+          series: req.body.series
         }
       }
     )
@@ -103,6 +103,27 @@ router.patch(
 );
 
 // Delete product
+router.delete(
+  "/products/:productId",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const role = req.user.role;
+    // Check if user is admin
+    if (!role) {
+      return res.status(401).json({ Message: "Authentication failed." });
+    }
+
+    const removeProduct = Product.deleteOne({
+      _id: req.params.productId
+    })
+      .then(doc => {
+        res.status(200).json(doc);
+      })
+      .catch(err => {
+        res.json({ message: err });
+      });
+  }
+);
 
 // Get all users
 
