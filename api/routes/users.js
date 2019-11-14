@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const passport = require("passport");
+const passportjwt = require("passport-jwt");
+require("dotenv/config");
+const keys = require("../config/keys")
 
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
@@ -11,7 +16,6 @@ const User = require("../models/User");
 router.get("/", (req, res) => {
   const user = User.find()
     .then(doc => {
-      console.log(doc);
       return res.status(200).json(doc);
     })
     .catch(err => {
@@ -60,17 +64,47 @@ router.post("/register", (req, res) => {
     });
 });
 
-router.post("/login", async (req, res) => {
-  try {
-    await User.find({ email: req.body.email }).then(user => {
-      if (user.length < 1) {
+router.post("/login", (req, res) => {
+  const email = req.body.email;   
+  const password = req.body.password;
+  const username = req.body.username;
+  User.findOne({ $or: [{email}, {username}] }).then(user => {
+      if (!user) {
         return res.status(401).json({
           message: "Auth failed"
-        });
+        })
       }
-      console.log(user[0].password);
-    });
-  } catch (error) {}
+      // compare password
+      bcrypt.compare(password, user.password)
+      .then(isMatch => {
+        if(isMatch) {
+          const payload = {
+            id: user.id,
+            name: user.name,
+            username: user.username,
+            email: user.email
+          }
+          jwt.sign(
+            payload,
+            keys.secretOrKey,
+            {expiresIn: 86400},
+            (err, token) => {
+              res.json({
+                success: true,
+                token: `Bearer ${token}`
+              });
+            }
+          )
+        } else {
+          return res.status(400).json({message: "Incorrect password"})
+        }
+      })
+    }).catch(err => {
+      res.status(500).json({
+        error: err
+      })
+    })
+  
 });
 
 router.delete("/:userId", (req, res) => {
@@ -91,5 +125,14 @@ router.delete("/:userId", (req, res) => {
       });
     });
 });
+
+router.get("/profile", passport.authenticate("jwt", {session: false}), (req, res) => {
+  res.json({
+    id: req.user.id,
+    name: req.user.name,
+    username: req.user.username,
+    email: req.user.email
+  })
+})
 
 module.exports = router;
