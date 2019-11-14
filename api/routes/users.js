@@ -42,7 +42,8 @@ router.post("/register", (req, res) => {
               name: req.body.name,
               username: req.body.username,
               email: req.body.email,
-              password: hash
+              password: hash,
+              role: req.body.role
             });
             user
             .save()
@@ -82,7 +83,8 @@ router.post("/login", (req, res) => {
             id: user.id,
             name: user.name,
             username: user.username,
-            email: user.email
+            email: user.email,
+            email: user.role
           }
           jwt.sign(
             payload,
@@ -111,7 +113,7 @@ router.delete("/:userId", (req, res) => {
   User.findById({ _id: req.params.userId })
     .then(user => {
       if (!user) {
-        res.status(200).json({ message: `User with ID ${req.params.userId} Not Found` });
+        res.status(404).json({ message: `User with ID ${req.params.userId} Not Found` });
       } 
     })
     User.deleteOne({ _id: req.params.userId })
