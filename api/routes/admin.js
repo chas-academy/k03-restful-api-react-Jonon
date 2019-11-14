@@ -5,26 +5,6 @@ const passport = require("passport");
 const Product = require("../models/Product");
 const User = require("../models/User");
 
-// Get all all products
-router.get(
-  "/products",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const role = req.user.role;
-    // Check if user is admin
-    if (!role) {
-      return res.status(401).json({ Message: "Authentication failed." });
-    }
-    Product.find()
-      .then(products => {
-        res.status(200).json({ products });
-      })
-      .catch(err => {
-        res.json({ message: err });
-      });
-  }
-);
-
 // Create product
 router.post(
   "/products",
@@ -56,6 +36,26 @@ router.post(
       .save()
       .then(doc => {
         return res.status(201).json(doc);
+      })
+      .catch(err => {
+        res.json({ message: err });
+      });
+  }
+);
+
+// Get all all products
+router.get(
+  "/products",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const role = req.user.role;
+    // Check if user is admin
+    if (!role) {
+      return res.status(401).json({ Message: "Authentication failed." });
+    }
+    Product.find()
+      .then(products => {
+        res.status(200).json({ products });
       })
       .catch(err => {
         res.json({ message: err });
@@ -126,12 +126,31 @@ router.delete(
 );
 
 // Get all users
+router.get(
+  "/users",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const role = req.user.role;
+    // Check if user is admin
+    if (!role) {
+      return res.status(401).json({ Message: "Authentication failed." });
+    }
+    const user = User.find()
+    .then(doc => {
+      return res.status(200).json(doc);
+    })
+    .catch(err => {
+      res.json({ message: err });
+    });
+  }
+);
 
 // Delete user
 
-// Get all orders
 
 // Create Order
+
+// Get all orders
 
 // Update order
 
