@@ -136,17 +136,45 @@ router.get(
       return res.status(401).json({ Message: "Authentication failed." });
     }
     const user = User.find()
-    .then(doc => {
-      return res.status(200).json(doc);
-    })
-    .catch(err => {
-      res.json({ message: err });
-    });
+      .then(doc => {
+        return res.status(200).json(doc);
+      })
+      .catch(err => {
+        res.json({ message: err });
+      });
   }
 );
 
 // Delete user
+router.delete(
+  "/users/:userId",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const role = req.user.role;
+    // Check if user is admin
+    if (!role) {
+      return res.status(401).json({ Message: "Authentication failed." });
+    }
 
+    User.findById({ _id: req.params.userId }).then(user => {
+      if (!user) {
+        res
+          .status(404)
+          .json({ message: `User with ID ${req.params.userId} Not Found` });
+      }
+    });
+    User.deleteOne({ _id: req.params.userId })
+      .then(result => {
+        res.status(200).json({ message: "User deleted" });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          Error: err
+        });
+      });
+  }
+);
 
 // Create Order
 
