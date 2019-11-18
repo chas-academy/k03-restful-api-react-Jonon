@@ -178,22 +178,53 @@ router.delete(
 );
 
 // Create Order
+router.post(
+  "/orders",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const role = req.user.role;
+    // Check if user is admin
+    if (!role) {
+      return res.status(401).json({ Message: "Authentication failed." });
+    }
+
+    const orders = new Order({
+      orderNumber: mongoose.Types.ObjectId(),
+      date: req.body.date,
+      orderStatus: req.body.orderStatus,
+      total: req.body.total,
+      quantity: req.body.quantity
+    });
+    orders
+      .save()
+      .then(doc => {
+        return res.status(201).json(doc);
+      })
+      .catch(err => {
+        res.json({ message: err });
+      });
+  }
+);
 
 // Get all orders
-router.get("orders", passport.authenticate("jwt", {session: false}), (req, res) => {
-  const role = req.user.role;
-  // Check if user is admin
-  if (!role) {
-    return res.status(401).json({ Message: "Authentication failed." });
+router.get(
+  "/orders",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const role = req.user.role;
+    // Check if user is admin
+    if (!role) {
+      return res.status(401).json({ Message: "Authentication failed." });
+    }
+    Order.find()
+      .then(orders => {
+        return res.status(200).json(orders);
+      })
+      .catch(err => {
+        res.json({ message: err });
+      });
   }
-  Order.find()
-  .then(orders => {
-    return res.status(200).json(orders)
-  })
-  .catch(err => {
-    res.json({ message: err });
-  });
-})
+);
 
 // Update order
 
