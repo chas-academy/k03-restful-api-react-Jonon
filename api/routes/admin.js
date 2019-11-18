@@ -253,5 +253,29 @@ router.patch("/orders/:orderId", passport.authenticate("jwt", { session: false }
 })
 
 // Delete Order
-
+router.delete("/orders/:orderId", passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+  const role = req.user.role;
+    // Check if user is admin
+    if (!role) {
+      return res.status(401).json({ Message: "Authentication failed." });
+    }
+    Order.findById({ _id: req.params.orderId }).then(order => {
+      if (!order) {
+        res
+          .status(404)
+          .json({ message: `User with ID ${req.params.orderId} Not Found` });
+      }
+    });
+    Order.deleteOne({ _id: req.params.orderId })
+      .then(result => {
+        res.status(200).json({ message: "Order deleted" });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({
+          Error: err
+        });
+      });
+})
 module.exports = router;
