@@ -5,6 +5,7 @@ const passport = require("passport");
 const Product = require("../models/Product");
 const User = require("../models/User");
 const Order = require("../models/Order");
+const mongoose = require("mongoose");
 
 // Create product
 router.post(
@@ -188,21 +189,36 @@ router.post(
       return res.status(401).json({ Message: "Authentication failed." });
     }
 
-    const orders = new Order({
-      orderNumber: mongoose.Types.ObjectId(),
-      date: req.body.date,
-      orderStatus: req.body.orderStatus,
-      total: req.body.total,
-      quantity: req.body.quantity
-    });
-    orders
-      .save()
-      .then(doc => {
-        return res.status(201).json(doc);
+    const productId = req.body.productId;
+    Product.findById({_id: req.body.productId})
+    .then(product => {
+      if(product) {
+        const orders = new Order({
+          orderNumber: mongoose.Types.ObjectId(),
+          date: req.body.date,
+          orderStatus: req.body.orderStatus,
+          total: req.body.total,
+          quantity: req.body.quantity,
+          product: req.body.productId
+        });
+        orders
+          .save()
+          .then(doc => {
+            return res.status(201).json(doc);
+          })
+          .catch(err => {
+            res.status(404).json({
+              message: "Something went wrong"
+            })
+          })
+      }
+    })
+    .catch(err => {
+      res.status(404).json({
+        message: "Product not found"
       })
-      .catch(err => {
-        res.json({ message: err });
-      });
+    })
+
   }
 );
 
