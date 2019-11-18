@@ -228,6 +228,30 @@ router.get(
 
 // Update order
 
+router.patch("/orders/:orderId", passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+  const role = req.user.role;
+    // Check if user is admin
+    if (!role) {
+      return res.status(401).json({ Message: "Authentication failed." });
+    }
+    Order.updateOne(
+      {_id: req.params.orderId},
+      {
+        $set: {
+          orderStatus: req.body.orderStatus,
+          quantity: req.body.quantity
+        }
+      }
+      )
+      .then(doc => {
+        res.status(200).json(doc);
+      })
+      .catch(err => {
+        res.json({ message: err });
+      });
+})
+
 // Delete Order
 
 module.exports = router;
