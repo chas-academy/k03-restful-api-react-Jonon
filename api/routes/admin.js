@@ -4,6 +4,7 @@ const passport = require("passport");
 
 const Product = require("../models/Product");
 const User = require("../models/User");
+const Order = require("../models/Order");
 
 // Create product
 router.post(
@@ -179,6 +180,20 @@ router.delete(
 // Create Order
 
 // Get all orders
+router.get("orders", passport.authenticate("jwt", {session: false}), (req, res) => {
+  const role = req.user.role;
+  // Check if user is admin
+  if (!role) {
+    return res.status(401).json({ Message: "Authentication failed." });
+  }
+  Order.find()
+  .then(orders => {
+    return res.status(200).json(orders)
+  })
+  .catch(err => {
+    res.json({ message: err });
+  });
+})
 
 // Update order
 
