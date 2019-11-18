@@ -160,14 +160,14 @@ router.delete(
 
     User.findById({ _id: req.params.userId }).then(user => {
       if (!user) {
-        res
+        return res
           .status(404)
           .json({ message: `User with ID ${req.params.userId} Not Found` });
       }
     });
     User.deleteOne({ _id: req.params.userId })
       .then(result => {
-        res.status(200).json({ message: "User deleted" });
+        return res.status(200).json({ message: "User deleted" });
       })
       .catch(err => {
         console.log(err);
@@ -233,6 +233,7 @@ router.get(
       return res.status(401).json({ Message: "Authentication failed." });
     }
     Order.find()
+      .populate('Product')
       .then(orders => {
         return res.status(200).json(orders);
       })
@@ -276,16 +277,15 @@ router.delete("/orders/:orderId", passport.authenticate("jwt", { session: false 
     if (!role) {
       return res.status(401).json({ Message: "Authentication failed." });
     }
-    Order.findById({ _id: req.params.orderId }).then(order => {
-      if (!order) {
-        res
+    User.findById({ _id: req.params.orderId }).then(user => {
+      if (!user) {
+        return res
           .status(404)
-          .json({ message: `User with ID ${req.params.orderId} Not Found` });
+          .json({ message: `Order with ID ${req.params.orderId} Not Found` });
       }
-    });
-    Order.deleteOne({ _id: req.params.orderId })
+      User.deleteOne({ _id: req.params.orderId })
       .then(result => {
-        res.status(200).json({ message: "Order deleted" });
+        return res.status(200).json({ message: "Order deleted" });
       })
       .catch(err => {
         console.log(err);
@@ -293,5 +293,6 @@ router.delete("/orders/:orderId", passport.authenticate("jwt", { session: false 
           Error: err
         });
       });
+    })
 })
 module.exports = router;
