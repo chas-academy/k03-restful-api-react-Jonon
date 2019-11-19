@@ -277,13 +277,13 @@ router.delete("/orders/:orderId", passport.authenticate("jwt", { session: false 
     if (!role) {
       return res.status(401).json({ Message: "Authentication failed." });
     }
-    User.findById({ _id: req.params.orderId }).then(user => {
-      if (!user) {
+    Order.findById({ _id: req.params.orderId }).then(order => {
+      if (!order) {
         return res
           .status(404)
           .json({ message: `Order with ID ${req.params.orderId} Not Found` });
       }
-      User.deleteOne({ _id: req.params.orderId })
+      Order.deleteOne({ _id: req.params.orderId })
       .then(result => {
         return res.status(200).json({ message: "Order deleted" });
       })
