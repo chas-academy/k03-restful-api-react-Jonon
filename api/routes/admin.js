@@ -233,7 +233,7 @@ router.get(
       return res.status(401).json({ Message: "Authentication failed." });
     }
     Order.find()
-      .populate('Product')
+      .populate('product')
       .then(orders => {
         return res.status(200).json(orders);
       })
