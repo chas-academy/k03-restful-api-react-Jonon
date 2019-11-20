@@ -119,7 +119,31 @@ router.get(
     if (req.params.username !== req.user.username) {
       return res.status("401").json({ Message: "Authentication failed." });
     }
-    res.status("200").json({Message: "You are an authenticated user"})
+    Order.aggregate([
+      {
+        $lookup: {
+          from: "products",
+          localField: "product",
+          foreignField: "_id",
+          as: "product"
+        }
+      },
+      {
+        $lookup: {
+          from: "users",
+          localField: "user",
+          foreignField: "_id",
+          as: "user"
+        }
+      },
+      { $match: { "user.username": req.user.username } }
+    ])
+      .then(orders => {
+        return res.status(200).json(orders);
+      })
+      .catch(err => {
+        res.json({ message: err });
+      });
   }
 );
 
