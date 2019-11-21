@@ -136,7 +136,34 @@ router.get(
           as: "user"
         }
       },
-      { $match: { "user.username": req.user.username } }
+      { $match: { "user.username": req.user.username } },
+      // Remove arrays of each element with unwind to make it a one flat array
+      {
+        $unwind: "$product"
+      },
+      { $unwind: "$user" },
+      {
+        $group: {
+          _id: "$_id",
+          orderNumber: { $first: "$orderNumber" },
+          total: { $sum: "$total" },
+          quantity: { $sum: "$quantity" },
+          orderStatus: { $first: "$orderStatus" },
+          date: { $first: "$date" },
+          user: {
+            $addToSet: {
+              username: "$user.username"
+            }
+          },
+          product: {
+            $addToSet: {
+              title: "$product.title",
+              poster: "$product.poster",
+              price: "$product.price"
+            }
+          }
+        }
+      }
     ])
       .then(orders => {
         return res.status(200).json(orders);
