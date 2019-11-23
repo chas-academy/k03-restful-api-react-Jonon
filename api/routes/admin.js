@@ -189,36 +189,54 @@ router.post(
       return res.status(401).json({ Message: "Authentication failed." });
     }
 
-    const productId = req.body.productId;
-    Product.findById({_id: req.body.productId})
-    .then(product => {
-      if(product) {
-        const orders = new Order({
-          orderNumber: mongoose.Types.ObjectId(),
-          date: req.body.date,
-          orderStatus: req.body.orderStatus,
-          total: req.body.total,
-          quantity: req.body.quantity,
-          product: req.body.productId
-        });
-        orders
-          .save()
-          .then(doc => {
-            return res.status(201).json(doc);
-          })
-          .catch(err => {
-            res.status(404).json({
-              message: "Something went wrong"
-            })
-          })
-      }
+    const orders = new Order({
+      orderNumber: mongoose.Types.ObjectId(),
+      user: req.user.id,
+      date: req.body.date,
+      orderStatus: req.body.orderStatus,
+      total: req.body.total,
+      quantity: req.body.quantity,
+      product: req.body.productId
+    });
+
+    orders
+    .save()
+    .then(doc => {
+      return res.status(201).json({doc})
     })
     .catch(err => {
-      res.status(404).json({
-        message: "Product not found"
-      })
+      res.status(404).json({err})
     })
 
+    // const productId = req.body.productId;
+    // Product.findById({_id: req.body.productId})
+    // .then(product => {
+    //   if(product) {
+    //     const orders = new Order({
+    //       orderNumber: mongoose.Types.ObjectId(),
+    //       date: req.body.date,
+    //       orderStatus: req.body.orderStatus,
+    //       total: req.body.total,
+    //       quantity: req.body.quantity,
+    //       product: req.body
+    //     });
+    //     orders
+    //       .save()
+    //       .then(doc => {
+    //         return res.status(201).json(doc);
+    //       })
+    //       .catch(err => {
+    //         res.status(404).json({
+    //           message: "Something went wrong"
+    //         })
+    //       })
+    //   }
+    // })
+    // .catch(err => {
+    //   res.status(404).json({
+    //     message: "Product not found"
+    //   })
+    // })
   }
 );
 
@@ -232,8 +250,52 @@ router.get(
     if (!role) {
       return res.status(401).json({ Message: "Authentication failed." });
     }
-    Order.find()
-      .populate('product')
+    Order.aggregate([
+      {
+        $lookup: {
+          from: "products",
+          localField: "product",
+          foreignField: "_id",
+          as: "product"
+        }
+      },
+      {
+        $lookup: {
+          from: "users",
+          localField: "user",
+          foreignField: "_id",
+          as: "user"
+        }
+      },
+      // Remove arrays of each element with unwind to make it a one flat array
+      {
+        $unwind: "$product"
+      },
+      { $unwind: "$user" },
+      {
+        $group: {
+          _id: "$_id",
+          orderNumber: { $first: "$orderNumber" },
+          total: { $sum: "$total" },
+          quantity: { $sum: "$quantity" },
+          orderStatus: { $first: "$orderStatus" },
+          date: { $first: "$date" },
+          user: {
+            $addToSet: {
+              username: "$user.username"
+            }
+          },
+          product: {
+            $addToSet: {
+              title: "$product.title",
+              poster: "$product.poster",
+              price: "$product.price"
+            }
+          }
+        }
+      }
+    ])
+      
       .then(orders => {
         return res.status(200).json(orders);
       })
@@ -245,34 +307,39 @@ router.get(
 
 // Update order
 
-router.patch("/orders/:orderId", passport.authenticate("jwt", { session: false }),
+router.patch(
+  "/orders/:orderId",
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
-  const role = req.user.role;
+    const role = req.user.role;
     // Check if user is admin
     if (!role) {
       return res.status(401).json({ Message: "Authentication failed." });
     }
     Order.updateOne(
-      {_id: req.params.orderId},
+      { _id: req.params.orderId },
       {
         $set: {
           orderStatus: req.body.orderStatus,
           quantity: req.body.quantity
         }
       }
-      )
+    )
       .then(doc => {
         res.status(200).json(doc);
       })
       .catch(err => {
         res.json({ message: err });
       });
-})
+  }
+);
 
 // Delete Order
-router.delete("/orders/:orderId", passport.authenticate("jwt", { session: false }),
+router.delete(
+  "/orders/:orderId",
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
-  const role = req.user.role;
+    const role = req.user.role;
     // Check if user is admin
     if (!role) {
       return res.status(401).json({ Message: "Authentication failed." });
@@ -284,15 +351,16 @@ router.delete("/orders/:orderId", passport.authenticate("jwt", { session: false 
           .json({ message: `Order with ID ${req.params.orderId} Not Found` });
       }
       Order.deleteOne({ _id: req.params.orderId })
-      .then(result => {
-        return res.status(200).json({ message: "Order deleted" });
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json({
-          Error: err
+        .then(result => {
+          return res.status(200).json({ message: "Order deleted" });
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json({
+            Error: err
+          });
         });
-      });
-    })
-})
+    });
+  }
+);
 module.exports = router;
