@@ -178,67 +178,6 @@ router.delete(
   }
 );
 
-// Create Order
-router.post(
-  "/orders",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const role = req.user.role;
-    // Check if user is admin
-    if (!role) {
-      return res.status(401).json({ Message: "Authentication failed." });
-    }
-
-    const orders = new Order({
-      orderNumber: mongoose.Types.ObjectId(),
-      user: req.user.id,
-      date: req.body.date,
-      orderStatus: req.body.orderStatus,
-      total: req.body.total,
-      quantity: req.body.quantity,
-      product: req.body.productId
-    });
-
-    orders
-    .save()
-    .then(doc => {
-      return res.status(201).json({doc})
-    })
-    .catch(err => {
-      res.status(404).json({err})
-    })
-
-    // const productId = req.body.productId;
-    // Product.findById({_id: req.body.productId})
-    // .then(product => {
-    //   if(product) {
-    //     const orders = new Order({
-    //       orderNumber: mongoose.Types.ObjectId(),
-    //       date: req.body.date,
-    //       orderStatus: req.body.orderStatus,
-    //       total: req.body.total,
-    //       quantity: req.body.quantity,
-    //       product: req.body
-    //     });
-    //     orders
-    //       .save()
-    //       .then(doc => {
-    //         return res.status(201).json(doc);
-    //       })
-    //       .catch(err => {
-    //         res.status(404).json({
-    //           message: "Something went wrong"
-    //         })
-    //       })
-    //   }
-    // })
-    // .catch(err => {
-    //   res.status(404).json({
-    //     message: "Product not found"
-    //   })
-    // })
-  }
-);
 
 // Get all orders
 router.get(
