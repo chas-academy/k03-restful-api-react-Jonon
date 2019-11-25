@@ -28,8 +28,8 @@ router.get("/:category", (req, res) => {
 });
 
 //get By subcategory
-router.get("/:category/:subcategory", async (req, res) => {
-  const product = await Product.find({ series: req.params.subcategory })
+router.get("/:category/:subcategory", (req, res) => {
+  const product = Product.find({ series: req.params.subcategory })
     .then(doc => {
       res.status(200).json(doc);
     })
@@ -46,6 +46,28 @@ router.get("/:category/:subcategory/:productId", (req, res) => {
     })
     .catch(err => {
       res.json({ message: err });
+    });
+});
+
+//Search
+router.post("/search", (req, res) => {
+  // search query
+  const query = req.query.q;
+
+  Product.find({
+    title: {
+      $regex: query,
+      // case insensitive search
+      $options: "i"
+    }
+  })
+    .then(products => {
+      return res.status(200).json(products);
+    })
+    .catch(err => {
+      return res.status(501).json({
+        error: err
+      });
     });
 });
 
