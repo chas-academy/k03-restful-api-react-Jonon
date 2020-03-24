@@ -1,19 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import Radium from "radium";
 import Styles from "./style";
 import Search from "./search/Search";
 import Categories from "./categories/categories";
+import { connect } from "react-redux";
+import { hide_menu } from "../../../actions/menuActions";
 
-class DropdownMenu extends Component {
-  render() {
+const DropdownMenu = (props) => {
     return (
-      <div
+      <div ref={props.outside}
         style={[
-          { display: this.props.show ? "block" : "none" },
+          { display: props.menu.payload.show ? "block" : "none" },
           Styles.dropdownContainer
         ]}
       >
-        <div style={Styles.dropdownBase} ref={this.props.outside}>
+        <div style={Styles.dropdownBase} >
           <Search />
           <div style={Styles.hiddenScrollbar}>
             <Categories />
@@ -22,6 +23,12 @@ class DropdownMenu extends Component {
       </div>
     );
   }
+
+const mapToProps = (state) => {
+  return {
+    menu: state.menu
+  }
 }
 
-export default Radium(DropdownMenu);
+
+export default connect(mapToProps, null)(Radium(DropdownMenu));
