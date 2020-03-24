@@ -4,7 +4,7 @@ const styles = {
     fontFamily: "Fjalla One, sans-serif",
     lineHeight: "1",
     position: "fixed",
-    zIndex: "1",
+    zIndex: "11",
     width: "100%"
   },
   layout: {
