@@ -14,42 +14,12 @@ import Modal from "./modal/modal";
 import ProductsList from "./pages/products/productList/ProductList";
 import Product from "./pages/products/product/Product";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showModal: false
-    };
-  }
-
-  showModal = () => {
-    this.setState({
-      showModal: true
-    });
-  };
-
-  // hide modal if click outside
-  componentWillMount() {
-    document.addEventListener("click", this.handleClick, false);
-  }
-
-  componentWillUnmount() {
-    document.addEventListener("click", this.handleClick, false);
-  }
-
-  handleClick = e => {
-    if (this.node.contains(e.target)) {
-      return;
-    }
-    this.setState({ showModal: false });
-  };
-
-  render() {
+const App = () => {
     return (
       <StyleRoot>
         <div style={appStyle.stickyFooter.container}>
           <Router>
-            <Header showModal={this.showModal.bind(this)} />
+            <Header />
             <div style={appStyle.stickyFooter.maincontent}>
               <Switch>
                 <Route path="/" component={Home} exact />
@@ -64,13 +34,8 @@ class App extends React.Component {
             <Footer />
           </Router>
         </div>
-        <Modal
-          show={this.state.showModal}
-          outside={node => (this.node = node)}
-        />
       </StyleRoot>
     );
   }
-}
 
 export default Radium(App);
