@@ -13,8 +13,6 @@ const styles = {
     zIndex: "13",
     top: "0",
     left: "0",
-    width: "100%",
-    height: "100%",
     paddingRight: "1rem"
   },
   hiddenScrollbar: {
