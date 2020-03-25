@@ -24,8 +24,11 @@ const Header = (props) => {
       return false;
     }
     // outside click
-    //dispatch action to hide menu
-    props.hide_menu()
+    // check if menu is open
+    if(props.menu.payload) {
+      //dispatch action to hide menu
+      props.hide_menu()
+    }
   };
 
   useEffect(() => {
@@ -33,7 +36,7 @@ const Header = (props) => {
     return () => {
       document.removeEventListener("click", handleClick);
     };
-  }, [handleClick]);
+  });
 
   return (
     <div>
@@ -79,4 +82,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Radium(Header));
+export default connect(mapStateToProps, mapDispatchToProps)(Radium(Header));
