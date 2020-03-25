@@ -5,6 +5,7 @@ import Radium from "radium";
 import Login from "./forms/login/Login";
 import Register from "./forms/register/Register";
 import Button from "../buttons/Button";
+import { connect } from "react-redux";
 
 class Modal extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Modal extends Component {
     return (
       <div
         style={[
-          { display: this.props.show ? "block" : "none" },
+          { display: this.props.modal.payload ? "block" : "none" },
           styles.modalOverlay
         ]}
       >
@@ -70,4 +71,10 @@ class Modal extends Component {
   }
 }
 
-export default Radium(Modal);
+const mapToProps = (state) => {
+  return {
+    modal: state.modal
+  }
+}
+
+export default connect(mapToProps, null)(Radium(Modal))
