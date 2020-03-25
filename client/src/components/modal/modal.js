@@ -92,10 +92,10 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const mapToProps = state => {
+const mapStateToProps = state => {
   return {
     modal: state.modal
   };
 };
 
-export default connect(mapToProps, mapDispatchToProps)(Radium(Modal));
+export default connect(mapStateToProps, mapDispatchToProps)(Radium(Modal));
