@@ -3,8 +3,7 @@ import Slider from "./slider/Slider";
 import ReleasesList from "./releasesList/ReleasesList";
 import Modal from "../../modal/modal";
 
-class Home extends Component {
-  render() {
+const Home = () => {
     return (
       <div>
         <Modal />
@@ -13,6 +12,5 @@ class Home extends Component {
       </div>
     );
   }
-}
 
 export default Home;
