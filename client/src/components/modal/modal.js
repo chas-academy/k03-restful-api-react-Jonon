@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./style";
 import Radium from "radium";
 
@@ -7,74 +7,65 @@ import Register from "./forms/register/Register";
 import Button from "../buttons/Button";
 import { connect } from "react-redux";
 
-class Modal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showLogin: true,
-      showRegister: false
-    };
-  }
+const Modal = props => {
+  const [login, setLogin] = useState({
+    showLogin: true
+  });
+  const [register, setRegister] = useState({
+    showRegister: false
+  });
 
-  showLogin = () => {
-    this.setState({
-      showLogin: true,
-      showRegister: false
-    });
+  const showLogin = () => {
+    setLogin({ showLogin: true });
+    setRegister({ showRegister: false });
   };
 
-  showRegister = () => {
-    this.setState({
-      showLogin: false,
-      showRegister: true
-    });
+  const showRegister = () => {
+    setLogin({ showLogin: false });
+    setRegister({ showRegister: true });
   };
 
-  render() {
-    return (
-      <div
-        style={[
-          { display: this.props.modal.payload ? "block" : "none" },
-          styles.modalOverlay
-        ]}
-      >
-        <div style={styles.center}>
-          <div style={styles.modalBox} ref={this.props.outside}>
-            <Button
-              title="Login"
-              width="50%"
-              kind={this.state.showLogin ? "secondary" : "primary"}
-              fontFamily="Fjalla One, sans-serif"
-              size="md"
-              onClick={() => this.showLogin()}
-            />
-            <Button
-              title="Register"
-              width="50%"
-              kind={this.state.showRegister ? "secondary" : "primary"}
-              fontFamily="Fjalla One, sans-serif"
-              size="md"
-              onClick={() => this.showRegister()}
-            />
-            <div style={{ display: this.state.showLogin ? "block" : "none" }}>
-              <Login />
-            </div>
-            <div
-              style={{ display: this.state.showRegister ? "block" : "none" }}
-            >
-              <Register />
-            </div>
+  return (
+    <div
+      style={[
+        { display: props.modal.payload ? "block" : "none" },
+        styles.modalOverlay
+      ]}
+    >
+      <div style={styles.center}>
+        <div style={styles.modalBox} ref={props.outside}>
+          <Button
+            title="Login"
+            width="50%"
+            kind={login.showLogin ? "secondary" : "primary"}
+            fontFamily="Fjalla One, sans-serif"
+            size="md"
+            onClick={showLogin}
+          />
+          <Button
+            title="Register"
+            width="50%"
+            kind={register.showRegister ? "secondary" : "primary"}
+            fontFamily="Fjalla One, sans-serif"
+            size="md"
+            onClick={showRegister}
+          />
+          <div style={{ display: login.showLogin ? "block" : "none" }}>
+            <Login />
+          </div>
+          <div style={{ display: register.showRegister ? "block" : "none" }}>
+            <Register />
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-const mapToProps = (state) => {
+const mapToProps = state => {
   return {
     modal: state.modal
-  }
-}
+  };
+};
 
-export default connect(mapToProps, null)(Radium(Modal))
+export default connect(mapToProps, null)(Radium(Modal));
