@@ -10,7 +10,6 @@ import Home from "./pages/home/Home";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import Error from "./pages/error/Error";
-import Modal from "./modal/modal";
 import ProductsList from "./pages/products/productList/ProductList";
 import Product from "./pages/products/product/Product";
 
