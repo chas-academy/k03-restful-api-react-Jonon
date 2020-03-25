@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./style";
 import Radium from "radium";
 
@@ -6,6 +6,7 @@ import Login from "./forms/login/Login";
 import Register from "./forms/register/Register";
 import Button from "../buttons/Button";
 import { connect } from "react-redux";
+import { hide_modal } from "../../actions/modalActions";
 
 const Modal = props => {
   const [login, setLogin] = useState({
@@ -25,6 +26,29 @@ const Modal = props => {
     setRegister({ showRegister: true });
   };
 
+  const node = useRef();
+
+  const handleClick = e => {
+    if (node.current.contains(e.target)) {
+      // inside click
+      // stop propagation
+      return false;
+    }
+    // outside click
+    // check if modal is open
+    if (props.modal.payload) {
+      //dispatch action to hide modal
+      props.hide_modal();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  });
+
   return (
     <div
       style={[
@@ -33,7 +57,7 @@ const Modal = props => {
       ]}
     >
       <div style={styles.center}>
-        <div style={styles.modalBox} ref={props.outside}>
+        <div style={styles.modalBox} ref={node}>
           <Button
             title="Login"
             width="50%"
@@ -62,10 +86,16 @@ const Modal = props => {
   );
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    hide_modal: () => dispatch(hide_modal)
+  };
+};
+
 const mapToProps = state => {
   return {
     modal: state.modal
   };
 };
 
-export default connect(mapToProps, null)(Radium(Modal));
+export default connect(mapToProps, mapDispatchToProps)(Radium(Modal));
