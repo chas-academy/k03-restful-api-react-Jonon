@@ -62,7 +62,7 @@ const Header = (props) => {
         </Link>
 
         <div style={[styles.layout.flex, { marginRight: "1rem" }]}>
-          <UserIconButton modal={props.showModal} />
+          <UserIconButton />
           <Cart />
         </div>
       </nav>
