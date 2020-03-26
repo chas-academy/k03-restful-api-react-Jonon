@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Radium from "radium";
 import MobileList from "./list/MobileList";
 import TabletList from "./list/TabletList";
