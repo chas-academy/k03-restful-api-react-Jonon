@@ -21,15 +21,14 @@ const MobileList = props => {
     idx: 0
   });
 
+  let size = 3;
+
   const sortIntoArray = () => {
+    // copy state
     let posterImages = [...images.items];
 
-    let size = 3;
-
-    let posters = posterImages.slice(
-      idx * size,
-      (1 + idx) * size
-    );
+    // slice array by 3
+    let posters = posterImages.slice(images.idx * size, (1 + images.idx) * size);
 
     setImages(currenState => ({
       ...currenState,
@@ -43,41 +42,40 @@ const MobileList = props => {
 
   const nextSlide = () => {
     let current = images.idx;
-    console.log("current", current);
     let next = ++current;
 
-    let posterLength = images.posters.length - 1;
+    // Prevent increment to exceed total groups of images
+    let posterLength = Math.ceil(images.items.length / size) - 1;
 
     if (next > posterLength) {
       next = posterLength;
     }
 
-    setImages(currentState => ({
-      ...currentState,
-      posters: currentState.posters,
-      idx: next
-    }));
+    setImages(currentState => {
+      return {
+        ...currentState,
+        idx: next
+      };
+    });
   };
 
   const prevSlide = () => {
     let current = images.idx;
-    console.log("current", current);
     let prev = --current;
 
     if (prev < 0) {
       prev = 0;
     }
 
-    setImages(currentState => ({
-      ...currentState,
-      idx: prev
-    }));
+    setImages(currentState => {
+      return {
+        ...currentState,
+        idx: prev
+      };
+    });
   };
 
-  let { posters, idx } = images;
-
-  console.log("idx", idx);
-  let stringifyIdx = idx.toString();
+  let { posters } = images;
 
   let poster = posters.map((item, index) => (
     <img src={item} alt="poster" style={style.poster} key={index} />
