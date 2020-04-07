@@ -1,7 +1,6 @@
 import {useState, useEffect} from 'react'
 
 const useWindowDimensions = (props) => {
-    console.log('Hello there')
 
     const [dimensions, setDimensions] = useState({
         width: window.innerWidth
