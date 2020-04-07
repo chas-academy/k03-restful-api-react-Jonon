@@ -26,13 +26,14 @@ const MobileList = props => {
 
     let size = 3;
 
-    let result = images.posters;
-    for (var i = 0; i < posterImages.length; i += size) {
-      result.push(posterImages.slice(i, i + size));
-    }
+    let posters = posterImages.slice(
+      idx * size,
+      (1 + idx) * size
+    );
+
     setImages(currenState => ({
       ...currenState,
-      posters: result[idx]
+      posters
     }));
   };
 
