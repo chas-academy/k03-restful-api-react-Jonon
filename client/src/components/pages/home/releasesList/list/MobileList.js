@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import useWindowDimensions from "../../../../../hooks/useWindowDimensions";
 
 import "./style.css";
 import style from "./styles";
