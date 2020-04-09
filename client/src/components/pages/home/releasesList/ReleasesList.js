@@ -16,10 +16,11 @@ const ReleasesList = () => {
     return <MobileList />;
   }
   if (isTablet) {
-    return <TabletList />;
+    return <TabletList  />;
   } else {
     return <DesktopList />;
   }
+
 };
 
 export default Radium(ReleasesList);
