@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import useWindowDimensions from "../../../../../hooks/useWindowDimensions";
 
 import "./style.css";
 import style from "./styles";
 import Radium from "radium";
 
-const MobileList = props => {
+const MobileList = (props) => {
   const [images, setImages] = useState({
     items: [
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/765356/765356._SX1280_QL80_TTD_.jpg",
@@ -15,24 +16,27 @@ const MobileList = props => {
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/694446/694446._SX1280_QL80_TTD_.jpg",
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/460929/460929._SX1280_QL80_TTD_.jpg",
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/755543/755543._SX1280_QL80_TTD_.jpg",
-      "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/756917/756917._SX1280_QL80_TTD_.jpg"
+      "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/756917/756917._SX1280_QL80_TTD_.jpg",
     ],
     posters: [],
-    idx: 0
+    idx: 0,
   });
 
-  let size = 3;
-
+   let size = 3;
+ 
   const sortIntoArray = () => {
     // copy state
     let posterImages = [...images.items];
 
     // slice array by 3
-    let posters = posterImages.slice(images.idx * size, (1 + images.idx) * size);
+    let posters = posterImages.slice(
+      images.idx * size,
+      (1 + images.idx) * size
+    );
 
-    setImages(currenState => ({
+    setImages((currenState) => ({
       ...currenState,
-      posters
+      posters,
     }));
   };
 
@@ -51,10 +55,10 @@ const MobileList = props => {
       next = posterLength;
     }
 
-    setImages(currentState => {
+    setImages((currentState) => {
       return {
         ...currentState,
-        idx: next
+        idx: next,
       };
     });
   };
@@ -67,10 +71,10 @@ const MobileList = props => {
       prev = 0;
     }
 
-    setImages(currentState => {
+    setImages((currentState) => {
       return {
         ...currentState,
-        idx: prev
+        idx: prev,
       };
     });
   };
@@ -84,9 +88,6 @@ const MobileList = props => {
   return (
     <div style={style.container}>
       <div>
-        <div>
-          <h2 style={style.title}>Count: {images.idx}</h2>
-        </div>
         <h2 style={style.title}>New Releases</h2>
         <div style={[style.posterContainer]}>
           <div style={style.posterList} className="posterlist">
