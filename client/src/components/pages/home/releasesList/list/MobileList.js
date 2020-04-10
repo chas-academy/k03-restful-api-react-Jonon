@@ -5,6 +5,7 @@ import style from "./styles";
 import Radium from "radium";
 
 const MobileList = (props) => {
+  const { size } = props;
   const [images, setImages] = useState({
     items: [
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/765356/765356._SX1280_QL80_TTD_.jpg",
@@ -17,31 +18,13 @@ const MobileList = (props) => {
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/755543/755543._SX1280_QL80_TTD_.jpg",
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/756917/756917._SX1280_QL80_TTD_.jpg",
     ],
-    posters: [],
-    idx: 0,
+    index: 0,
   });
-
-   let size = 3;
  
-  const sortIntoArray = () => {
-    // copy state
-    let posterImages = [...images.items];
 
-    // slice array by 3
-    let posters = posterImages.slice(
-      images.idx * size,
-      (1 + images.idx) * size
-    );
-
-    setImages((currenState) => ({
-      ...currenState,
-      posters,
-    }));
-  };
-
-  useEffect(() => {
+/*   useEffect(() => {
     sortIntoArray();
-  }, [images.idx]);
+  }, [images.idx]); */
 
   const nextSlide = () => {
     let current = images.idx;
@@ -78,11 +61,11 @@ const MobileList = (props) => {
     });
   };
 
-  let { posters } = images;
+  let { index, items } = images;
 
-  let poster = posters.map((item, index) => (
-    <img src={item} alt="poster" style={style.poster} key={index} />
-  ));
+const imageSet = items.slice(index, props.size).map((url, idx) => {
+  return <img src={url} style={style.poster} alt="poster" key={url + idx} />;
+})
 
   return (
     <div style={style.container}>
@@ -90,7 +73,7 @@ const MobileList = (props) => {
         <h2 style={style.title}>New Releases</h2>
         <div style={[style.posterContainer]}>
           <div style={style.posterList} className="posterlist">
-            {poster}
+            {imageSet}
           </div>
           <div style={style.buttons}>
             <span

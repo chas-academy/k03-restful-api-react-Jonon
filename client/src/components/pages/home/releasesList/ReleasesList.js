@@ -13,12 +13,12 @@ const ReleasesList = () => {
   const isTablet = windowWidth > 768 && windowWidth <= 1024;
 
   if (isMobile) {
-    return <MobileList />;
+    return <MobileList size={3} />;
   }
   if (isTablet) {
-    return <TabletList  />;
+    return <MobileList size={4}  />;
   } else {
-    return <DesktopList />;
+    return <MobileList size={5} />;
   }
 
 };
