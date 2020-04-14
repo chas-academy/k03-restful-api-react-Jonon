@@ -8,7 +8,7 @@ import image5 from "./images/image5.jpg";
 import image6 from "./images/image6.jpg";
 // styles
 import Radium from "radium";
-import sliderStyle from "./sliderStyle";
+import carouselStyle from "./carouselStyle";
 
 const timeBetweenImages = 5000;
 
@@ -53,7 +53,7 @@ class Carousel extends Component {
         key={index}
         onClick={this.onClickChangeActiveImage.bind(this, index)}
         style={[
-          sliderStyle.bullet,
+          carouselStyle.bullet,
           this.state.idx !== index
             ? this.state.notSelected
             : this.state.selected
@@ -62,15 +62,15 @@ class Carousel extends Component {
     ));
 
     return (
-      <div style={sliderStyle.divContainer}>
+      <div style={carouselStyle.divContainer}>
         <div>
           <img
             src={this.state.images[this.state.idx]}
-            style={sliderStyle.image}
+            style={carouselStyle.image}
             alt=""
           />
-          <div style={sliderStyle.controller}>
-            <ul style={sliderStyle.row}>{controller}</ul>
+          <div style={carouselStyle.controller}>
+            <ul style={carouselStyle.row}>{controller}</ul>
           </div>
         </div>
       </div>

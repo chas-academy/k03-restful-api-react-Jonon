@@ -1,4 +1,4 @@
-const sliderStyle = {
+const carouselStyle = {
   divContainer: {
     width: "100%",
     margin: "auto",
@@ -40,4 +40,4 @@ const sliderStyle = {
     }
   }
 };
-export default sliderStyle;
+export default carouselStyle;
