@@ -17,55 +17,42 @@ const MobileList = (props) => {
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/460929/460929._SX1280_QL80_TTD_.jpg",
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/755543/755543._SX1280_QL80_TTD_.jpg",
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/756917/756917._SX1280_QL80_TTD_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/818279/818279._SX1280_QL80_TTD_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/290729/290729._SX1280_QL80_TTD_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/813814/813814._SX1280_QL80_TTD_.jpg",
     ],
     index: 0,
   });
- 
-
-/*   useEffect(() => {
-    sortIntoArray();
-  }, [images.idx]); */
 
   const nextSlide = () => {
-    let current = images.idx;
-    let next = ++current;
-
-    // Prevent increment to exceed total groups of images
-    let posterLength = Math.ceil(images.items.length / size) - 1;
-
-    if (next > posterLength) {
-      next = posterLength;
+    if (index < images.items.length - size) {
+      setImages((currentState) => {
+        return {
+          ...currentState,
+          index: currentState.index + size,
+        };
+      });
     }
-
-    setImages((currentState) => {
-      return {
-        ...currentState,
-        idx: next,
-      };
-    });
   };
 
   const prevSlide = () => {
-    let current = images.idx;
-    let prev = --current;
-
-    if (prev < 0) {
-      prev = 0;
+    if (images.index > 0) {
+      setImages((currentState) => {
+        return {
+          ...currentState,
+          index: currentState.index - size,
+        };
+      });
     }
-
-    setImages((currentState) => {
-      return {
-        ...currentState,
-        idx: prev,
-      };
-    });
   };
 
   let { index, items } = images;
 
-const imageSet = items.slice(index, props.size).map((url, idx) => {
-  return <img src={url} style={style.poster} alt="poster" key={url + idx} />;
-})
+  const imageSet = items.slice(index, index + props.size)
+  // Slicing correct number of items by first taking the index and then the size we get from prop.size.
+  .map((url, idx) => {
+    return <img src={url} style={style.poster} alt="poster" key={url + idx} />;
+  });
 
   return (
     <div style={style.container}>
