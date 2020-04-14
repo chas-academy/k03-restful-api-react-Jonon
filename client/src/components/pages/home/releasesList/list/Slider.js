@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import useWindowDimensions from "../../../../../hooks/useWindowDimensions";
 
 import "./style.css";
 import style from "./styles";
 import Radium from "radium";
 
-const MobileList = (props) => {
+const Slider = (props) => {
+  const { size } = props;
   const [images, setImages] = useState({
     items: [
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/765356/765356._SX1280_QL80_TTD_.jpg",
@@ -17,73 +17,42 @@ const MobileList = (props) => {
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/460929/460929._SX1280_QL80_TTD_.jpg",
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/755543/755543._SX1280_QL80_TTD_.jpg",
       "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/756917/756917._SX1280_QL80_TTD_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/818279/818279._SX1280_QL80_TTD_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/290729/290729._SX1280_QL80_TTD_.jpg",
+      "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/813814/813814._SX1280_QL80_TTD_.jpg",
     ],
-    posters: [],
-    idx: 0,
+    index: 0,
   });
 
-   let size = 4;
- 
-  const sortIntoArray = () => {
-    // copy state
-    let posterImages = [...images.items];
-
-    // slice array by 3
-    let posters = posterImages.slice(
-      images.idx * size,
-      (1 + images.idx) * size
-    );
-
-    setImages((currenState) => ({
-      ...currenState,
-      posters,
-    }));
-  };
-
-  useEffect(() => {
-    sortIntoArray();
-  }, [images.idx]);
-
   const nextSlide = () => {
-    let current = images.idx;
-    let next = ++current;
-
-    // Prevent increment to exceed total groups of images
-    let posterLength = Math.ceil(images.items.length / size) - 1;
-
-    if (next > posterLength) {
-      next = posterLength;
+    if (index < images.items.length - size) {
+      setImages((currentState) => {
+        return {
+          ...currentState,
+          index: currentState.index + size,
+        };
+      });
     }
-
-    setImages((currentState) => {
-      return {
-        ...currentState,
-        idx: next,
-      };
-    });
   };
 
   const prevSlide = () => {
-    let current = images.idx;
-    let prev = --current;
-
-    if (prev < 0) {
-      prev = 0;
+    if (images.index > 0) {
+      setImages((currentState) => {
+        return {
+          ...currentState,
+          index: currentState.index - size,
+        };
+      });
     }
-
-    setImages((currentState) => {
-      return {
-        ...currentState,
-        idx: prev,
-      };
-    });
   };
 
-  let { posters } = images;
+  let { index, items } = images;
 
-  let poster = posters.map((item, index) => (
-    <img src={item} alt="poster" style={style.poster} key={index} />
-  ));
+  const imageSet = items.slice(index, index + props.size)
+  // Slicing correct number of items by first taking the index and then the size we get from prop.size.
+  .map((url, idx) => {
+    return <img src={url} style={style.poster} alt="poster" key={url + idx} />;
+  });
 
   return (
     <div style={style.container}>
@@ -91,7 +60,7 @@ const MobileList = (props) => {
         <h2 style={style.title}>New Releases</h2>
         <div style={[style.posterContainer]}>
           <div style={style.posterList} className="posterlist">
-            {poster}
+            {imageSet}
           </div>
           <div style={style.buttons}>
             <span
@@ -114,4 +83,4 @@ const MobileList = (props) => {
   );
 };
 
-export default Radium(MobileList);
+export default Radium(Slider);

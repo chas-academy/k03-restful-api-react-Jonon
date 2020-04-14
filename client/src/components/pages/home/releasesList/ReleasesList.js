@@ -1,8 +1,6 @@
 import React from "react";
 import Radium from "radium";
-import MobileList from "./list/MobileList";
-import TabletList from "./list/TabletList";
-import DesktopList from "./list/DesktopList";
+import Slider from "./list/Slider";
 import useWindowDimensions from "../../../../hooks/useWindowDimensions";
 
 const ReleasesList = () => {
@@ -13,12 +11,12 @@ const ReleasesList = () => {
   const isTablet = windowWidth > 768 && windowWidth <= 1024;
 
   if (isMobile) {
-    return <MobileList size={3} />;
+    return <Slider size={3} />;
   }
   if (isTablet) {
-    return <MobileList size={4}  />;
+    return <Slider size={4}  />;
   } else {
-    return <MobileList size={5} />;
+    return <Slider size={5} />;
   }
 
 };
