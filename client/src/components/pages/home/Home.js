@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Slider from "./slider/Slider";
+import Carousel from "./Carousel/Carousel";
 import ReleasesList from "./releasesList/ReleasesList";
 import Modal from "../../modal/modal";
 
@@ -7,7 +7,7 @@ const Home = () => {
     return (
       <div>
         <Modal />
-        <Slider />
+        <Carousel />
         <ReleasesList />
       </div>
     );

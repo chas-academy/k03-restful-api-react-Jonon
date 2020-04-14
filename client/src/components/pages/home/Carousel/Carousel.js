@@ -12,7 +12,7 @@ import sliderStyle from "./sliderStyle";
 
 const timeBetweenImages = 5000;
 
-class Slider extends Component {
+class Carousel extends Component {
   constructor(props) {
     super(props);
 
@@ -78,4 +78,4 @@ class Slider extends Component {
   }
 }
 
-export default Radium(Slider);
+export default Radium(Carousel);
