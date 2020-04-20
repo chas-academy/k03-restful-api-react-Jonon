@@ -13,15 +13,15 @@ class Categories extends Component {
 
   componentDidMount() {
     fetch("/categories")
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         this.setState({
           categories: data
         });
       });
   }
 
-  toggleSubItem = id => {
+  toggleSubItem = (id) => {
     let newArray = { ...this.state.categories };
     newArray[id].show = !newArray[id].show;
     this.setState({ newArray });
@@ -32,9 +32,12 @@ class Categories extends Component {
     let categoryList = categories.map((category, _id) => {
       let subcategories = category.subcategories.map((subcategory, _id) => {
         return (
-          <li 
-          key={"subcategory" + subcategory._id}          
-          style={[styles.subCategory, styles.item]}>{subcategory.title}</li>
+          <li
+            key={"subcategory" + subcategory._id}
+            style={[styles.subCategory, styles.item]}
+          >
+            {subcategory.title}
+          </li>
         );
       });
 

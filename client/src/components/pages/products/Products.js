@@ -33,12 +33,12 @@ class Products extends Component {
         </div>
       );
     } else {
-        return (
-          <div style={{display: "flex"}} >
-            <Menu />
-            <ProductList />
-          </div>
-        );
+      return (
+        <div style={{ display: "flex" }}>
+          <Menu />
+          <ProductList />
+        </div>
+      );
     }
   }
 }

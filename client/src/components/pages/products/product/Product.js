@@ -1,36 +1,36 @@
 import React, { Component } from "react";
+import Radium from "radium";
 import Button from "../../../buttons/Button";
 import styles from "./style";
-import Radium from "radium";
 
 class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: [],
     };
   }
 
   componentDidMount() {
     const {
-      match: { params }
+      match: { params },
     } = this.props;
 
     fetch(`/products/${params.category}/${params.subcategory}/${params.id}`)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         this.setState({
-          items: data
+          items: data,
         });
       });
   }
 
   render() {
-    let { items } = this.state;
+    const { items } = this.state;
 
     return (
       <div style={[styles.base, styles.threeColumns]}>
-        <div style={styles.desktopLayout} >
+        <div style={styles.desktopLayout}>
           <div>
             <img src={items.poster} style={styles.image} alt="poster" />
             <h3>{items.title}</h3>
@@ -39,7 +39,7 @@ class Product extends Component {
             </h4>
             <Button title="Add to cart" kind="primary" width="100%" size="lg" />
           </div>
-          <p style={styles.margin} >{items.description}</p>
+          <p style={styles.margin}>{items.description}</p>
         </div>
         <div style={[styles.gridColumn, styles.margin]}>
           <div>

@@ -1,34 +1,34 @@
 import React, { Component } from "react";
-import styles from "./style";
 import Radium from "radium";
+import styles from "./style";
 
 class Subcategories extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: [],
     };
   }
 
   componentDidMount() {
     fetch("http://192.168.11.197:3004/comics")
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         this.setState({
-          items: data
+          items: data,
         });
       });
   }
 
   render() {
-    let { items } = this.state;
+    const { items } = this.state;
 
     // Filter to only show publishers comics
-    let testing = items.filter(item => {
+    const testing = items.filter((item) => {
       return item.publisher === this.props.publisher;
     });
 
-    let comicList = testing.map(item => {
+    const comicList = testing.map((item) => {
       return (
         <li style={[styles.subCategory, styles.item]} key={item.id}>
           {item.title}

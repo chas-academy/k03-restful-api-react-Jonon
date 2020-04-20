@@ -19,7 +19,7 @@ const styles = {
     fontSize: "1.5em",
     textAlign: "center",
     color: "#303030",
-  }
+  },
 };
 
 export default styles;

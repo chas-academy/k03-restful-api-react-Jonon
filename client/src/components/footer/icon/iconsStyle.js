@@ -6,9 +6,9 @@ const iconStyle = {
   borderRadius: "50%",
   backgroundColor: "#6A6A6A",
   align: {
-    display: 'flex',
-    alignItems: 'center'
-  }
+    display: "flex",
+    alignItems: "center",
+  },
 };
 
 export default iconStyle;

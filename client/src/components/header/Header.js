@@ -1,18 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import Radium from "radium";
+import { connect } from "react-redux";
 import HamburgerMenu from "./hamburgerMenu/HamburgerMenu";
 import UserIconButton from "./userIconButton/UserIconButton";
 import Cart from "./cart/Cart";
 import DropdownMenu from "../menu/DropdownMenu";
 
 // styles
-import Radium from "radium";
 import styles from "./headerStyle";
 import colors from "../styles/colors";
 import { hide_menu } from "../../actions/menuActions";
-import { connect } from "react-redux";
-
-
 
 const Header = (props) => {
   const node = useRef();
@@ -25,9 +23,9 @@ const Header = (props) => {
     }
     // outside click
     // check if menu is open
-    if(props.menu.payload) {
-      //dispatch action to hide menu
-      props.hide_menu()
+    if (props.menu.payload) {
+      // dispatch action to hide menu
+      props.hide_menu();
     }
   };
 
@@ -40,14 +38,8 @@ const Header = (props) => {
 
   return (
     <div>
-      <nav
-        style={[
-          styles.layout.flex,
-          styles.base,
-          colors.backgroundcolor.primary
-        ]}
-      >
-        <div ref={node} style={{height: '100%'}} >
+      <nav style={[styles.layout.flex, styles.base, colors.backgroundcolor.primary]}>
+        <div ref={node} style={{ height: "100%" }}>
           <div style={{ marginLeft: "1rem" }}>
             <HamburgerMenu />
           </div>
@@ -57,7 +49,7 @@ const Header = (props) => {
           <DropdownMenu />
         </div>
 
-        <Link to={"/"}>
+        <Link to="/">
           <h1 style={[styles.title, colors.color.primary]}>ComicHaven</h1>
         </Link>
 
@@ -72,14 +64,16 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    menu: state.menu
-  }
-}
+    menu: state.menu,
+  };
+};
 
-const mapDispatchToProps = dispatch => {
-  return{
-    hide_menu: () => {dispatch(hide_menu)}
-  }
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    hide_menu: () => {
+      dispatch(hide_menu);
+    },
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Radium(Header));

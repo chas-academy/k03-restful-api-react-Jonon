@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import "./style.css";
-import style from "./styles";
 import Radium from "radium";
+import style from "./styles";
 
 const Slider = (props) => {
   const { size } = props;
@@ -48,11 +48,12 @@ const Slider = (props) => {
 
   let { index, items } = images;
 
-  const imageSet = items.slice(index, index + props.size)
-  // Slicing correct number of items by first taking the index and then the size we get from prop.size.
-  .map((url, idx) => {
-    return <img src={url} style={style.poster} alt="poster" key={url + idx} />;
-  });
+  const imageSet = items
+    .slice(index, index + props.size)
+    // Slicing correct number of items by first taking the index and then the size we get from prop.size.
+    .map((url, idx) => {
+      return <img src={url} style={style.poster} alt="poster" key={url + idx} />;
+    });
 
   return (
     <div style={style.container}>

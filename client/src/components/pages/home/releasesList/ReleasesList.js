@@ -6,7 +6,7 @@ import useWindowDimensions from "../../../../hooks/useWindowDimensions";
 const ReleasesList = () => {
   const dimensions = useWindowDimensions();
 
-  let windowWidth = dimensions.width;
+  const windowWidth = dimensions.width;
   const isMobile = windowWidth <= 768;
   const isTablet = windowWidth > 768 && windowWidth <= 1024;
 
@@ -14,11 +14,9 @@ const ReleasesList = () => {
     return <Slider size={3} />;
   }
   if (isTablet) {
-    return <Slider size={4}  />;
-  } else {
-    return <Slider size={5} />;
+    return <Slider size={4} />;
   }
-
+  return <Slider size={5} />;
 };
 
 export default Radium(ReleasesList);

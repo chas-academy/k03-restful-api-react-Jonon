@@ -3,8 +3,8 @@ const cartStyle = {
     display: "flex",
     flexDirecton: "row",
     alignItems: "center",
-    height: "2rem"
-  }
+    height: "2rem",
+  },
 };
 
 export default cartStyle;

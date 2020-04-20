@@ -28,7 +28,7 @@ class Carousel extends Component {
     };
   }
 
-  onClickChangeActiveImage = index => this.setState({ idx: index });
+  onClickChangeActiveImage = (index) => this.setState({ idx: index });
 
   componentDidMount() {
     setInterval(() => this.nextImage(), timeBetweenImages);
@@ -54,9 +54,7 @@ class Carousel extends Component {
         onClick={this.onClickChangeActiveImage.bind(this, index)}
         style={[
           carouselStyle.bullet,
-          this.state.idx !== index
-            ? this.state.notSelected
-            : this.state.selected
+          this.state.idx !== index ? this.state.notSelected : this.state.selected
         ]}
       />
     ));

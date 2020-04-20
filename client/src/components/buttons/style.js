@@ -1,5 +1,3 @@
-
-
 const styles = {
   base: {
     border: "none",
@@ -7,7 +5,7 @@ const styles = {
     borderRadius: "0px",
     padding: "0.3rem",
     fontFamily: "Roboto, sans-serif",
-    cursor: 'pointer'
+    cursor: "pointer",
   },
   primary: {
     background: "#C61017",
@@ -19,12 +17,12 @@ const styles = {
   },
   size: {
     md: {
-      padding: '0.5rem'
+      padding: "0.5rem",
     },
     lg: {
-      padding: "1rem"
-    }
-  }
+      padding: "1rem",
+    },
+  },
 };
 
 export default styles;

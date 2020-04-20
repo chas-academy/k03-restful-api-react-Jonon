@@ -6,14 +6,14 @@ const carouselStyle = {
     position: "relative",
     overflow: "hidden",
     maxHeight: "49vw",
-    '@media (min-width: 768px)': {
+    "@media (min-width: 768px)": {
       maxHeight: "30vw",
-    }
+    },
   },
   image: {
     backgroundRepeat: "no-repeat",
     maxWidth: "100%",
-    objectFilt: "cover"
+    objectFilt: "cover",
   },
   controller: {
     position: "absolute",
@@ -23,11 +23,11 @@ const carouselStyle = {
     bottom: "0",
     margin: "0",
     padding: "0 0 0 0",
-    lineHeight: "0.2"
+    lineHeight: "0.2",
   },
   row: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   bullet: {
     padding: "0",
@@ -36,8 +36,8 @@ const carouselStyle = {
     fontSize: "2.5rem",
     cursor: "pointer",
     ":hover": {
-      color: `rgba(256, 256, 256, 1)`
-    }
-  }
+      color: `rgba(256, 256, 256, 1)`,
+    },
+  },
 };
 export default carouselStyle;

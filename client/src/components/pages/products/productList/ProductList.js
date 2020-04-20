@@ -1,46 +1,45 @@
 import React, { Component } from "react";
 import Radium from "radium";
+import { Link } from "react-router-dom";
 import style from "./style";
 import Button from "../../../buttons/Button";
-import {Link } from "react-router-dom";
 
 class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: [],
     };
   }
 
   componentDidMount() {
     fetch(`${this.props.location.pathname}`)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         this.setState({
-          items: data
+          items: data,
         });
       });
   }
 
   render() {
-    let { items } = this.state;
-    let comics = items.map(item => {
+    const { items } = this.state;
+    const comics = items.map((item) => {
       return (
         <div
-          style={[
-            { display: "flex", flexDirection: "column" },
-            style.posterBox
-          ]}
+          style={[{ display: "flex", flexDirection: "column" }, style.posterBox]}
           key={item._id}
         >
           <div style={{ flex: "1" }}>
-             <Link to={`${this.props.location.pathname}/${item._id}`} >
+            <Link to={`${this.props.location.pathname}/${item._id}`}>
               <li style={{ padding: "1rem" }} key={item._id}>
                 <img src={item.poster} style={style.image} alt="poster" />
                 <h3 style={[style.posterText, style.title]}>{item.title}</h3>
-                <h4 style={[style.posterText, style.price]}>{item.price}€</h4>
+                <h4 style={[style.posterText, style.price]}>{item.price}
+€
+</h4>
               </li>
-             </Link> 
+            </Link>
           </div>
           <Button title="Add to cart" kind="primary" width="100%" size="lg" />
         </div>

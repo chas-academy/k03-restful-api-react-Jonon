@@ -3,12 +3,12 @@ const appStyle = {
     container: {
       display: "flex",
       minHeight: "100vh",
-      flexDirection: "column"
+      flexDirection: "column",
     },
     maincontent: {
-      flex: "1"
-    }
-  }
+      flex: "1",
+    },
+  },
 };
 
 export default appStyle;

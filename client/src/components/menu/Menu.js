@@ -7,15 +7,15 @@ import Categories from "./categories/categories";
 class Menu extends Component {
   render() {
     return (
-      <div style={{display: "flex"}} >
-      <div style={{flex: "1", backgroundColor: "#FFFFFF"}} >
-      <div style={[Styles.menuContainer]}>
-          <Search />
-          <div style={Styles.hiddenScrollbar}>
-            <Categories />
+      <div style={{ display: "flex" }}>
+        <div style={{ flex: "1", backgroundColor: "#FFFFFF" }}>
+          <div style={[Styles.menuContainer]}>
+            <Search />
+            <div style={Styles.hiddenScrollbar}>
+              <Categories />
+            </div>
           </div>
-      </div>
-      </div>
+        </div>
       </div>
     );
   }

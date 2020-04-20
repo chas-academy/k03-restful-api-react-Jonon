@@ -1,8 +1,8 @@
 import React from "react";
+import Radium from "radium";
 import Icon from "./icon/Icon";
 
 // styling
-import Radium from "radium";
 import colors from "../styles/colors";
 import footerStyle from "./footerStyle";
 
@@ -10,14 +10,12 @@ function Footer() {
   return (
     <div style={[footerStyle.styling, footerStyle.size, footerStyle.position]}>
       <div style={footerStyle.rowEvenly}>
-        <Icon icon={"typcn typcn-social-facebook"} />
-        <Icon icon={"typcn typcn-social-twitter"} />
-        <Icon icon={"typcn typcn-social-pinterest"} />
-        <Icon icon={"typcn typcn-social-vimeo"} />
+        <Icon icon="typcn typcn-social-facebook" />
+        <Icon icon="typcn typcn-social-twitter" />
+        <Icon icon="typcn typcn-social-pinterest" />
+        <Icon icon="typcn typcn-social-vimeo" />
       </div>
-      <p style={[footerStyle.copyright, colors.color.primary]}>
-        © ComicHaven 2019
-      </p>
+      <p style={[footerStyle.copyright, colors.color.primary]}>© ComicHaven 2019</p>
     </div>
   );
 }
