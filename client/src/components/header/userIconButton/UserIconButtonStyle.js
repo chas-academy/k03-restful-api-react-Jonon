@@ -1,6 +1,6 @@
 const userIconButtonStyle = {
   marginRight: "1rem",
-  cursor: 'pointer'
+  cursor: "pointer",
 };
 
 export default userIconButtonStyle;

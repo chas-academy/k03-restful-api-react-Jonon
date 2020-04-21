@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Icon from "../../icons/Icon";
 
 // styles
 import userIconButtonStyle from "./UserIconButtonStyle";
-import { connect } from "react-redux";
 import { show_modal } from "../../../actions/modalActions";
 
-const UserIconButton = props => {
+const UserIconButton = ({ show_modal }) => {
   const [hover, setHover] = useState({ onHover: "typcn typcn-user-outline" });
 
   const handleMouseEnter = () => {
@@ -22,7 +23,10 @@ const UserIconButton = props => {
       <span
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onClick={props.show_modal}
+        onClick={show_modal}
+        onKeyDown={show_modal}
+        role="button"
+        tabIndex={0}
       >
         <Icon icon={hover.onHover} color="primary" />
       </span>
@@ -30,10 +34,14 @@ const UserIconButton = props => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    show_modal: () => dispatch(show_modal)
-  }
-}
+UserIconButton.propTypes = {
+  show_modal: PropTypes.func.isRequired,
+};
 
-export default connect(null, mapDispatchToProps)(UserIconButton)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    show_modal: () => dispatch(show_modal),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(UserIconButton);

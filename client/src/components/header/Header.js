@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Radium from "radium";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import HamburgerMenu from "./hamburgerMenu/HamburgerMenu";
 import UserIconButton from "./userIconButton/UserIconButton";
 import Cart from "./cart/Cart";
@@ -60,6 +61,11 @@ const Header = (props) => {
       </nav>
     </div>
   );
+};
+
+Header.propTypes = {
+  menu: PropTypes.func.isRequired,
+  hide_menu: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
