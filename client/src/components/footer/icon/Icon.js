@@ -1,17 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import "typicons.font";
+import PropTypes from "prop-types";
 
 import Radium from "radium";
 import iconStyle from "./iconsStyle";
 
-class Icon extends Component {
-  render() {
-    return (
-      <div style={iconStyle}>
-        <span className={this.props.icon} style={iconStyle.align} />
-      </div>
-    );
-  }
-}
+const Icon = ({ icon }) => {
+  return (
+    <div style={iconStyle}>
+      <span className={icon} style={iconStyle.align} />
+    </div>
+  );
+};
+
+Icon.propTypes = {
+  icon: PropTypes.string.isRequired,
+};
 
 export default Radium(Icon);
