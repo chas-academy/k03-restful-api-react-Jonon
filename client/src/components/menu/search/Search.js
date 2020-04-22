@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./style";
 
-export default class Search extends Component {
-  render() {
-    return (
-      <div style={styles.base}>
-        <ion-icon style={styles.searchIcon} name="search" />
-        <input style={styles.searchField} type="text" />
-      </div>
-    );
-  }
-}
+const Search = () => {
+  return (
+    <div style={styles.base}>
+      <ion-icon style={styles.searchIcon} name="search" />
+      <input style={styles.searchField} type="text" />
+    </div>
+  );
+};
+
+export default Search;

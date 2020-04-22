@@ -1,18 +1,17 @@
 import React from "react";
 import Radium from "radium";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Styles from "./style";
 import Search from "./search/Search";
 import Categories from "./categories/categories";
 
 const DropdownMenu = (props) => {
+  const { outside, menu } = props;
   return (
     <div
-      ref={props.outside}
-      style={[
-        { display: props.menu.payload.show ? "block" : "none" },
-        Styles.dropdownContainer,
-      ]}
+      ref={outside}
+      style={[{ display: menu ? "block" : "none" }, Styles.dropdownContainer]}
     >
       <div style={Styles.dropdownBase}>
         <Search />
@@ -24,9 +23,14 @@ const DropdownMenu = (props) => {
   );
 };
 
+DropdownMenu.propTypes = {
+  menu: PropTypes.func.isRequired,
+  outside: PropTypes.bool.isRequired,
+};
+
 const mapToProps = (state) => {
   return {
-    menu: state.menu,
+    menu: state.menu.payload.show,
   };
 };
 

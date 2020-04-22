@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Radium from "radium";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import styles from "./style";
 
 import Login from "./forms/login/Login";
@@ -8,7 +9,7 @@ import Register from "./forms/register/Register";
 import Button from "../buttons/Button";
 import { hide_modal } from "../../actions/modalActions";
 
-const Modal = (props) => {
+const Modal = ({ modal, hide_modal }) => {
   const [login, setLogin] = useState({
     showLogin: true,
   });
@@ -36,9 +37,9 @@ const Modal = (props) => {
     }
     // outside click
     // check if modal is open
-    if (props.modal.payload) {
+    if (modal) {
       // dispatch action to hide modal
-      props.hide_modal();
+      hide_modal();
     }
   };
 
@@ -50,12 +51,7 @@ const Modal = (props) => {
   });
 
   return (
-    <div
-      style={[
-        { display: props.modal.payload ? "block" : "none" },
-        styles.modalOverlay,
-      ]}
-    >
+    <div style={[{ display: modal ? "block" : "none" }, styles.modalOverlay]}>
       <div style={styles.center}>
         <div style={styles.modalBox} ref={node}>
           <Button
@@ -86,6 +82,11 @@ const Modal = (props) => {
   );
 };
 
+Modal.propTypes = {
+  hide_modal: PropTypes.func.isRequired,
+  modal: PropTypes.bool.isRequired,
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     hide_modal: () => dispatch(hide_modal),
@@ -94,7 +95,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    modal: state.modal,
+    modal: state.modal.payload,
   };
 };
 

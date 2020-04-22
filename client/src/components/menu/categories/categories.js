@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import styles from "./style";
 import Radium from "radium";
+import styles from "./style";
 import Icon from "../../icons/Icon";
 
 class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categories: []
+      categories: [],
     };
   }
 
@@ -16,24 +16,25 @@ class Categories extends Component {
       .then((res) => res.json())
       .then((data) => {
         this.setState({
-          categories: data
+          categories: data,
         });
       });
   }
 
   toggleSubItem = (id) => {
-    let newArray = { ...this.state.categories };
+    const newArray = { ...this.state.categories };
     newArray[id].show = !newArray[id].show;
     this.setState({ newArray });
   };
-  render() {
-    let { categories } = this.state;
 
-    let categoryList = categories.map((category, _id) => {
-      let subcategories = category.subcategories.map((subcategory, _id) => {
+  render() {
+    const { categories } = this.state;
+
+    const categoryList = categories.map((category, _id) => {
+      const subcategories = category.subcategories.map((subcategory, _id) => {
         return (
           <li
-            key={"subcategory" + subcategory._id}
+            key={`subcategory${subcategory._id}`}
             style={[styles.subCategory, styles.item]}
           >
             {subcategory.title}
@@ -45,7 +46,7 @@ class Categories extends Component {
         <div style={styles.base}>
           <ul style={{ padding: "0", margin: "0px" }}>
             <li
-              key={"category" + _id}
+              key={`category${_id}`}
               style={[
                 styles.item,
                 styles.category,
@@ -53,8 +54,8 @@ class Categories extends Component {
                   borderLeft: category.show
                     ? `5px solid #C61017`
                     : "5px solid white",
-                  backgroundColor: category.show ? `#FAFAFA` : "white"
-                }
+                  backgroundColor: category.show ? `#FAFAFA` : "white",
+                },
               ]}
               onClick={this.toggleSubItem.bind(this, _id)}
               _id={_id}
@@ -65,14 +66,14 @@ class Categories extends Component {
                   gridTemplateColumns: "90% 10%",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  width: "90%"
+                  width: "90%",
                 }}
               >
                 {category.title}
                 <span
                   style={[
                     category.show ? styles.rotateIcon : "",
-                    { display: "inline-block" }
+                    { display: "inline-block" },
                   ]}
                 >
                   <Icon icon="typcn typcn-chevron-right" color="secondary" />
