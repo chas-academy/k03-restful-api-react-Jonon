@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Radium from "radium";
 import styles from "./style";
 import Icon from "../../icons/Icon";
 
-class Categories extends Component {
+const Categories = () => {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +27,6 @@ class Categories extends Component {
     this.setState({ newArray });
   };
 
-  render() {
     const { categories } = this.state;
 
     const categoryList = categories.map((category, _id) => {
@@ -90,5 +89,5 @@ class Categories extends Component {
 
     return <div>{categoryList}</div>;
   }
-}
+
 export default Radium(Categories);
