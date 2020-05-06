@@ -4,60 +4,49 @@ import styles from "./style";
 import Icon from "../../icons/Icon";
 
 const Categories = () => {
-  constructor(props) {
-    super(props);
-    this.state = {
-      categories: [],
-    };
-  }
+  const [categories, setCategories] = useState([]);
 
-  componentDidMount() {
+  const getData = () => {
     fetch("/categories")
       .then((res) => res.json())
       .then((data) => {
-        this.setState({
-          categories: data,
-        });
+        setCategories(data);
       });
-  }
-
-  toggleSubItem = (id) => {
-    const newArray = { ...this.state.categories };
-    newArray[id].show = !newArray[id].show;
-    this.setState({ newArray });
   };
 
-    const { categories } = this.state;
+  useEffect(() => {
+    getData();
+  }, []);
 
-    const categoryList = categories.map((category, _id) => {
-      const subcategories = category.subcategories.map((subcategory, _id) => {
-        return (
-          <li
-            key={`subcategory${subcategory._id}`}
-            style={[styles.subCategory, styles.item]}
-          >
-            {subcategory.title}
-          </li>
-        );
-      });
+  const toggleSubItem = (id) => {
+    // copy array
+    const newArray = [...categories];
+    // check if array is empty
+    if (newArray[id].subcategories.length) {
+      newArray[id].show = !newArray[id].show;
+      setCategories([...categories]);
+    }
+  };
 
-      return (
-        <div style={styles.base}>
-          <ul style={{ padding: "0", margin: "0px" }}>
-            <li
-              key={`category${_id}`}
+  return (
+    <div style={styles.base}>
+      {categories.map((item, id) => (
+        <ul style={{ padding: "0", margin: "0px" }} key={item.title}>
+          <li>
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={() => toggleSubItem(id)}
+              key={item._id}
+              onKeyDown={toggleSubItem}
               style={[
                 styles.item,
                 styles.category,
                 {
-                  borderLeft: category.show
-                    ? `5px solid #C61017`
-                    : "5px solid white",
-                  backgroundColor: category.show ? `#FAFAFA` : "white",
+                  borderLeft: item.show ? `5px solid #C61017` : "5px solid white",
+                  backgroundColor: item.show ? `#FAFAFA` : "white",
                 },
               ]}
-              onClick={this.toggleSubItem.bind(this, _id)}
-              _id={_id}
             >
               <div
                 style={{
@@ -68,26 +57,29 @@ const Categories = () => {
                   width: "90%",
                 }}
               >
-                {category.title}
+                {item.title}
                 <span
                   style={[
-                    category.show ? styles.rotateIcon : "",
+                    item.show ? styles.rotateIcon : "",
                     { display: "inline-block" },
                   ]}
                 >
                   <Icon icon="typcn typcn-chevron-right" color="secondary" />
                 </span>
               </div>
-            </li>
-            <div style={[{ display: category.show ? "block" : "none" }]}>
-              {subcategories}
             </div>
-          </ul>
-        </div>
-      );
-    });
-
-    return <div>{categoryList}</div>;
-  }
+          </li>
+          <div style={{ display: item.show ? "block" : "none" }}>
+            {item.subcategories.map((subItem) => (
+              <li key={subItem._id} style={[styles.subCategory, styles.item]}>
+                {subItem.title}
+              </li>
+            ))}
+          </div>
+        </ul>
+      ))}
+    </div>
+  );
+};
 
 export default Radium(Categories);
