@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import "./style.css";
 import Radium from "radium";
@@ -25,7 +26,7 @@ const Slider = (props) => {
   });
 
   const nextSlide = () => {
-    if (index < images.items.length - size) {
+    if (images.index < images.items.length - size) {
       setImages((currentState) => {
         return {
           ...currentState,
@@ -46,13 +47,13 @@ const Slider = (props) => {
     }
   };
 
-  let { index, items } = images;
+  const { index, items } = images;
 
   const imageSet = items
-    .slice(index, index + props.size)
+    .slice(index, index + size)
     // Slicing correct number of items by first taking the index and then the size we get from prop.size.
-    .map((url, idx) => {
-      return <img src={url} style={style.poster} alt="poster" key={url + idx} />;
+    .map((url) => {
+      return <img src={url} style={style.poster} alt="poster" key={url + index} />;
     });
 
   return (
@@ -66,12 +67,20 @@ const Slider = (props) => {
           <div style={style.buttons}>
             <span
               className="typcn typcn-chevron-left"
+              role="button"
+              onKeyDown={prevSlide}
+              tabIndex={0}
+              aria-label="Previous slide"
               key="btn + 1"
               style={[style.slideButton, style.prevSlide]}
               onClick={prevSlide}
             />
             <span
               className="typcn typcn-chevron-right"
+              role="button"
+              onKeyDown={nextSlide}
+              tabIndex={0}
+              aria-label="Next slide"
               key="btn + 2"
               style={[style.slideButton, style.nextSlide]}
               onClick={nextSlide}
@@ -82,6 +91,10 @@ const Slider = (props) => {
       </div>
     </div>
   );
+};
+
+Slider.propTypes = {
+  size: PropTypes.number.isRequired,
 };
 
 export default Radium(Slider);
