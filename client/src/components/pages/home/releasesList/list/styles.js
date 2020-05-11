@@ -68,10 +68,17 @@ const style = {
   },
   prevSlide: {
     left: "0",
-    marginLeft: "0.5rem",
+    marginLeft: "0px",
   },
   nextSlide: {
     right: "0",
+    marginRight: "20px",
+    "@media (min-width: 768px) and (max-width: 1024px)": {
+      marginRight: "30px",
+    },
+    "@media (min-width: 1025px)": {
+      marginRight: "55px",
+    },
   },
 };
 
