@@ -6,6 +6,7 @@ const styles = {
     paddingLeft: "2rem",
     paddingTop: "1rem",
     paddingBottom: "1rem",
+    lineHeight: "2rem",
     cursor: "pointer",
     fontFamily: "Roboto, sans-serif",
   },

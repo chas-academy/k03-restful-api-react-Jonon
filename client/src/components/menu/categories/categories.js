@@ -30,6 +30,9 @@ const Categories = () => {
 
   return (
     <div style={styles.base}>
+      <ul style={{ padding: "0", margin: "0px" }}>
+        <li style={[styles.item, styles.category]}>All</li>
+      </ul>
       {categories.map((item, id) => (
         <ul style={{ padding: "0", margin: "0px" }} key={item.title}>
           <li>
