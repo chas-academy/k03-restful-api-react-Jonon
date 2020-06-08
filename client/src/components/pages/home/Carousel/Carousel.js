@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Radium from "radium";
 import image1 from "./images/image1.png";
 import image2 from "./images/image2.jpg";
 import image3 from "./images/image3.jpg";
@@ -7,24 +8,21 @@ import image4 from "./images/image4.jpg";
 import image5 from "./images/image5.jpg";
 import image6 from "./images/image6.jpg";
 // styles
-import Radium from "radium";
 import carouselStyle from "./carouselStyle";
 
 const timeBetweenImages = 5000;
 
-class Carousel extends Component {
-  constructor(props) {
-    super(props);
+const Carousel = () => {
 
     this.state = {
       images: [image1, image2, image3, image4, image5, image6],
       idx: 0,
       selected: {
-        color: `white`
+        color: `white`,
       },
       notSelected: {
-        color: `rgba(256, 256, 256, 0.6)`
-      }
+        color: `rgba(256, 256, 256, 0.6)`,
+      },
     };
   }
 
@@ -54,7 +52,7 @@ class Carousel extends Component {
         onClick={this.onClickChangeActiveImage.bind(this, index)}
         style={[
           carouselStyle.bullet,
-          this.state.idx !== index ? this.state.notSelected : this.state.selected
+          this.state.idx !== index ? this.state.notSelected : this.state.selected,
         ]}
       />
     ));
@@ -74,6 +72,5 @@ class Carousel extends Component {
       </div>
     );
   }
-}
 
 export default Radium(Carousel);
