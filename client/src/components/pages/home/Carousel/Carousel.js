@@ -69,8 +69,11 @@ const Carousel = () => {
 
   const controller = carousel.images.map((controller, index) => (
     <li
-      key={index}
       onClick={() => onClickChangeActiveImage(index)}
+      role="menuitem"
+      aria-label="Change Active Image"
+      onKeyDown={() => onClickChangeActiveImage(index)}
+      key={controller}
       style={[
         carouselStyle.bullet,
         carousel.idx !== index ? carousel.notSelected : carousel.selected,
