@@ -45,8 +45,6 @@ const Header = (props) => {
             <HamburgerMenu />
           </div>
 
-          {/* push nav */}
-          <div style={{ marginTop: "2.5rem" }} />
           <DropdownMenu />
         </div>
 

@@ -19,10 +19,12 @@ const App = () => {
       <div style={appStyle.stickyFooter.container}>
         <Router>
           <Header />
+          {/* push content under header */}
+          <div style={{ marginTop: "2.5rem" }} />
           <div style={appStyle.stickyFooter.maincontent}>
             <Switch>
               <Route path="/" component={Home} exact />
-              <Route path="/products/:category" component={ProductsList} exact />
+              <Route path="/products/" component={ProductsList} exact />
               <Route
                 path="/products/:category/:subcategory"
                 component={ProductsList}
