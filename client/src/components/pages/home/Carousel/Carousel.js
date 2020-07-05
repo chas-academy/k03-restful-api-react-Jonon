@@ -25,13 +25,6 @@ const Carousel = () => {
   });
 
   const nextImage = () => {
-    // const current = carousel.idx.length;
-    // let next = carousel.idx++;
-
-    /* if (next >= carousel.images.length) {
-      next = 0;
-    } */
-
     setCarousel((currentState) => {
       return {
         ...currentState,
@@ -39,7 +32,7 @@ const Carousel = () => {
       };
     });
 
-    // prevent subtract to prevent index from counting beyond the amount of images
+    // subtract to prevent index from counting beyond the amount of images
     if (carousel.idx > carousel.images.length - 2) {
       setCarousel((currentState) => {
         return {
