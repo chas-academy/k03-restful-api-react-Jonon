@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from "react";
 import Radium from "radium";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import style from "./style";
 import Button from "../../../buttons/Button";
 
 const ProductList = (props) => {
+  const { location } = props;
   const [items, setItems] = useState({
     items: [],
   });
 
   useEffect(() => {
-    fetch(`${props.location.pathname}`)
+    fetch(`${location.pathname}`)
       .then((res) => res.json())
       .then((data) => {
         setItems({
           items: data,
         });
       });
-  }, []);
+  }, [location.pathname]);
 
   const comics = items.items.map((item) => {
     return (
@@ -45,6 +47,10 @@ const ProductList = (props) => {
       </div>
     </div>
   );
+};
+
+ProductList.propTypes = {
+  location: PropTypes.string.isRequired,
 };
 
 export default Radium(ProductList);
