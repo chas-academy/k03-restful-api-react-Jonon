@@ -28,7 +28,7 @@ const ProductList = (props) => {
         key={item._id}
       >
         <div style={{ flex: "1" }}>
-          <Link to={`${props.location.pathname}/${item._id}`}>
+          <Link to={`${item.category[0]}/${item.series}/${item._id}`}>
             <li style={{ padding: "1rem" }} key={item._id}>
               <img src={item.poster} style={style.image} alt="poster" />
               <h3 style={[style.posterText, style.title]}>{item.title}</h3>
