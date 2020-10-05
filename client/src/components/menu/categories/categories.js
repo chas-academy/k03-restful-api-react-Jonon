@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Radium from "radium";
+import { Link } from "react-router-dom";
 import styles from "./style";
 import Icon from "../../icons/Icon";
 
@@ -31,52 +32,58 @@ const Categories = () => {
   return (
     <div style={styles.base}>
       <ul style={{ padding: "0", margin: "0px" }}>
-        <li style={[styles.item, styles.category]}>All</li>
+        <Link to="/products/All">
+          <li style={[styles.item, styles.category]}>All</li>
+        </Link>
       </ul>
       {categories.map((item, id) => (
         <ul style={{ padding: "0", margin: "0px" }} key={item.title}>
-          <li>
-            <div
-              role="button"
-              tabIndex={0}
-              onClick={() => toggleSubItem(id)}
-              key={item._id}
-              onKeyDown={toggleSubItem}
-              style={[
-                styles.item,
-                styles.category,
-                {
-                  borderLeft: item.show ? `5px solid #C61017` : "5px solid white",
-                  backgroundColor: item.show ? `#FAFAFA` : "white",
-                },
-              ]}
-            >
+          <Link to={`/products/${item.title}`}>
+            <li>
               <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "90% 10%",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  width: "90%",
-                }}
+                role="button"
+                tabIndex={0}
+                onClick={() => toggleSubItem(id)}
+                key={item._id}
+                onKeyDown={toggleSubItem}
+                style={[
+                  styles.item,
+                  styles.category,
+                  {
+                    borderLeft: item.show ? `5px solid #C61017` : "5px solid white",
+                    backgroundColor: item.show ? `#FAFAFA` : "white",
+                  },
+                ]}
               >
-                {item.title}
-                <span
-                  style={[
-                    item.show ? styles.rotateIcon : "",
-                    { display: "inline-block" },
-                  ]}
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "90% 10%",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "90%",
+                  }}
                 >
-                  <Icon icon="typcn typcn-chevron-right" color="secondary" />
-                </span>
+                  {item.title}
+                  <span
+                    style={[
+                      item.show ? styles.rotateIcon : "",
+                      { display: "inline-block" },
+                    ]}
+                  >
+                    <Icon icon="typcn typcn-chevron-right" color="secondary" />
+                  </span>
+                </div>
               </div>
-            </div>
-          </li>
+            </li>
+          </Link>
           <div style={{ display: item.show ? "block" : "none" }}>
             {item.subcategories.map((subItem) => (
-              <li key={subItem._id} style={[styles.subCategory, styles.item]}>
-                {subItem.title}
-              </li>
+              <Link to={`/products/${item.title}/${subItem.title}`}>
+                <li key={subItem._id} style={[styles.subCategory, styles.item]}>
+                  {subItem.title}
+                </li>
+              </Link>
             ))}
           </div>
         </ul>
