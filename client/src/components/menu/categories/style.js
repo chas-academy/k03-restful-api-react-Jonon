@@ -25,7 +25,20 @@ const styles = {
       backgroundColor: "#F0F0F0",
     },
   },
-
+  activeArrow: {
+    borderLeft: "5px solid #C61017",
+    backgroundColor: "#FAFAFA",
+  },
+  inactiveArrow: {
+    borderLeft: "5px solid #FFFFFF",
+    backgroundColor: "#FFFFFF",
+  },
+  active: {
+    display: "block",
+  },
+  inactive: {
+    display: "none",
+  },
   rotateIcon: {
     transform: `rotate(90deg)`,
   },
