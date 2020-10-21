@@ -1,7 +1,7 @@
 import React from "react";
 import Radium from "radium";
 import Styles from "./style";
-import Categories from "./categories/categories";
+import Categories from "./categories/categoryItem";
 
 const Menu = () => {
   return (

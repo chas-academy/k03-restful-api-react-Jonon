@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./style";
 import Icon from "../../icons/Icon";
 
-import Subcategories from "./subcategories";
+import Subcategories from "./categorySubitem";
 
 const Categories = () => {
   const [active, setActive] = useState(null);
