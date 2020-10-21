@@ -6,7 +6,7 @@ import Icon from "../../icons/Icon";
 
 import Subcategories from "./categorySubitem";
 
-const Categories = () => {
+const CategoryItem = () => {
   const [active, setActive] = useState(null);
   const [categories, setCategories] = useState([]);
   const getData = () => {
@@ -83,4 +83,4 @@ const Categories = () => {
   );
 };
 
-export default Radium(Categories);
+export default Radium(CategoryItem);

@@ -3,7 +3,7 @@ import Radium from "radium";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Styles from "./style";
-import Categories from "./categories/categoryItem";
+import CategoryItem from "./categories/categoryItem";
 
 const DropdownMenu = (props) => {
   const { outside, menu } = props;
@@ -14,7 +14,7 @@ const DropdownMenu = (props) => {
     >
       <div style={Styles.dropdownBase}>
         <div style={Styles.hiddenScrollbar}>
-          <Categories />
+          <CategoryItem />
         </div>
       </div>
     </div>

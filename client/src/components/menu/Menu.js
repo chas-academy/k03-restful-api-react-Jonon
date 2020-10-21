@@ -1,7 +1,7 @@
 import React from "react";
 import Radium from "radium";
 import Styles from "./style";
-import Categories from "./categories/categoryItem";
+import CategoryItem from "./categories/categoryItem";
 
 const Menu = () => {
   return (
@@ -9,7 +9,7 @@ const Menu = () => {
       <div style={{ flex: "1", backgroundColor: "#FFFFFF" }}>
         <div style={[Styles.menuContainer]}>
           <div style={Styles.hiddenScrollbar}>
-            <Categories />
+            <CategoryItem />
           </div>
         </div>
       </div>
