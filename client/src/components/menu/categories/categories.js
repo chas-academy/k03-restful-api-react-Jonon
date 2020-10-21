@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import styles from "./style";
 import Icon from "../../icons/Icon";
 
+import Subcategories from "./subcategories";
+
 const Categories = () => {
   const [active, setActive] = useState(null);
   const [categories, setCategories] = useState([]);
@@ -71,9 +73,7 @@ const Categories = () => {
           <div style={[active === id ? styles.active : styles.inactive]}>
             {item.subcategories.map((subItem) => (
               <Link to={`/products/${item.title}/${subItem.title}`}>
-                <li key={subItem._id} style={[styles.subCategory, styles.item]}>
-                  {subItem.title}
-                </li>
+                <Subcategories title={subItem.title} />
               </Link>
             ))}
           </div>
