@@ -5,16 +5,13 @@ import styles from "./style";
 import Icon from "../../icons/Icon";
 
 const Categories = () => {
-  const [state, setState] = useState({
-    active: null,
-    categories: [],
-  });
-
+  const [active, setActive] = useState(null);
+  const [categories, setCategories] = useState([]);
   const getData = () => {
     fetch("/categories")
       .then((res) => res.json())
       .then((data) => {
-        setState({ ...state, categories: data });
+        setCategories(data);
       });
   };
 
@@ -23,7 +20,7 @@ const Categories = () => {
   }, []);
 
   const toggleSubItem = (id) => {
-    setState({ ...state, active: id });
+    setActive(id);
   };
 
   return (
@@ -33,7 +30,7 @@ const Categories = () => {
           <li style={[styles.item, styles.category]}>All</li>
         </Link>
       </ul>
-      {state.categories.map((item, id) => (
+      {categories.map((item, id) => (
         <ul style={{ padding: "0", margin: "0px" }} key={item.title}>
           <Link to={`/products/${item.title}`}>
             <li>
@@ -46,7 +43,7 @@ const Categories = () => {
                 style={[
                   styles.item,
                   styles.category,
-                  state.active === id ? styles.activeArrow : styles.inactiveArrow,
+                  active === id ? styles.activeArrow : styles.inactiveArrow,
                 ]}
               >
                 <div
@@ -61,7 +58,7 @@ const Categories = () => {
                   {item.title}
                   <span
                     style={[
-                      state.active === id ? styles.rotateIcon : "",
+                      active === id ? styles.rotateIcon : "",
                       { display: "inline-block" },
                     ]}
                   >
@@ -71,7 +68,7 @@ const Categories = () => {
               </div>
             </li>
           </Link>
-          <div style={state.active === id ? styles.active : styles.inactive}>
+          <div style={[active === id ? styles.active : styles.inactive]}>
             {item.subcategories.map((subItem) => (
               <Link to={`/products/${item.title}/${subItem.title}`}>
                 <li key={subItem._id} style={[styles.subCategory, styles.item]}>
