@@ -2,6 +2,9 @@ const styles = {
   base: {
     listStyle: "none",
   },
+  link: {
+    textDecoration: "none",
+  },
   item: {
     paddingLeft: "2rem",
     paddingTop: "1rem",
