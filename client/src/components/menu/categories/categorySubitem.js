@@ -1,9 +1,23 @@
 import React from "react";
 import Radium from "radium";
-import styles from "./style";
+import { Link } from "react-router-dom";
+import styles from "./categorySubitem.style";
 
-const Subcategories = ({ title }) => {
-  return <li style={[styles.subCategory, styles.item]}>{title}</li>;
+const CategorySubitem = ({ categorySubitem, category }) => {
+  return (
+    <div>
+      <Link to={`/products/${category}/`}>
+        <li style={[styles.subCategory, styles.item]}>All</li>
+      </Link>
+      {categorySubitem.map((subitem, id) => (
+        <Link to={`/products/${category}/${subitem.title}`}>
+          <li key={id} style={[styles.subCategory, styles.item]}>
+            {subitem.title}
+          </li>
+        </Link>
+      ))}
+    </div>
+  );
 };
 
-export default Radium(Subcategories);
+export default Radium(CategorySubitem);

@@ -1,4 +1,14 @@
 const styles = {
+  link: {
+    textDecoration: "none",
+    outline: "0",
+    boxShadow: "none",
+    color: "#3F474A",
+    ":focus": {
+      outline: "0",
+      boxShadow: "none",
+    },
+  },
   base: {
     listStyle: "none",
   },
@@ -16,13 +26,6 @@ const styles = {
     ":hover": {
       borderLeft: "5px solid #C61017",
       backgroundColor: "#FAFAFA",
-    },
-  },
-  subCategory: {
-    fontWeight: "200",
-    backgroundColor: "#FAFAFA",
-    ":hover": {
-      backgroundColor: "#F0F0F0",
     },
   },
   activeArrow: {
