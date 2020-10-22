@@ -6,11 +6,11 @@ import styles from "./categorySubitem.style";
 const CategorySubitem = ({ categorySubitem, category }) => {
   return (
     <div>
-      <Link to={`/products/${category}/`}>
+      <Link style={styles.link} to={`/products/${category}/`}>
         <li style={[styles.subCategory, styles.item]}>All</li>
       </Link>
       {categorySubitem.map((subitem, id) => (
-        <Link to={`/products/${category}/${subitem.title}`}>
+        <Link style={styles.link} to={`/products/${category}/${subitem.title}`}>
           <li key={id} style={[styles.subCategory, styles.item]}>
             {subitem.title}
           </li>

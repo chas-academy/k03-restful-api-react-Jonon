@@ -1,14 +1,4 @@
 const styles = {
-  link: {
-    textDecoration: "none",
-    outline: "0",
-    boxShadow: "none",
-    color: "#3F474A",
-    ":focus": {
-      outline: "0",
-      boxShadow: "none",
-    },
-  },
   base: {
     listStyle: "none",
   },

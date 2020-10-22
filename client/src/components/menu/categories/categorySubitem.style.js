@@ -14,6 +14,9 @@ const styles = {
       backgroundColor: "#F0F0F0",
     },
   },
+  link: {
+    textDecoration: "none",
+  },
 };
 
 export default styles;
