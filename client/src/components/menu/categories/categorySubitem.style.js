@@ -16,6 +16,7 @@ const styles = {
   },
   link: {
     textDecoration: "none",
+    color: "#3F474A",
   },
 };
 

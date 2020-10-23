@@ -16,6 +16,7 @@ const styles = {
   category: {
     fontWeight: "400",
     borderLeft: "5px solid white",
+    color: "#3F474A",
     ":hover": {
       borderLeft: "5px solid #C61017",
       backgroundColor: "#FAFAFA",
