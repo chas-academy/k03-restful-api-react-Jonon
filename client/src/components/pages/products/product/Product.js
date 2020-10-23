@@ -3,7 +3,7 @@ import Radium from "radium";
 import Button from "../../../buttons/Button";
 import styles from "./style";
 
-class Product extends Component {
+const Product = () => {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,9 +24,6 @@ class Product extends Component {
         });
       });
   }
-
-  render() {
-    const { items } = this.state;
 
     return (
       <div style={[styles.base, styles.threeColumns]}>
@@ -92,6 +89,5 @@ class Product extends Component {
       </div>
     );
   }
-}
 
 export default Radium(Product);
