@@ -27,7 +27,7 @@ const CategoryItem = () => {
   return (
     <div style={styles.base}>
       <ul style={{ padding: "0", margin: "0px" }}>
-        <Link style={styles.link} to="/products/All">
+        <Link style={styles.link} to="/products/All/">
           <li style={[styles.item, styles.category]}>All</li>
         </Link>
       </ul>
