@@ -16,9 +16,7 @@ const Product = () => {
       });
   };
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+  useEffect(getProducts, []);
 
   return (
     <div style={[styles.base, styles.threeColumns]}>
@@ -27,7 +25,8 @@ const Product = () => {
           <img src={items.poster} style={styles.image} alt="poster" />
           <h3>{items.title}</h3>
           <h4>
-            Price <span>{items.price}</span>
+            Price
+            <span>{items.price}</span>
           </h4>
           <Button title="Add to cart" kind="primary" width="100%" size="lg" />
         </div>
