@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import Radium from "radium";
-import Button from "../../../buttons/Button";
+import Button from "../../../components/buttons/Button";
 import styles from "./style";
 
 const Product = () => {

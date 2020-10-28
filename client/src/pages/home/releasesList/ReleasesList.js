@@ -1,7 +1,7 @@
 import React from "react";
 import Radium from "radium";
 import Slider from "./list/Slider";
-import useWindowDimensions from "../../../../hooks/useWindowDimensions";
+import useWindowDimensions from "../../../hooks/useWindowDimensions";
 
 const ReleasesList = () => {
   const dimensions = useWindowDimensions();
