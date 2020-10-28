@@ -6,12 +6,12 @@ import Radium, { StyleRoot } from "radium";
 import appStyle from "./appStyle";
 
 // components
-import Home from "../pages/home/Home";
-import Header from "./header/Header";
-import Footer from "./footer/Footer";
-import Error from "../pages/error/Error";
-import ProductsList from "../pages/products/productList/ProductList";
-import Product from "../pages/products/product/Product";
+import Home from "./pages/home/Home";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import Error from "./pages/error/Error";
+import ProductsList from "./pages/products/productList/ProductList";
+import Product from "./pages/products/product/Product";
 
 const App = () => {
   return (
