@@ -2,28 +2,34 @@ import React from "react";
 import Radium from "radium";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Styles from "./style";
-import CategoryItem from "./categories/categoryItem";
+import styles from "./style";
+import { show_menu } from "../../actions/menuActions";
 
 const DropdownMenu = (props) => {
-  const { outside, menu } = props;
+  const { outside, menu, show_menu, children } = props;
   return (
     <div
       ref={outside}
-      style={[{ display: menu ? "block" : "none" }, Styles.dropdownContainer]}
+      style={[{ display: menu ? "block" : "none" }, styles.dropdownContainer]}
     >
-      <div style={Styles.dropdownBase}>
-        <div style={Styles.hiddenScrollbar}>
-          <CategoryItem />
-        </div>
-      </div>
+      <div onClick={show_menu} style={styles.backdrop}></div>
+      <div style={styles.content}>{children}</div>
     </div>
   );
 };
 
 DropdownMenu.propTypes = {
   menu: PropTypes.func.isRequired,
+  show_menu: PropTypes.func.isRequired,
   outside: PropTypes.bool.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    show_menu: () => {
+      dispatch(show_menu);
+    },
+  };
 };
 
 const mapToProps = (state) => {
@@ -32,4 +38,4 @@ const mapToProps = (state) => {
   };
 };
 
-export default connect(mapToProps, null)(Radium(DropdownMenu));
+export default connect(mapToProps, mapDispatchToProps)(Radium(DropdownMenu));

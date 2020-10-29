@@ -1,28 +1,29 @@
 const styles = {
-  dropdownBase: {
-    position: "fixed",
-    zIndex: "11",
-    backgroundColor: "#FFFFFF",
-    height: "100%",
-    width: "20rem",
-    boxShadow: "1px 0px 4px 0px rgba(0, 0, 0, 0.5)",
-    marginTop: "2.5rem",
-  },
   dropdownContainer: {
     position: "fixed",
     zIndex: "13",
     top: "0",
     left: "0",
-    paddingRight: "1rem",
+    right: "0",
+    bottom: "0",
   },
-  hiddenScrollbar: {
-    overflowY: "scroll",
-    scrollbarWidth: "none",
+  backdrop: {
+    width: "100%",
     height: "100%",
+    position: "fixed",
+    zIndex: "100",
+    left: "0",
+    top: "0",
   },
-  menuContainer: {
+  content: {
+    backgroundColor: "#FFFFFF",
+    position: "relative",
+    width: "20rem",
+    height: "100%",
+    overflowY: "auto",
+    marginTop: "2.5rem",
     boxShadow: "1px 0px 4px 0px rgba(0, 0, 0, 0.5)",
-    height: "100%",
+    zIndex: "101",
   },
 };
 
