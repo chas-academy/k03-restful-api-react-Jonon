@@ -7,6 +7,7 @@ import HamburgerMenu from "./hamburgerMenu/HamburgerMenu";
 import UserIconButton from "./userIconButton/UserIconButton";
 import Cart from "./cart/Cart";
 import DropdownMenu from "../menu/DropdownMenu";
+import CategoryItem from "../menu/categories/categoryItem";
 
 // styles
 import styles from "./headerStyle";
@@ -45,7 +46,9 @@ const Header = (props) => {
             <HamburgerMenu />
           </div>
 
-          <DropdownMenu />
+          <DropdownMenu>
+            <CategoryItem />
+          </DropdownMenu>
         </div>
 
         <Link to="/">
