@@ -12,7 +12,14 @@ const DropdownMenu = (props) => {
       ref={outside}
       style={[{ display: menu ? "block" : "none" }, styles.dropdownContainer]}
     >
-      <div onClick={show_menu} style={styles.backdrop}></div>
+      <div
+        onClick={show_menu}
+        onKeyDown={show_menu}
+        role="button"
+        tabIndex={0}
+        aria-label="show menu"
+        style={styles.backdrop}
+      />
       <div style={styles.content}>{children}</div>
     </div>
   );
@@ -22,6 +29,7 @@ DropdownMenu.propTypes = {
   menu: PropTypes.func.isRequired,
   show_menu: PropTypes.func.isRequired,
   outside: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => {
