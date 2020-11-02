@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 // styles
@@ -11,6 +11,7 @@ import Footer from "./components/footer/Footer";
 
 // Routes
 import Routes from "./routes";
+import Modal from "./components/modal/modal";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <div style={appStyle.stickyFooter.maincontent}>
             <Routes />
           </div>
+          <Modal />
           <Footer />
         </Router>
       </div>
