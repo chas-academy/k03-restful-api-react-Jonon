@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Radium from "radium";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -27,33 +27,11 @@ const Modal = ({ modal, hide_modal }) => {
     setRegister({ showRegister: true });
   };
 
-  const node = useRef();
-
-  const handleClick = (e) => {
-    if (node.current.contains(e.target)) {
-      // inside click
-      // stop propagation
-      return false;
-    }
-    // outside click
-    // check if modal is open
-    if (modal) {
-      // dispatch action to hide modal
-      hide_modal();
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("click", handleClick);
-    return () => {
-      document.removeEventListener("click", handleClick);
-    };
-  });
-
   return (
-    <div style={[{ display: modal ? "block" : "none" }, styles.modalOverlay]}>
-      <div style={styles.center}>
-        <div style={styles.modalBox} ref={node}>
+    <div style={{ display: modal ? "block" : "none" }}>
+      <div role="button" onClick={hide_modal} style={styles.modalOverlay} />
+      <div style={styles.modalStyles}>
+        <div style={styles.modalBox}>
           <Button
             title="Login"
             width="50%"
