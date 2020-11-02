@@ -29,7 +29,14 @@ const Modal = ({ modal, hide_modal }) => {
 
   return (
     <div style={{ display: modal ? "block" : "none" }}>
-      <div role="button" onClick={hide_modal} style={styles.modalOverlay} />
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={hide_modal}
+        onKeyDown={hide_modal}
+        style={styles.modalOverlay}
+        aria-label="Hide modal"
+      />
       <div style={styles.modalStyles}>
         <div style={styles.modalBox}>
           <Button
