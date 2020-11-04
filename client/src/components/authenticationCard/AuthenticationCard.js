@@ -4,46 +4,29 @@ import Login from "./forms/login/Login";
 import Register from "./forms/register/Register";
 
 const AuthenticationCard = () => {
-  const [login, setLogin] = useState({
-    showLogin: true,
-  });
-  const [register, setRegister] = useState({
-    showRegister: false,
-  });
+  // false = login
+  // true = register
+  const [activeTab, setActiveTab] = useState(false);
 
-  const showLogin = () => {
-    setLogin({ showLogin: true });
-    setRegister({ showRegister: false });
-  };
-
-  const showRegister = () => {
-    setLogin({ showLogin: false });
-    setRegister({ showRegister: true });
-  };
   return (
     <div>
       <Button
         title="Login"
         width="50%"
-        kind={login.showLogin ? "secondary" : "primary"}
+        kind={!activeTab ? "secondary" : "primary"}
         fontFamily="Fjalla One, sans-serif"
         size="md"
-        onClick={showLogin}
+        onClick={() => setActiveTab(false)}
       />
       <Button
         title="Register"
         width="50%"
-        kind={register.showRegister ? "secondary" : "primary"}
+        kind={activeTab ? "secondary" : "primary"}
         fontFamily="Fjalla One, sans-serif"
         size="md"
-        onClick={showRegister}
+        onClick={() => setActiveTab(true)}
       />
-      <div style={{ display: login.showLogin ? "block" : "none" }}>
-        <Login />
-      </div>
-      <div style={{ display: register.showRegister ? "block" : "none" }}>
-        <Register />
-      </div>
+      {!activeTab ? <Login /> : <Register />}
     </div>
   );
 };
