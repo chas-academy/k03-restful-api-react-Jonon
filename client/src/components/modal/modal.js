@@ -1,32 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import Radium from "radium";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+// styles
 import styles from "./style";
-
-import Login from "./forms/login/Login";
-import Register from "./forms/register/Register";
-import Button from "../buttons/Button";
+// Action
 import { hide_modal } from "../../actions/modalActions";
 
-const Modal = ({ modal, hide_modal }) => {
-  const [login, setLogin] = useState({
-    showLogin: true,
-  });
-  const [register, setRegister] = useState({
-    showRegister: false,
-  });
-
-  const showLogin = () => {
-    setLogin({ showLogin: true });
-    setRegister({ showRegister: false });
-  };
-
-  const showRegister = () => {
-    setLogin({ showLogin: false });
-    setRegister({ showRegister: true });
-  };
-
+const Modal = ({ modal, hide_modal, children }) => {
   return (
     <div style={{ display: modal ? "block" : "none" }}>
       <div
@@ -38,30 +19,7 @@ const Modal = ({ modal, hide_modal }) => {
         aria-label="Hide modal"
       />
       <div style={styles.modalStyles}>
-        <div style={styles.modalBox}>
-          <Button
-            title="Login"
-            width="50%"
-            kind={login.showLogin ? "secondary" : "primary"}
-            fontFamily="Fjalla One, sans-serif"
-            size="md"
-            onClick={showLogin}
-          />
-          <Button
-            title="Register"
-            width="50%"
-            kind={register.showRegister ? "secondary" : "primary"}
-            fontFamily="Fjalla One, sans-serif"
-            size="md"
-            onClick={showRegister}
-          />
-          <div style={{ display: login.showLogin ? "block" : "none" }}>
-            <Login />
-          </div>
-          <div style={{ display: register.showRegister ? "block" : "none" }}>
-            <Register />
-          </div>
-        </div>
+        <div style={styles.modalBox}>{children}</div>
       </div>
     </div>
   );
@@ -70,6 +28,7 @@ const Modal = ({ modal, hide_modal }) => {
 Modal.propTypes = {
   hide_modal: PropTypes.func.isRequired,
   modal: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => {
