@@ -8,6 +8,7 @@ import appStyle from "./appStyle";
 // components
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import AuthenticationCard from "./components/authenticationCard/AuthenticationCard";
 
 // Routes
 import Routes from "./routes";
@@ -24,7 +25,9 @@ const App = () => {
           <div style={appStyle.stickyFooter.maincontent}>
             <Routes />
           </div>
-          <Modal />
+          <Modal>
+            <AuthenticationCard />
+          </Modal>
           <Footer />
         </Router>
       </div>
