@@ -1,14 +1,14 @@
 import React from "react";
-import Radium from "radium";
+import ReactDom from "react-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 // styles
-import styles from "./style";
+import styles from "./modal.style";
 // Action
 import { hide_modal } from "../../actions/modalActions";
 
 const Modal = ({ modal, hide_modal, children }) => {
-  return (
+  return ReactDom.createPortal(
     <div style={{ display: modal ? "block" : "none" }}>
       <div
         role="button"
@@ -21,7 +21,8 @@ const Modal = ({ modal, hide_modal, children }) => {
       <div style={styles.modalStyles}>
         <div style={styles.modalBox}>{children}</div>
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal-portal")
   );
 };
 
@@ -43,4 +44,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Radium(Modal));
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
