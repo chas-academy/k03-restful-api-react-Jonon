@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../buttons/Button";
-import Login from "./forms/login/Login";
-import Register from "./forms/register/Register";
+import Login from "./login/Login";
+import Register from "./register/Register";
 
 const AuthenticationCard = () => {
   // false = login

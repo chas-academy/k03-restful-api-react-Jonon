@@ -1,7 +1,7 @@
 import React from "react";
 import Radium from "radium";
-import styles from "../style";
-import Button from "../../../buttons/Button";
+import styles from "./style";
+import Button from "../../buttons/Button";
 
 const Login = () => {
   return (
