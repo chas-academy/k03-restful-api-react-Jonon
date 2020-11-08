@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import Radium from "radium";
+
+// components
 import HamburgerMenu from "./hamburgerMenu/HamburgerMenu";
 import UserIconButton from "./userIconButton/UserIconButton";
 import Cart from "./cart/Cart";
 import DropdownMenu from "../menu/DropdownMenu";
 import CategoryItem from "../menu/categories/categoryItem";
+import Logo from "./Logo";
 
 // styles
 import styles from "./headerStyle";
@@ -25,9 +28,7 @@ const Header = () => {
           </DropdownMenu>
         </div>
 
-        <Link to="/">
-          <h1 style={[styles.title, colors.color.primary]}>ComicHaven</h1>
-        </Link>
+        <Logo />
 
         <div style={[styles.layout.flex, { marginRight: "1rem" }]}>
           <UserIconButton />

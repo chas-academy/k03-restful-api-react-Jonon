@@ -15,9 +15,6 @@ const styles = {
       alignItems: "center",
     },
   },
-  title: {
-    fontSize: "1.2rem",
-  },
   icon: {
     color: "#FFFFFF",
     fontSize: "1.5rem",
