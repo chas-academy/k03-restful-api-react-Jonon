@@ -19,7 +19,6 @@ const styles = {
   },
   modalBox: {
     backgroundColor: "#FFFFFF",
-    width: "25rem",
   },
 };
 
