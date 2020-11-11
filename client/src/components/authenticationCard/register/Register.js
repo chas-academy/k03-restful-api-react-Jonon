@@ -16,8 +16,10 @@ const Register = () => {
           type="submit"
           width="91%"
           marginTop="2rem"
-          size="md"
+          size="lg"
+          fontSize="1rem"
         />
+        <p>Cancel</p>
       </form>
     </div>
   );
