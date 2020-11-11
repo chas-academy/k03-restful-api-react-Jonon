@@ -4,10 +4,6 @@ import PropTypes from "prop-types";
 import styles from "./style";
 
 class Button extends React.Component {
-  static propTypes = {
-    kind: PropTypes.oneOf(["primary", "secondary"]).isRequired
-  };
-
   render() {
     return (
       <button
@@ -20,8 +16,9 @@ class Button extends React.Component {
           {
             width: this.props.width,
             fontFamily: this.props.fontFamily,
-            marginTop: this.props.marginTop
-          }
+            fontSize: this.props.fontSize,
+            marginTop: this.props.marginTop,
+          },
         ]}
       >
         {this.props.title}
