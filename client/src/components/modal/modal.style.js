@@ -17,9 +17,6 @@ const styles = {
     boxShadow: "1px 0px 4px 0px rgba(0, 0, 0, 0.5)",
     borderRadius: "1%",
   },
-  modalBox: {
-    backgroundColor: "#FFFFFF",
-  },
 };
 
 export default styles;

@@ -18,9 +18,7 @@ const Modal = ({ modal, hide_modal, children }) => {
         style={styles.modalOverlay}
         aria-label="Hide modal"
       />
-      <div style={styles.modalStyles}>
-        <div style={styles.modalBox}>{children}</div>
-      </div>
+      <div style={styles.modalStyles}>{children}</div>
     </div>,
     document.getElementById("modal-portal")
   );
