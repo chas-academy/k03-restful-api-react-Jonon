@@ -3,28 +3,50 @@ import Radium from "radium";
 import PropTypes from "prop-types";
 import styles from "./style";
 
-class Button extends React.Component {
-  render() {
-    return (
-      <button
-        type={this.props.type}
-        onClick={() => this.props.onClick()}
-        style={[
-          styles.base,
-          styles[this.props.kind],
-          styles.size[this.props.size],
-          {
-            width: this.props.width,
-            fontFamily: this.props.fontFamily,
-            fontSize: this.props.fontSize,
-            marginTop: this.props.marginTop,
-          },
-        ]}
-      >
-        {this.props.title}
-      </button>
-    );
-  }
-}
+const Button = (props) => {
+  const {
+    type,
+    onClick,
+    kind,
+    size,
+    width,
+    fontFamily,
+    fontSize,
+    marginTop,
+    title,
+  } = props;
+  return (
+    // eslint-disable-next-line react/button-has-type
+    <button
+      type={type}
+      onClick={() => onClick()}
+      style={[
+        styles.base,
+        styles[kind],
+        styles.size[size],
+        {
+          width,
+          fontFamily,
+          fontSize,
+          marginTop,
+        },
+      ]}
+    >
+      {title}
+    </button>
+  );
+};
+
+Button.propTypes = {
+  type: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  kind: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
+  width: PropTypes.string.isRequired,
+  fontFamily: PropTypes.string.isRequired,
+  fontSize: PropTypes.string.isRequired,
+  marginTop: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default Radium(Button);
