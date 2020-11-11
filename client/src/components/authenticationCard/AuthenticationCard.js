@@ -21,28 +21,32 @@ const AuthenticationCard = () => {
     height: `${size.height}px`,
     width: `${size.width}px`,
     "@media (min-width: 768px)": {
-      height: "20rem",
+      height: "100%",
       width: "25rem",
     },
   };
   return (
-    <div style={boxSize}>
-      <Button
-        title="Login"
-        width="50%"
-        kind={!activeTab ? "secondary" : "primary"}
-        fontFamily="Fjalla One, sans-serif"
-        size="md"
-        onClick={() => setActiveTab(false)}
-      />
-      <Button
-        title="Register"
-        width="50%"
-        kind={activeTab ? "secondary" : "primary"}
-        fontFamily="Fjalla One, sans-serif"
-        size="md"
-        onClick={() => setActiveTab(true)}
-      />
+    <div style={[boxSize, Styles.centerColumn]}>
+      <div>
+        <Button
+          title="Login"
+          width="50%"
+          kind={!activeTab ? "secondary" : "primary"}
+          fontFamily="Fjalla One, sans-serif"
+          fontSize="1rem"
+          size="lg"
+          onClick={() => setActiveTab(false)}
+        />
+        <Button
+          title="Register"
+          width="50%"
+          kind={activeTab ? "secondary" : "primary"}
+          fontFamily="Fjalla One, sans-serif"
+          fontSize="1rem"
+          size="lg"
+          onClick={() => setActiveTab(true)}
+        />
+      </div>
       <Logo />
       {!activeTab ? <Login /> : <Register />}
     </div>
