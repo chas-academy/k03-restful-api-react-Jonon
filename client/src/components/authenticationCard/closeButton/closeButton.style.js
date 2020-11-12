@@ -1,5 +1,3 @@
-const { default: style } = require("../../../assets/form/input.style");
-
 const styles = {
   cursor: "pointer",
   fontFamily: "Roboto, sans-serif",
