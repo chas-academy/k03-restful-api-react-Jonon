@@ -21,7 +21,7 @@ const styles = {
     width: "20rem",
     height: "100%",
     overflowY: "auto",
-    marginTop: "2.5rem",
+    marginTop: "3.53rem",
     boxShadow: "1px 0px 4px 0px rgba(0, 0, 0, 0.5)",
     zIndex: "101",
   },
