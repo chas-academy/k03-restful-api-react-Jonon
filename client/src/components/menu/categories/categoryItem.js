@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Radium from "radium";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+// styles
 import styles from "./categoryItem.style";
 import Icon from "../../icons/Icon";
+// compnents
 import CategorySubitem from "./categorySubitem";
+// actions
+import { hide_menu } from "../../../actions/menuActions";
 
-const CategoryItem = () => {
+const CategoryItem = ({ hide_menu }) => {
   const [active, setActive] = useState(null);
   const [categories, setCategories] = useState([]);
   const getData = () => {
@@ -27,7 +32,7 @@ const CategoryItem = () => {
   return (
     <div style={styles.base}>
       <ul style={{ padding: "0", margin: "0px" }}>
-        <Link style={styles.link} to="/products/All/">
+        <Link onClick={hide_menu} style={styles.link} to="/products/All/">
           <li style={[styles.item, styles.category]}>All</li>
         </Link>
       </ul>
@@ -80,4 +85,10 @@ const CategoryItem = () => {
   );
 };
 
-export default Radium(CategoryItem);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    hide_menu: () => dispatch(hide_menu),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Radium(CategoryItem));
