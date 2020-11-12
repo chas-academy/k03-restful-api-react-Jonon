@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Radium from "radium";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 // styles
@@ -89,6 +90,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     hide_menu: () => dispatch(hide_menu),
   };
+};
+
+CategoryItem.propTypes = {
+  hide_menu: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Radium(CategoryItem));

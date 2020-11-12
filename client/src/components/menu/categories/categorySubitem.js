@@ -32,6 +32,7 @@ const CategorySubitem = ({ categorySubitem, category, hide_menu }) => {
 CategorySubitem.propTypes = {
   categorySubitem: PropTypes.func.isRequired,
   category: PropTypes.func.isRequired,
+  hide_menu: PropTypes.func.isRequired,
 };
 
 const mapdispatchToProps = (dispatch) => {
