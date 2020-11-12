@@ -6,6 +6,7 @@ import styles from "./style";
 // components
 import Button from "../../buttons/Button";
 import Input from "../../../assets/form/Input";
+import CloseButton from "../closeButton/CloseButton";
 
 const Login = () => {
   const window = useWindowDimensions();
@@ -43,7 +44,7 @@ const Login = () => {
           required
         />
         {button}
-        <p>Cancel</p>
+        <CloseButton />
       </form>
     </div>
   );
