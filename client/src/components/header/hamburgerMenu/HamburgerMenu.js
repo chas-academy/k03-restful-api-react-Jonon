@@ -3,11 +3,12 @@ import Radium from "radium";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import colors from "../../styles/colors";
+import Styles from "./hamburgerMenu.style";
 import { show_menu } from "../../../actions/menuActions";
 
 const HamburgerMenu = ({ show_menu }) => {
   return (
-    <div>
+    <div style={Styles.align}>
       <ion-icon
         style={[colors.color.secondary, { cursor: "pointer" }]}
         size="large"
