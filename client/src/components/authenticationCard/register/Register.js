@@ -1,24 +1,54 @@
 import React from "react";
 import Radium from "radium";
+import useWindowDimensions from "../../../hooks/useWindowDimensions";
+// styles
 import styles from "./style";
+// components
 import Button from "../../buttons/Button";
+import Input from "../../../assets/form/Input";
 
 const Register = () => {
+  const window = useWindowDimensions();
+  const { width } = window;
+  const isMobile = width <= 768;
+
+  const button = (
+    <Button
+      type="submit"
+      title="Register"
+      kind="primary"
+      width="91%"
+      marginTop="2rem"
+      size={isMobile ? "lg" : "md"}
+      fontSize="1rem"
+    />
+  );
+
   return (
     <div style={styles.base}>
       <form style={styles.container}>
-        <input type="text" placeholder="Username" style={[styles.input]} />
-        <input type="email" placeholder="E-mail" style={[styles.input]} />
-        <input type="password" placeholder="Password" style={[styles.input]} />
-        <Button
-          title="Register"
-          kind="primary"
-          type="submit"
-          width="91%"
-          marginTop="2rem"
-          size="lg"
-          fontSize="1rem"
+        <Input
+          type="text"
+          placeholder="Username"
+          width="90%"
+          rounded="true"
+          required
         />
+        <Input
+          type="email"
+          placeholder="E-mail"
+          width="90%"
+          rounded="true"
+          required
+        />
+        <Input
+          type="password"
+          placeholder="Password"
+          width="90%"
+          rounded="true"
+          required
+        />
+        {button}
         <p>Cancel</p>
       </form>
     </div>

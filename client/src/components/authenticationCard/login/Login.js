@@ -5,6 +5,7 @@ import useWindowDimensions from "../../../hooks/useWindowDimensions";
 import styles from "./style";
 // components
 import Button from "../../buttons/Button";
+import Input from "../../../assets/form/Input";
 
 const Login = () => {
   const window = useWindowDimensions();
@@ -27,8 +28,20 @@ const Login = () => {
   return (
     <div style={styles.base}>
       <form style={styles.container}>
-        <input type="text" placeholder="Username or E-mail" style={[styles.input]} />
-        <input type="password" placeholder="Password" style={[styles.input]} />
+        <Input
+          type="text"
+          placeholder="Username or E-mail"
+          width="90%"
+          rounded="true"
+          required
+        />
+        <Input
+          type="password"
+          placeholder="Password"
+          width="90%"
+          rounded="true"
+          required
+        />
         {button}
         <p>Cancel</p>
       </form>
