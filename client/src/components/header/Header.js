@@ -17,7 +17,13 @@ import colors from "../../styles/colors";
 const Header = () => {
   return (
     <div>
-      <nav style={[styles.layout.flex, styles.base, colors.backgroundcolor.primary]}>
+      <nav
+        style={[
+          styles.layout.flex,
+          styles.base,
+          { backgroundColor: colors.primary },
+        ]}
+      >
         <div style={{ height: "100%" }}>
           <div style={{ marginLeft: "1rem" }}>
             <HamburgerMenu />
