@@ -4,7 +4,7 @@ import useWindowDimensions from "../../../hooks/useWindowDimensions";
 // styles
 import styles from "./style";
 // components
-import Button from "../../buttons/Button";
+import Button from "../../../assets/buttons/Button";
 import Input from "../../../assets/form/Input";
 import CloseButton from "../closeButton/CloseButton";
 

@@ -3,13 +3,13 @@ import Radium from "radium";
 // Hooks
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 // Components
-import Button from "../buttons/Button";
+import Button from "../../assets/buttons/Button";
 import Login from "./login/Login";
 import Register from "./register/Register";
 import Logo from "./Logo";
 // styles
 import Styles from "./AuthenticationCard.style";
-import colors from "../buttons/style";
+import colors from "../../assets/buttons/style";
 
 const AuthenticationCard = () => {
   // false = login

@@ -3,7 +3,7 @@ import Radium from "radium";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import style from "./style";
-import Button from "../../../components/buttons/Button";
+import Button from "../../../assets/buttons/Button";
 
 const ProductList = (props) => {
   const { location } = props;
