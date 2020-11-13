@@ -11,6 +11,9 @@ const style = {
       paddingTop: "0.5rem",
       paddingBottom: "0.5rem",
     },
+    ":focus": {
+      outline: "none",
+    },
   },
   rounded: {
     true: { borderRadius: "0.2rem" },

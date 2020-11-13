@@ -12,6 +12,9 @@ const styles = {
     lineHeight: "2rem",
     cursor: "pointer",
     fontFamily: "Roboto, sans-serif",
+    ":focus": {
+      outline: "none",
+    },
   },
   category: {
     fontWeight: "400",

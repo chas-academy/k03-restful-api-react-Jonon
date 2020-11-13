@@ -6,6 +6,9 @@ const styles = {
     padding: "0.3rem",
     fontFamily: "Roboto, sans-serif",
     cursor: "pointer",
+    ":focus": {
+      outline: "none",
+    },
   },
   primary: {
     background: "#C61017",
