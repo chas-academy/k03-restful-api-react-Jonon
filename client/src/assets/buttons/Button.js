@@ -11,9 +11,9 @@ const Button = (props) => {
     size,
     width,
     fontFamily,
-    fontSize,
     marginTop,
     title,
+    rounded,
   } = props;
   return (
     // eslint-disable-next-line react/button-has-type
@@ -23,11 +23,11 @@ const Button = (props) => {
       style={[
         styles.base,
         styles[kind],
+        styles.rounded[rounded],
         styles.size[size],
         {
           width,
           fontFamily,
-          fontSize,
           marginTop,
         },
       ]}
@@ -44,9 +44,9 @@ Button.propTypes = {
   size: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,
   fontFamily: PropTypes.string.isRequired,
-  fontSize: PropTypes.string.isRequired,
   marginTop: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  rounded: PropTypes.string.isRequired,
 };
 
 export default Radium(Button);
