@@ -16,13 +16,12 @@ const Login = () => {
   const button = (
     <Button
       title="Login"
-      kind="primary"
+      kind="tertiary"
       type="submit"
       width="90%"
       marginTop="2rem"
       size={isMobile ? "lg" : "md"}
-      padding="1rem"
-      fontSize="1rem"
+      rounded
     />
   );
 

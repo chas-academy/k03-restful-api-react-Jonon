@@ -17,11 +17,11 @@ const Register = () => {
     <Button
       type="submit"
       title="Register"
-      kind="primary"
+      kind="tertiary"
       width="91%"
       marginTop="2rem"
       size={isMobile ? "lg" : "md"}
-      fontSize="1rem"
+      rounded
     />
   );
 
