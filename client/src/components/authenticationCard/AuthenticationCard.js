@@ -9,7 +9,6 @@ import Register from "./register/Register";
 import Logo from "./Logo";
 // styles
 import Styles from "./AuthenticationCard.style";
-import colors from "../../assets/buttons/style";
 
 const AuthenticationCard = () => {
   // false = login
@@ -33,7 +32,6 @@ const AuthenticationCard = () => {
           width="50%"
           kind={!activeTab ? "secondary" : "primary"}
           fontFamily="Fjalla One, sans-serif"
-          fontSize="1rem"
           size="lg"
           onClick={() => setActiveTab(false)}
         />
@@ -42,7 +40,6 @@ const AuthenticationCard = () => {
           width="50%"
           kind={activeTab ? "secondary" : "primary"}
           fontFamily="Fjalla One, sans-serif"
-          fontSize="1rem"
           size="lg"
           onClick={() => setActiveTab(true)}
         />
