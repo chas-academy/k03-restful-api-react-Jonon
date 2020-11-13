@@ -12,7 +12,7 @@ import Logo from "./Logo";
 
 // styles
 import styles from "./headerStyle";
-import colors from "../styles/colors";
+import colors from "../../styles/colors";
 
 const Header = () => {
   return (

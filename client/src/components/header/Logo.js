@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Radium from "radium";
 // styles
 import styles from "./logo.style";
-import colors from "../styles/colors";
-import link from "../styles/link.style";
+import colors from "../../styles/colors";
+import link from "../../styles/link.style";
 
 const Logo = () => {
   return (

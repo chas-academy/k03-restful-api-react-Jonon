@@ -2,7 +2,7 @@ import React from "react";
 import Radium from "radium";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import colors from "../../styles/colors";
+import colors from "../../../styles/colors";
 import Styles from "./hamburgerMenu.style";
 import { show_menu } from "../../../actions/menuActions";
 

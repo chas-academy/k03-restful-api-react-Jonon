@@ -3,7 +3,7 @@ import Radium from "radium";
 import Icon from "./icon/Icon";
 
 // styling
-import colors from "../styles/colors";
+import colors from "../../styles/colors";
 import footerStyle from "./footerStyle";
 
 function Footer() {

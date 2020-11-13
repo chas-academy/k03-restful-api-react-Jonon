@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 // styles
 import Radium from "radium";
-import colors from "../styles/colors";
+import colors from "../../styles/colors";
 import iconStyle from "./iconsStyle";
 
 const Icon = ({ color, icon }) => {
