@@ -1,3 +1,5 @@
+import colors from "../../../styles/colors";
+
 const styles = {
   posterContainer: {
     listStyle: "none",
@@ -34,16 +36,17 @@ const styles = {
     width: "100%",
   },
   title: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Archivo Narrow, sans-serif",
     fontWeight: "100",
     fontSize: "1rem",
-    color: "#00A3FF",
+    color: colors.teriaryVariant2,
     marginBottom: "1rem",
   },
   price: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Archivo Narrow, sans-serif",
     fontWeight: "100",
     fontSize: "0.9rem",
+    color: colors.teriaryVariant2,
   },
 };
 
