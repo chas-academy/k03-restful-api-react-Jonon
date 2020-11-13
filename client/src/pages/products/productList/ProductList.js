@@ -39,8 +39,22 @@ const ProductList = (props) => {
               <h4 style={[style.posterText, style.price]}>{item.price}€</h4>
             </li>
           </Link>
+          <div
+            style={{
+              marginBottom: "0.5rem",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Button
+              title="Add to cart"
+              kind="tertiary"
+              width="90%"
+              size="md"
+              rounded="true"
+            />
+          </div>
         </div>
-        <Button title="Add to cart" kind="primary" width="100%" size="lg" />
       </div>
     );
   });
