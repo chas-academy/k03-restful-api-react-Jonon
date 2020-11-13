@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import style from "./style";
 import Button from "../../../assets/buttons/Button";
+import link from "../../../styles/link.style";
 
 const ProductList = (props) => {
   const { location } = props;
@@ -28,7 +29,10 @@ const ProductList = (props) => {
         key={item._id}
       >
         <div style={{ flex: "1" }}>
-          <Link to={`${location.pathname}${item.series}/${item._id}`}>
+          <Link
+            style={link.noUnderline}
+            to={`${location.pathname}${item.series}/${item._id}`}
+          >
             <li style={{ padding: "1rem" }} key={item._id}>
               <img src={item.poster} style={style.image} alt="poster" />
               <h3 style={[style.posterText, style.title]}>{item.title}</h3>
