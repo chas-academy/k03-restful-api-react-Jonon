@@ -4,10 +4,11 @@ import Radium from "radium";
 // styles
 import styles from "./logo.style";
 import colors from "../styles/colors";
+import link from "../styles/link.style";
 
 const Logo = () => {
   return (
-    <Link to="/">
+    <Link style={link.noUnderline} to="/">
       <div style={styles.alignCenter}>
         <h1 style={[styles.title, colors.color.primary]}>Comic</h1>
         <svg
