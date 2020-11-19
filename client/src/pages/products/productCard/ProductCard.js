@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import Radium from "radium";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import style from "./style";
-import Button from "../../../assets/buttons/Button";
+// styles
+import styles from "./productCard.style";
 import link from "../../../styles/link.style";
-import styles from "./style";
+// components
+import Button from "../../../assets/buttons/Button";
 
 const ProductList = (props) => {
   const { location } = props;
@@ -25,15 +26,15 @@ const ProductList = (props) => {
 
   const comics = items.items.map((item) => {
     return (
-      <li style={[style.posterBox]} key={item._id}>
+      <li style={[styles.posterBox]} key={item._id}>
         <Link
           style={link.noUnderline}
           to={`${location.pathname}${item.series}/${item._id}`}
         >
           <div style={styles.productList} key={item._id}>
-            <img src={item.poster} style={style.image} alt="poster" />
-            <h3 style={[style.posterText, style.title]}>{item.title}</h3>
-            <h4 style={[style.posterText, style.price]}>{item.price}€</h4>
+            <img src={item.poster} style={styles.image} alt="poster" />
+            <h3 style={[styles.posterText, styles.title]}>{item.title}</h3>
+            <h4 style={[styles.posterText, styles.price]}>{item.price}€</h4>
           </div>
         </Link>
         <div
@@ -54,7 +55,7 @@ const ProductList = (props) => {
       </li>
     );
   });
-  return <ul style={[style.posterContainer]}>{comics}</ul>;
+  return <ul style={[styles.posterContainer]}>{comics}</ul>;
 };
 
 ProductList.propTypes = {
