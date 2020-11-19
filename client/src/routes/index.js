@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router-dom";
 // components
 import Home from "../pages/home/Home";
 import Error from "../pages/error/Error";
-import ProductsList from "../pages/products/productList/ProductList";
 import Product from "../pages/products/product/Product";
 import Products from "../pages/products/Products";
 
