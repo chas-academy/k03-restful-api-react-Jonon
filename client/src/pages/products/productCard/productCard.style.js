@@ -21,6 +21,9 @@ const styles = {
       gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
     },
   },
+  productList: {
+    padding: "1rem 1rem 0rem 1rem",
+  },
   posterBox: {
     backgroundColor: "#F0EFEF",
     borderRadius: "1%",
@@ -40,7 +43,7 @@ const styles = {
     fontWeight: "100",
     fontSize: "1rem",
     color: colors.teriaryVariant2,
-    marginBottom: "1rem",
+    height: "2.5rem",
   },
   price: {
     fontFamily: "Archivo Narrow, sans-serif",
