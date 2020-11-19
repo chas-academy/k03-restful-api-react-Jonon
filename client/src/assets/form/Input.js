@@ -10,7 +10,7 @@ const Input = (props) => {
   return (
     <>
       <input
-        style={[Styles.base, Styles[kind], Styles.rounded[rounded], { width }]}
+        style={[Styles.base, Styles.kind[kind], Styles.rounded[rounded], { width }]}
         type=""
         placeholder={placeholder}
         required={required}

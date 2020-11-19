@@ -1,7 +1,8 @@
+import color from "../../styles/colors";
+
 const style = {
   base: {
     textIndent: "1rem",
-    marginTop: "1rem",
     border: ".01px solid #4B3A39",
     fontSize: "0.9rem",
     fontFamily: "Roboto, sans-serif",
@@ -17,6 +18,10 @@ const style = {
   },
   rounded: {
     true: { borderRadius: "0.2rem" },
+  },
+  kind: {
+    primary: { border: `1px solid ${color.primary}` },
+    none: { border: "none" },
   },
 };
 
