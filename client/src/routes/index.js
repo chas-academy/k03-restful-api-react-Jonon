@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
 // components
 import Home from "../pages/home/Home";
@@ -11,7 +11,9 @@ function Routes() {
   return (
     <Switch>
       <Route path="/" component={Home} exact />
-      <Route exact path="/products/" component={Products} exact />
+      <Route exact path="/products/" component={Products}>
+        <Redirect to="/products/All" />
+      </Route>
       <Route exact path="/products/:category" component={Products} />
       <Route exact path="/products/:category/:subcategory" component={Products} />
       <Route path="/products/:category/:subcategory/:id" component={Product} />
