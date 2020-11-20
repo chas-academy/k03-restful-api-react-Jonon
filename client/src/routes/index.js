@@ -11,9 +11,9 @@ function Routes() {
   return (
     <Switch>
       <Route path="/" component={Home} exact />
-      <Route path="/products/" component={Products} exact />
-      <Route path="/products/:category" component={Products} />
-      <Route path="/products/:category/:subcategory" component={Products} />
+      <Route exact path="/products/" component={Products} exact />
+      <Route exact path="/products/:category" component={Products} />
+      <Route exact path="/products/:category/:subcategory" component={Products} />
       <Route path="/products/:category/:subcategory/:id" component={Product} />
       <Route render={() => <Route component={Error} />} />
     </Switch>
