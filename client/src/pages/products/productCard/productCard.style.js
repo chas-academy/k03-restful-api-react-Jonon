@@ -11,8 +11,6 @@ const styles = {
     gridRowGap: "1rem",
     marginTop: "1rem",
     marginBottom: "1rem",
-    marginLeft: "2.5%",
-    marginRight: "2.5%",
     gridTemplateColumns: "1fr 1fr",
     "@media (min-width: 768px) and (max-width: 1024px)": {
       gridTemplateColumns: "1fr 1fr 1fr 1fr",
@@ -20,9 +18,6 @@ const styles = {
     "@media (min-width: 1024px)": {
       gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
     },
-  },
-  productList: {
-    padding: "1rem 1rem 0rem 1rem",
   },
   posterBox: {
     backgroundColor: "#F0EFEF",
@@ -32,11 +27,14 @@ const styles = {
       boxShadow: `0px 0px 5px rgba(186, 45, 0, 0.75)`,
     },
   },
-  posterText: {
-    margin: "0px",
+  productList: {
+    padding: "1rem 1rem 0rem 1rem",
   },
   image: {
     width: "100%",
+  },
+  posterText: {
+    margin: "0px",
   },
   title: {
     fontFamily: "Archivo Narrow, sans-serif",
