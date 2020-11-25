@@ -30,12 +30,18 @@ const styles = {
     listStyle: "none",
     padding: "0px",
   },
+  title: {
+    fontFamily: "Archivo Narrow, sans-serif",
+  },
+  price: {
+    fontFamily: "Archivo Narrow, sans-serif",
+  },
   listHeader: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Archivo Narrow, sans-serif",
     fontWeight: "500",
   },
   listItem: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Archivo Narrow, sans-serif",
   },
   gridColumn: {
     display: "grid",

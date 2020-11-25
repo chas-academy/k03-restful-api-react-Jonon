@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import Radium from "radium";
+// Asset
 import Button from "../../../assets/buttons/Button";
-import styles from "./style";
+// styles
+import styles from "./products.style";
 
 const Product = () => {
   const [items, setItems] = useState([]);
@@ -23,18 +25,15 @@ const Product = () => {
       <div style={styles.desktopLayout}>
         <div>
           <img src={items.poster} style={styles.image} alt="poster" />
-          <h3>{items.title}</h3>
-          <h4>
-            Price
-            <span>{items.price}</span>
-          </h4>
+          <h3 style={styles.title}>{items.title}</h3>
+          <h4 style={styles.price}>Price {items.price}</h4>
           <Button title="Add to cart" kind="primary" width="100%" size="lg" />
         </div>
         <p style={styles.margin}>{items.description}</p>
       </div>
       <div style={[styles.gridColumn, styles.margin]}>
         <div>
-          <h4>Creators</h4>
+          <h4 style={styles.listHeader}>Creators</h4>
           <ul style={styles.disableListStyle}>
             <li>
               <span style={styles.listHeader}>Writer</span>
