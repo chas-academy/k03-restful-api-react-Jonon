@@ -3,6 +3,8 @@ import { useRouteMatch } from "react-router-dom";
 import Radium from "radium";
 // Asset
 import Button from "../../../assets/buttons/Button";
+// component
+import Credits from "./credits/Credits";
 // styles
 import styles from "./products.style";
 
@@ -32,52 +34,7 @@ const Product = () => {
         <p style={styles.margin}>{items.description}</p>
       </div>
       <div style={[styles.gridColumn, styles.margin]}>
-        <div>
-          <h4 style={styles.listHeader}>Creators</h4>
-          <ul style={styles.disableListStyle}>
-            <li>
-              <span style={styles.listHeader}>Writer</span>
-              <ul style={styles.disableListStyle}>
-                <li style={styles.listItem}>{items.writer}</li>
-              </ul>
-            </li>
-            <li>
-              <span style={styles.listHeader}>Artist</span>
-              <ul style={styles.disableListStyle}>
-                <li style={styles.listItem}>{items.artist}</li>
-              </ul>
-            </li>
-            <li>
-              <span style={styles.listHeader}>Cover artist</span>
-              <ul style={styles.disableListStyle}>
-                <li style={styles.listItem}>{items.coverArtist}</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4>Publication</h4>
-          <ul style={styles.disableListStyle}>
-            <li>
-              <span style={styles.listHeader}>Publisher</span>
-              <ul style={styles.disableListStyle}>
-                <li style={styles.listItem}>{items.publisher}</li>
-              </ul>
-            </li>
-            <li>
-              <span style={styles.listHeader}>Publication date</span>
-              <ul style={styles.disableListStyle}>
-                <li style={styles.listItem}>{items.publicationDate}</li>
-              </ul>
-            </li>
-            <li>
-              <span style={styles.listHeader}>Pages</span>
-              <ul style={styles.disableListStyle}>
-                <li style={styles.listItem}>{items.pages}</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+        <Credits items={items} />
       </div>
     </div>
   );

@@ -36,13 +36,6 @@ const styles = {
   price: {
     fontFamily: "Archivo Narrow, sans-serif",
   },
-  listHeader: {
-    fontFamily: "Archivo Narrow, sans-serif",
-    fontWeight: "500",
-  },
-  listItem: {
-    fontFamily: "Archivo Narrow, sans-serif",
-  },
   gridColumn: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
