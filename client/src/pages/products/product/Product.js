@@ -4,6 +4,7 @@ import Radium from "radium";
 // Asset
 import Button from "../../../assets/buttons/Button";
 // component
+import MainContent from "./mainContent/MainContent";
 import Credits from "./credits/Credits";
 // styles
 import styles from "./products.style";
@@ -25,12 +26,7 @@ const Product = () => {
   return (
     <div style={[styles.base, styles.threeColumns]}>
       <div style={styles.desktopLayout}>
-        <div>
-          <img src={items.poster} style={styles.image} alt="poster" />
-          <h3 style={styles.title}>{items.title}</h3>
-          <h4 style={styles.price}>Price {items.price}</h4>
-          <Button title="Add to cart" kind="primary" width="100%" size="lg" />
-        </div>
+        <MainContent items={items} />
         <p style={styles.margin}>{items.description}</p>
       </div>
       <div style={[styles.gridColumn, styles.margin]}>
