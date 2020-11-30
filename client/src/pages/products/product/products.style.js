@@ -18,9 +18,6 @@ const styles = {
       gridTemplateColumns: "45% 1fr",
     },
   },
-  image: {
-    width: "100%",
-  },
   margin: {
     "@media (min-width: 768px)": {
       marginLeft: "1em",
@@ -29,12 +26,6 @@ const styles = {
   disableListStyle: {
     listStyle: "none",
     padding: "0px",
-  },
-  title: {
-    fontFamily: "Archivo Narrow, sans-serif",
-  },
-  price: {
-    fontFamily: "Archivo Narrow, sans-serif",
   },
   gridColumn: {
     display: "grid",
