@@ -5,17 +5,21 @@ const colors = {
   // Lochmara
   secondary: "#007CC2",
   /* ------------------------------------------------------- */
-  // Cape Cod
-  tertiary: "#3F474A",
-  // Mine Shaft
-  teriaryVariant: "#303030",
-  // Matterhorn
-  teriaryVariant2: "#4B3A39",
+  greys: {
+    // Cape Cod
+    variant00: "#3F474A",
+    // Mine Shaft
+    variant02: "#303030",
+    // Matterhorn
+    variant03: "#4B3A39",
+  },
   /* ------------------------------------------------------- */
-  // White
-  quaternary: "#FFFFFF",
-  // Alabaster
-  quaternaryVariant: "FAFAFA",
+  whites: {
+    // White
+    variant00: "#FFFFFF",
+    // Alabaster
+    variant01: "FAFAFA",
+  },
 };
 
 export default colors;
