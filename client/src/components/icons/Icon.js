@@ -8,7 +8,15 @@ import colors from "../../styles/colors";
 import iconStyle from "./iconsStyle";
 
 const Icon = ({ color, icon }) => {
-  return <span style={[iconStyle, { color: colors[color] }]} className={icon} />;
+  return (
+    <span
+      style={[
+        iconStyle,
+        { color: colors[color] || colors.whites[color] || colors.greys[color] },
+      ]}
+      className={icon}
+    />
+  );
 };
 
 Icon.propTypes = {
