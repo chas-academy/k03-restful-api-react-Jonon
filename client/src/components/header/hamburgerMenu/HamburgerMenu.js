@@ -10,7 +10,7 @@ const HamburgerMenu = ({ show_menu }) => {
   return (
     <div style={Styles.align}>
       <ion-icon
-        style={[{ color: colors.teriaryVariant, cursor: "pointer" }]}
+        style={[{ color: colors.greys.variant02, cursor: "pointer" }]}
         size="large"
         name="menu"
         onClick={show_menu}

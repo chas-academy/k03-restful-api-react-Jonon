@@ -8,7 +8,7 @@ import cartStyle from "./cartStyle";
 const Cart = () => {
   return (
     <div style={cartStyle.align}>
-      <Icon icon="typcn typcn-shopping-cart" color="quaternary" />
+      <Icon icon="typcn typcn-shopping-cart" color="variant00" />
       <Counter />
     </div>
   );
