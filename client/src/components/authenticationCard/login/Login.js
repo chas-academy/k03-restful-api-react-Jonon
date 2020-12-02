@@ -41,6 +41,7 @@ const Login = () => {
           width="90%"
           rounded="true"
           required
+          marginTop="0.5rem"
         />
         {button}
         <CloseButton />

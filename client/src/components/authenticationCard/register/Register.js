@@ -39,6 +39,7 @@ const Register = () => {
           type="email"
           placeholder="E-mail"
           width="90%"
+          marginTop="0.5rem"
           rounded="true"
           required
         />
@@ -46,6 +47,7 @@ const Register = () => {
           type="password"
           placeholder="Password"
           width="90%"
+          marginTop="0.5rem"
           rounded="true"
           required
         />
