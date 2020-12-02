@@ -10,10 +10,7 @@ import iconStyle from "./iconsStyle";
 const Icon = ({ color, icon }) => {
   return (
     <span
-      style={[
-        iconStyle,
-        { color: colors[color] || colors.shades[color] || colors.greys[color] },
-      ]}
+      style={[iconStyle, { color: colors[color] || colors.shades[color] }]}
       className={icon}
     />
   );
