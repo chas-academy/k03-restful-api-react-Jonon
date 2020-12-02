@@ -1,3 +1,5 @@
+import font from "../../styles/font.style";
+
 const footerStyle = {
   size: {
     padding: "1rem 1rem 0 1rem",
@@ -23,8 +25,8 @@ const footerStyle = {
     },
   },
   copyright: {
-    fontFamily: "Roboto, sans-serif",
-    fontWeight: "200",
+    fontFamily: font.family.roboto,
+    fontWeight: font.weight.regular,
     textAlign: "center",
     order: "1",
   },
