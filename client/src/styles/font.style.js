@@ -1,6 +1,7 @@
 const font = {
   family: {
     archivoNarrow: "Archivo Narrow, sans-serif",
+    roboto: "Roboto, sans-serif",
   },
   weight: {
     thin: 200,
