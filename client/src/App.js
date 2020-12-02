@@ -21,7 +21,7 @@ const App = () => {
         <Router>
           <Header />
           {/* push content under header */}
-          <div style={{ marginTop: "2.5rem" }} />
+          <div style={{ marginTop: "3.4875rem" }} />
           <div style={appStyle.stickyFooter.maincontent}>
             <Routes />
           </div>
