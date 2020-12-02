@@ -9,6 +9,7 @@ const iconStyle = {
     display: "flex",
     alignItems: "center",
   },
+  margin: "0 0.5rem",
 };
 
 export default iconStyle;
