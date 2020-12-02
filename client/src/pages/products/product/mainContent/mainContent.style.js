@@ -5,6 +5,10 @@ const styles = {
   image: {
     width: "100%",
   },
+  spaceBetween: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
   title: {
     fontFamily: `${font.family.archivoNarrow}`,
     fontWeight: `${font.weight.semiBold}`,
