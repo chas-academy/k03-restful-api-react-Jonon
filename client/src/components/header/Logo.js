@@ -12,8 +12,8 @@ const Logo = () => {
       <div style={styles.alignCenter}>
         <h1 style={[styles.title, { color: colors.shades.white00 }]}>Comic</h1>
         <svg
-          width="18"
-          height="35"
+          width="23"
+          height="40"
           viewBox="0 0 129 197"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
