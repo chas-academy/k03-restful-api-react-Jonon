@@ -5,20 +5,18 @@ const colors = {
   // Lochmara
   secondary: "#007CC2",
   /* ------------------------------------------------------- */
-  greys: {
+  shades: {
     // Cape Cod
-    variant00: "#3F474A",
+    grey00: "#3F474A",
     // Mine Shaft
-    variant02: "#303030",
+    grey01: "#303030",
     // Matterhorn
-    variant03: "#4B3A39",
-  },
-  /* ------------------------------------------------------- */
-  whites: {
+    grey02: "#4B3A39",
+    /* ------------------------------------------------------- */
     // White
-    variant00: "#FFFFFF",
+    white00: "#FFFFFF",
     // Alabaster
-    variant01: "FAFAFA",
+    white01: "FAFAFA",
   },
 };
 

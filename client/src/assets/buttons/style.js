@@ -14,15 +14,15 @@ const styles = {
   },
   primary: {
     backgroundColor: colors.primary,
-    color: colors.whites.variant00,
+    color: colors.shades.white00,
   },
   secondary: {
-    backgroundColor: colors.whites.variant00,
-    color: colors.greys.variant03,
+    backgroundColor: colors.shades.white00,
+    color: colors.shades.grey02,
   },
   tertiary: {
     backgroundColor: colors.secondary,
-    color: colors.whites.variant00,
+    color: colors.shades.white00,
   },
   rounded: {
     true: { borderRadius: "0.2rem" },

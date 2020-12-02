@@ -15,7 +15,7 @@ function Footer() {
         <Icon icon="typcn typcn-social-pinterest" />
         <Icon icon="typcn typcn-social-vimeo" />
       </div>
-      <p style={[footerStyle.copyright, { color: colors.quaternary }]}>
+      <p style={[footerStyle.copyright, { color: colors.shades.white00 }]}>
         © ComicHaven 2019
       </p>
     </div>

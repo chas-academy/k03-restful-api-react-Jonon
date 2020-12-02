@@ -12,12 +12,12 @@ const styles = {
   title: {
     fontFamily: `${font.family.archivoNarrow}`,
     fontWeight: `${font.weight.semiBold}`,
-    color: `${color.greys.variant00}`,
+    color: `${color.shades.grey00}`,
   },
   price: {
     fontFamily: "Archivo Narrow, sans-serif",
     fontWeight: `${font.weight.medium}`,
-    color: `${color.greys.variant00}`,
+    color: `${color.shades.grey00}`,
   },
 };
 

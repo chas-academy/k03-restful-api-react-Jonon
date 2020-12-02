@@ -12,7 +12,7 @@ const Icon = ({ color, icon }) => {
     <span
       style={[
         iconStyle,
-        { color: colors[color] || colors.whites[color] || colors.greys[color] },
+        { color: colors[color] || colors.shades[color] || colors.greys[color] },
       ]}
       className={icon}
     />

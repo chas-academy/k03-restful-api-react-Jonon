@@ -40,14 +40,14 @@ const styles = {
     fontFamily: "Archivo Narrow, sans-serif",
     fontWeight: "100",
     fontSize: "1rem",
-    color: colors.greys.variant03,
+    color: colors.shades.grey02,
     height: "2.5rem",
   },
   price: {
     fontFamily: "Archivo Narrow, sans-serif",
     fontWeight: "100",
     fontSize: "0.9rem",
-    color: colors.greys.variant03,
+    color: colors.shades.grey02,
   },
 };
 

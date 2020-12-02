@@ -28,7 +28,7 @@ const UserIconButton = ({ show_modal }) => {
         role="button"
         tabIndex={0}
       >
-        <Icon icon={hover.onHover} color="variant00" />
+        <Icon icon={hover.onHover} color="white00" />
       </span>
     </div>
   );
