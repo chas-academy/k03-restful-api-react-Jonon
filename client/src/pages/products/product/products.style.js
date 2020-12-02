@@ -20,7 +20,8 @@ const styles = {
   },
   margin: {
     "@media (min-width: 768px)": {
-      marginLeft: "1em",
+      margin: 0,
+      marginLeft: "1rem",
     },
   },
   disableListStyle: {
