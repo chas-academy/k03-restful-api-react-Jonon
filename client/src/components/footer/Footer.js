@@ -9,7 +9,7 @@ import footerStyle from "./footerStyle";
 function Footer() {
   return (
     <div style={[footerStyle.styling, footerStyle.size, footerStyle.position]}>
-      <div style={footerStyle.rowEvenly}>
+      <div style={footerStyle.iconsContainer}>
         <Icon icon="typcn typcn-social-facebook" />
         <Icon icon="typcn typcn-social-twitter" />
         <Icon icon="typcn typcn-social-pinterest" />
