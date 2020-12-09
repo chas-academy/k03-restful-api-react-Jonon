@@ -10,6 +10,7 @@ import {
   Instagram,
   YouTube,
   Menu,
+  Star,
 } from "./icons";
 
 const Icon = ({ width, height, icon }) => {
@@ -34,6 +35,8 @@ const Icon = ({ width, height, icon }) => {
       return <YouTube width={width} height={height} />;
     case "menu":
       return <Menu width={width} height={height} />;
+    case "star":
+      return <Star width={width} height={height} />;
   }
 };
 
