@@ -48,3 +48,21 @@ export const UserOutline = ({ width, height }) => {
     </svg>
   );
 };
+
+export const Logo = ({ width, height }) => {
+  return (
+    <svg
+      // default size should be width 24 and height 37
+      width={width}
+      height={height}
+      viewBox="0 0 24 37"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.8599 0L0 24.2801H5.32296L7.00389 20.8249H14.6615L11.8599 26.6148V36.7938L24 12.7004H18.4903L16.716 16.3424H8.96498L11.8599 10.179V0Z"
+        fill="black"
+      />
+    </svg>
+  );
+};
