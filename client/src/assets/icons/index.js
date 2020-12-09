@@ -13,8 +13,6 @@ const Icon = ({ width, height, icon }) => {
       return <Logo width={width} height={height} />;
     case "chevronright":
       return <ChevronRight width={width} height={height} />;
-    default:
-      return "No icon detected";
   }
 };
 
