@@ -9,6 +9,7 @@ import {
   Twitter,
   Instagram,
   YouTube,
+  Menu,
 } from "./icons";
 
 const Icon = ({ width, height, icon }) => {
@@ -31,6 +32,8 @@ const Icon = ({ width, height, icon }) => {
       return <Instagram width={width} height={height} />;
     case "youtube":
       return <YouTube width={width} height={height} />;
+    case "menu":
+      return <Menu width={width} height={height} />;
   }
 };
 
