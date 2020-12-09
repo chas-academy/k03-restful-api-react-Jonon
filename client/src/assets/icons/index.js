@@ -1,5 +1,5 @@
 import React from "react";
-import { Cart, User } from "./icons";
+import { Cart, User, UserOutline } from "./icons";
 
 const Icon = ({ width, height, icon }) => {
   switch (icon.toLowerCase()) {
@@ -7,6 +7,8 @@ const Icon = ({ width, height, icon }) => {
       return <Cart width={width} height={height} />;
     case "user":
       return <User width={width} height={height} />;
+    case "useroutline":
+      return <UserOutline width={width} height={height} />;
   }
 };
 
