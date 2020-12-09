@@ -1,5 +1,5 @@
 import React from "react";
-import { Cart, User, UserOutline, Logo } from "./icons";
+import { Cart, User, UserOutline, Logo, ChevronRight } from "./icons";
 
 const Icon = ({ width, height, icon }) => {
   switch (icon.toLowerCase()) {
@@ -11,6 +11,8 @@ const Icon = ({ width, height, icon }) => {
       return <UserOutline width={width} height={height} />;
     case "logo":
       return <Logo width={width} height={height} />;
+    case "chevronright":
+      return <ChevronRight width={width} height={height} />;
     default:
       return "No icon detected";
   }
