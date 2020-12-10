@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Cart,
+  Search,
   User,
   UserOutline,
   Logo,
@@ -17,6 +18,8 @@ const Icon = ({ width, height, icon }) => {
   switch (icon.toLowerCase()) {
     case "cart":
       return <Cart width={width} height={height} />;
+    case "search":
+      return <Search width={width} height={height} />;
     case "user":
       return <User width={width} height={height} />;
     case "useroutline":
