@@ -14,7 +14,7 @@ import {
   Star,
 } from "./icons";
 
-const Icon = ({ width, height, icon }) => {
+const Icon = ({ width, height, icon, fill }) => {
   switch (icon.toLowerCase()) {
     case "cart":
       return <Cart width={width} height={height} />;
@@ -39,7 +39,7 @@ const Icon = ({ width, height, icon }) => {
     case "menu":
       return <Menu width={width} height={height} />;
     case "star":
-      return <Star width={width} height={height} />;
+      return <Star width={width} height={height} fill={fill} />;
   }
 };
 
