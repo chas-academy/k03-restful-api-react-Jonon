@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 // Assets
 import Icon from "../../../assets/icons";
 // styles
-import colors from "../../../styles/colors";
 import Styles from "./hamburgerMenu.style";
 // actions
 import { show_menu } from "../../../actions/menuActions";
