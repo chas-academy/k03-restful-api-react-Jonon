@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Icon from "../../icons/Icon";
-
+// assets
+import Icon from "../../../assets/icons";
 // styles
 import userIconButtonStyle from "./UserIconButtonStyle";
 import { show_modal } from "../../../actions/modalActions";
 
 const UserIconButton = ({ show_modal }) => {
-  const [hover, setHover] = useState({ onHover: "typcn typcn-user-outline" });
+  const [hover, setHover] = useState({ onHover: "useroutline" });
 
   const handleMouseEnter = () => {
-    setHover({ onHover: "typcn typcn-user" });
+    setHover({ onHover: "user" });
   };
 
   const handleMouseLeave = () => {
-    setHover({ onHover: "typcn typcn-user-outline" });
+    setHover({ onHover: "useroutline" });
   };
 
   return (
@@ -28,7 +28,7 @@ const UserIconButton = ({ show_modal }) => {
         role="button"
         tabIndex={0}
       >
-        <Icon icon={hover.onHover} color="white00" />
+        <Icon icon={hover.onHover} fill="secondary" width="24" />
       </span>
     </div>
   );
