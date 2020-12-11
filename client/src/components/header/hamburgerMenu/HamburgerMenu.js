@@ -2,18 +2,23 @@ import React from "react";
 import Radium from "radium";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+// Assets
+import Icon from "../../../assets/icons";
+// styles
 import colors from "../../../styles/colors";
 import Styles from "./hamburgerMenu.style";
+// actions
 import { show_menu } from "../../../actions/menuActions";
 
 const HamburgerMenu = ({ show_menu }) => {
   return (
-    <div style={Styles.align}>
-      <ion-icon
-        style={[{ color: colors.shades.grey02, cursor: "pointer" }]}
+    <div onClick={show_menu} style={Styles.align}>
+      <Icon
+        customStyle={{ cursor: "pointer" }}
+        fill="primary"
         size="large"
-        name="menu"
-        onClick={show_menu}
+        icon="menu"
+        width="32"
       />
     </div>
   );
