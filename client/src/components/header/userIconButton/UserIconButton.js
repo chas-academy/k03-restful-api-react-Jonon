@@ -28,7 +28,12 @@ const UserIconButton = ({ show_modal }) => {
         role="button"
         tabIndex={0}
       >
-        <Icon icon={hover.onHover} fill="secondary" width="24" />
+        <Icon
+          icon={hover.onHover}
+          fill="secondary"
+          width="24"
+          customStyle={{ display: "flex", alignItems: "center" }}
+        />
       </span>
     </div>
   );
