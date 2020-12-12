@@ -1,5 +1,7 @@
 import React from "react";
 import Radium from "radium";
+// assets
+import Icon from "../../../assets/icons";
 // components
 import Input from "../../../assets/form/Input";
 // styles
@@ -17,10 +19,11 @@ const Search = () => {
           kind="none"
         />
         <div style={styles.verticalAlign}>
-          <ion-icon
-            style={[{ color: color.teriaryVariant, cursor: "pointer" }]}
-            name="ios-search"
-            size="5rem"
+          <Icon
+            customStyle={{ cursor: "pointer" }}
+            icon="search"
+            width="24"
+            stroke={{ stroke: `${color.shades.grey01}` }}
           />
         </div>
       </div>
