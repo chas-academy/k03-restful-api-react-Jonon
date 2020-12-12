@@ -14,7 +14,7 @@ import {
   Star,
 } from "./icons";
 
-const Icon = ({ width, height, icon, fill, customStyle }) => {
+const Icon = ({ width, height, icon, fill, stroke, customStyle }) => {
   switch (icon.toLowerCase()) {
     case "cart":
       return (
@@ -25,7 +25,7 @@ const Icon = ({ width, height, icon, fill, customStyle }) => {
         <Search
           width={width}
           height={height}
-          fill={fill}
+          stroke={stroke}
           customStyle={customStyle}
         />
       );
