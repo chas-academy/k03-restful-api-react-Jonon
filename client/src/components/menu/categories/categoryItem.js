@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 // styles
 import styles from "./categoryItem.style";
-import Icon from "../../icons/Icon";
+// Assets
+import Icon from "../../../assets/icons";
 // compnents
 import CategorySubitem from "./categorySubitem";
 // actions
@@ -68,7 +69,7 @@ const CategoryItem = ({ hide_menu }) => {
                     { display: "inline-block" },
                   ]}
                 >
-                  <Icon icon="typcn typcn-chevron-right" color="secondary" />
+                  <Icon icon="chevronright" fill="primary" />
                 </span>
               </div>
             </div>
