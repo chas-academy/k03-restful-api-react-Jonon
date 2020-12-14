@@ -1,9 +1,11 @@
 const colors = {
   // Thunderbird
   primary: "#C61017",
+  primary02: "#A90F15",
   /* ------------------------------------------------------- */
   // Lochmara
   secondary: "#007CC2",
+  secondary02: "#006BA7",
   /* ------------------------------------------------------- */
   shades: {
     // Cape Cod
