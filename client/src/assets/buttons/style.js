@@ -1,4 +1,4 @@
-import colors from "../../styles/colors";
+import color from "../../styles/colors";
 
 const styles = {
   base: {
@@ -13,16 +13,22 @@ const styles = {
     },
   },
   primary: {
-    backgroundColor: colors.primary,
-    color: colors.shades.white00,
+    backgroundColor: color.primary,
+    color: color.shades.white00,
+    ":hover": {
+      backgroundColor: color.primary02,
+    },
   },
   secondary: {
-    backgroundColor: colors.shades.white00,
-    color: colors.shades.grey02,
+    backgroundColor: color.shades.white00,
+    color: color.shades.grey02,
   },
   tertiary: {
-    backgroundColor: colors.secondary,
-    color: colors.shades.white00,
+    backgroundColor: color.secondary,
+    color: color.shades.white00,
+    ":hover": {
+      backgroundColor: color.secondary02,
+    },
   },
   rounded: {
     true: { borderRadius: "0.2rem" },
