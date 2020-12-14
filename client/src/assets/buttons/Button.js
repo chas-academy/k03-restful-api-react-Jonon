@@ -14,6 +14,7 @@ const Button = (props) => {
     marginTop,
     title,
     rounded,
+    customStyle,
   } = props;
   return (
     // eslint-disable-next-line react/button-has-type
@@ -25,6 +26,7 @@ const Button = (props) => {
         styles[kind],
         styles.rounded[rounded],
         styles.size[size],
+        customStyle,
         {
           width,
           fontFamily,
