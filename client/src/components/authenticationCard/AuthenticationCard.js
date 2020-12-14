@@ -42,6 +42,11 @@ const AuthenticationCard = () => {
           fontFamily="Fjalla One, sans-serif"
           size="lg"
           onClick={() => setActiveTab(true)}
+          customStyle={{
+            ":hover": {
+              backgroundColor: "none",
+            },
+          }}
         />
       </div>
       <Logo />
