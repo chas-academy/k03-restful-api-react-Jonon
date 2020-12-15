@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import Radium from "radium";
-// Asset
-import Button from "../../../assets/buttons/Button";
 // component
 import MainContent from "./productDetals/ProductDetals";
 import Credits from "./credits/Credits";
