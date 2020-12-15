@@ -19,6 +19,10 @@ const styles = {
       backgroundColor: color.primary02,
     },
   },
+  primaryNoHover: {
+    backgroundColor: color.primary,
+    color: color.shades.white00,
+  },
   secondary: {
     backgroundColor: color.shades.white00,
     color: color.shades.grey02,
