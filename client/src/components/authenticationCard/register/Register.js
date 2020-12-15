@@ -20,7 +20,7 @@ const Register = () => {
       kind="tertiary"
       width="91%"
       marginTop="2rem"
-      size={isMobile ? "lg" : "md"}
+      size="lgToMd"
       rounded
     />
   );

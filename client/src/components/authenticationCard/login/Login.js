@@ -20,7 +20,7 @@ const Login = () => {
       type="submit"
       width="90%"
       marginTop="2rem"
-      size={isMobile ? "lg" : "md"}
+      size="lgToMd"
       rounded
     />
   );

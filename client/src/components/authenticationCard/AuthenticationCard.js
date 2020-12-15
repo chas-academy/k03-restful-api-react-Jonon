@@ -32,7 +32,7 @@ const AuthenticationCard = () => {
           width="50%"
           kind={!activeTab ? "secondary" : "primaryNoHover"}
           fontFamily="Fjalla One, sans-serif"
-          size="lg"
+          size="lgToMd"
           onClick={() => setActiveTab(false)}
         />
         <Button
@@ -40,7 +40,7 @@ const AuthenticationCard = () => {
           width="50%"
           kind={activeTab ? "secondary" : "primaryNoHover"}
           fontFamily="Fjalla One, sans-serif"
-          size="lg"
+          size="lgToMd"
           onClick={() => setActiveTab(true)}
         />
       </div>
