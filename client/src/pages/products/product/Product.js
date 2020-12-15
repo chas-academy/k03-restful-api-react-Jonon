@@ -4,7 +4,7 @@ import Radium from "radium";
 // Asset
 import Button from "../../../assets/buttons/Button";
 // component
-import MainContent from "./mainContent/MainContent";
+import MainContent from "./productDetals/ProductDetals";
 import Credits from "./credits/Credits";
 // styles
 import styles from "./products.style";

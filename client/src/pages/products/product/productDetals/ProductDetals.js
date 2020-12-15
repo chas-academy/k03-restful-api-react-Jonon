@@ -2,9 +2,9 @@ import React from "react";
 // Assets
 import Button from "../../../../assets/buttons/Button";
 // styles
-import styles from "./mainContent.style";
+import styles from "./ProductDetals.style";
 
-const MainContent = ({ items }) => {
+const ProductDetals = ({ items }) => {
   return (
     <div>
       <img src={items.poster} style={styles.image} alt="poster" />
@@ -18,4 +18,4 @@ const MainContent = ({ items }) => {
   );
 };
 
-export default MainContent;
+export default ProductDetals;
