@@ -30,7 +30,7 @@ const AuthenticationCard = () => {
         <Button
           title="Login"
           width="50%"
-          kind={!activeTab ? "secondary" : "primary"}
+          kind={!activeTab ? "secondary" : "primaryNoHover"}
           fontFamily="Fjalla One, sans-serif"
           size="lg"
           onClick={() => setActiveTab(false)}
@@ -38,15 +38,10 @@ const AuthenticationCard = () => {
         <Button
           title="Register"
           width="50%"
-          kind={activeTab ? "secondary" : "primary"}
+          kind={activeTab ? "secondary" : "primaryNoHover"}
           fontFamily="Fjalla One, sans-serif"
           size="lg"
           onClick={() => setActiveTab(true)}
-          customStyle={{
-            ":hover": {
-              backgroundColor: "none",
-            },
-          }}
         />
       </div>
       <Logo />
