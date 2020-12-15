@@ -38,6 +38,22 @@ const styles = {
     true: { borderRadius: "0.2rem" },
   },
   size: {
+    lgToMd: {
+      padding: "0.8rem 1.2rem ",
+      fontSize: "1.2rem",
+      "@media (min-width: 768px)": {
+        padding: "0.5rem 1rem ",
+        fontSize: "1rem",
+      },
+    },
+    mdToLg: {
+      padding: "0.5rem 1rem ",
+      fontSize: "1rem",
+      "@media (min-width: 768px": {
+        padding: "0.8rem 1.2rem ",
+        fontSize: "1.2rem",
+      },
+    },
     md: {
       padding: "0.5rem 1rem ",
       fontSize: "1rem",
