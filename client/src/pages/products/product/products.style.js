@@ -24,10 +24,6 @@ const styles = {
       marginLeft: "1rem",
     },
   },
-  disableListStyle: {
-    listStyle: "none",
-    padding: "0px",
-  },
   gridColumn: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
