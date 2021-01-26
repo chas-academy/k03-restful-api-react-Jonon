@@ -1,6 +1,8 @@
 import React from "react";
 // styles
-import styles from "../products.style";
+import styles from "./Credits.style";
+// components
+import CreditsList from "./CreditsList";
 
 const Credits = ({ items }) => {
   return (
@@ -8,47 +10,20 @@ const Credits = ({ items }) => {
       <div>
         <h4 style={styles.listHeader}>Creators</h4>
         <ul style={styles.disableListStyle}>
-          <li>
-            <span style={styles.listHeader}>Writer</span>
-            <ul style={styles.disableListStyle}>
-              <li style={styles.listItem}>{items.writer}</li>
-            </ul>
-          </li>
-          <li>
-            <span style={styles.listHeader}>Artist</span>
-            <ul style={styles.disableListStyle}>
-              <li style={styles.listItem}>{items.artist}</li>
-            </ul>
-          </li>
-          <li>
-            <span style={styles.listHeader}>Cover artist</span>
-            <ul style={styles.disableListStyle}>
-              <li style={styles.listItem}>{items.coverArtist}</li>
-            </ul>
-          </li>
+          <CreditsList heading="Writer" items={items["writer"]} />
+          <CreditsList heading="Artist" items={items["artist"]} />
+          <CreditsList heading="Cover Artist" items={items["coverArtist"]} />
         </ul>
       </div>
       <div>
         <h4>Publication</h4>
         <ul style={styles.disableListStyle}>
-          <li>
-            <span style={styles.listHeader}>Publisher</span>
-            <ul style={styles.disableListStyle}>
-              <li style={styles.listItem}>{items.publisher}</li>
-            </ul>
-          </li>
-          <li>
-            <span style={styles.listHeader}>Publication date</span>
-            <ul style={styles.disableListStyle}>
-              <li style={styles.listItem}>{items.publicationDate}</li>
-            </ul>
-          </li>
-          <li>
-            <span style={styles.listHeader}>Pages</span>
-            <ul style={styles.disableListStyle}>
-              <li style={styles.listItem}>{items.pages}</li>
-            </ul>
-          </li>
+          <CreditsList heading="Publisher" items={items["publisher"]} />
+          <CreditsList
+            heading="Publication date"
+            pubDate={items["publicationDate"]}
+          />
+          <CreditsList heading="Pages" items={items["pages"]} />
         </ul>
       </div>
     </>
