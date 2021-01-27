@@ -34,7 +34,7 @@ const CategoryItem = ({ hide_menu }) => {
   return (
     <div style={styles.base}>
       <ul style={{ padding: "0", margin: "0px" }}>
-        <Link onClick={hide_menu} style={styles.link} to="/products/All/">
+        <Link onClick={hide_menu} style={styles.link} to="/products/all/">
           <li style={[styles.item, styles.category]}>All</li>
         </Link>
       </ul>
