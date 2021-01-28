@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouteMatch } from "react-router-dom";
 import Radium from "radium";
 // component
-import MainContent from "./productDetals/ProductDetals";
+import ProductDetals from "./productDetals/ProductDetals";
 import Credits from "./credits/Credits";
 // styles
 import styles from "./products.style";
@@ -24,7 +24,7 @@ const Product = () => {
   return (
     <div style={[styles.base, styles.threeColumns]}>
       <div style={styles.desktopLayout}>
-        <MainContent items={items} />
+        <ProductDetals items={items} />
         <p style={styles.margin}>{items.description}</p>
       </div>
       <div style={[styles.gridColumn, styles.margin]}>
