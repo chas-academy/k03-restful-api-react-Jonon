@@ -13,18 +13,6 @@ const Register = () => {
   const { width } = window;
   const isMobile = width <= 768;
 
-  const button = (
-    <Button
-      type="submit"
-      title="Register"
-      kind="tertiary"
-      width="91%"
-      marginTop="2rem"
-      size="lgToMd"
-      rounded
-    />
-  );
-
   return (
     <div style={styles.base}>
       <form style={styles.container}>
@@ -51,7 +39,15 @@ const Register = () => {
           rounded="true"
           required
         />
-        {button}
+        <Button
+          type="submit"
+          title="Register"
+          kind="tertiary"
+          width="91%"
+          marginTop="2rem"
+          size="lgToMd"
+          rounded
+        />
         <CloseButton />
       </form>
     </div>

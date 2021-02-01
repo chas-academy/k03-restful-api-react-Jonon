@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Radium from "radium";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
 // styles
@@ -12,18 +12,6 @@ const Login = () => {
   const window = useWindowDimensions();
   const { width } = window;
   const isMobile = width <= 768;
-
-  const button = (
-    <Button
-      title="Login"
-      kind="tertiary"
-      type="submit"
-      width="90%"
-      marginTop="2rem"
-      size="lgToMd"
-      rounded
-    />
-  );
 
   return (
     <div style={styles.base}>
@@ -43,7 +31,15 @@ const Login = () => {
           required
           marginTop="0.5rem"
         />
-        {button}
+        <Button
+          title="Login"
+          kind="tertiary"
+          type="button"
+          width="90%"
+          marginTop="2rem"
+          size="lgToMd"
+          rounded
+        />
         <CloseButton />
       </form>
     </div>
