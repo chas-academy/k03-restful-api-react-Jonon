@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Radium from "radium";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
 // styles
@@ -7,21 +7,65 @@ import styles from "./style";
 import Button from "../../../assets/buttons/Button";
 import Input from "../../../assets/form/Input";
 import CloseButton from "../closeButton/CloseButton";
+import { Redirect } from "react-router-dom";
 
 const Register = () => {
   const window = useWindowDimensions();
   const { width } = window;
   const isMobile = width <= 768;
 
+  const [name, setName] = useState();
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const changeName = (e) => {
+    setName(e.target.value);
+  };
+
+  const changeUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const changeemail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const changePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    fetch("/users/register", {
+      method: "POST",
+      body: JSON.stringify({ name, username, email, password }),
+      headers: { "Content-Type": "application/json" },
+    }).then((res) => res.json());
+  };
+
   return (
     <div style={styles.base}>
-      <form style={styles.container}>
+      <form style={styles.container} onSubmit={onSubmit}>
+        <Input
+          type="text"
+          placeholder="Name"
+          width="90%"
+          rounded="true"
+          required
+          onChange={changeName}
+          value={name}
+        />
         <Input
           type="text"
           placeholder="Username"
           width="90%"
+          marginTop="0.5rem"
           rounded="true"
           required
+          onChange={changeUsername}
+          value={username}
         />
         <Input
           type="email"
@@ -30,6 +74,8 @@ const Register = () => {
           marginTop="0.5rem"
           rounded="true"
           required
+          onChange={changeemail}
+          value={email}
         />
         <Input
           type="password"
@@ -38,6 +84,8 @@ const Register = () => {
           marginTop="0.5rem"
           rounded="true"
           required
+          onChange={changePassword}
+          value={password}
         />
         <Button
           type="submit"
@@ -47,6 +95,7 @@ const Register = () => {
           marginTop="2rem"
           size="lgToMd"
           rounded
+          value="Submit"
         />
         <CloseButton />
       </form>
