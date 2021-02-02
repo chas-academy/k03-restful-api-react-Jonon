@@ -7,12 +7,14 @@ import styles from "./style";
 import Button from "../../../assets/buttons/Button";
 import Input from "../../../assets/form/Input";
 import CloseButton from "../closeButton/CloseButton";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
   const window = useWindowDimensions();
   const { width } = window;
   const isMobile = width <= 768;
+
+  let history = useHistory();
 
   const [name, setName] = useState();
   const [username, setUsername] = useState();
@@ -43,6 +45,8 @@ const Register = () => {
       body: JSON.stringify({ name, username, email, password }),
       headers: { "Content-Type": "application/json" },
     }).then((res) => res.json());
+
+    history.push("/");
   };
 
   return (
