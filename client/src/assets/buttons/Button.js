@@ -7,6 +7,7 @@ const Button = (props) => {
   const {
     type,
     onClick,
+    onChange,
     kind,
     size,
     width,
@@ -15,12 +16,15 @@ const Button = (props) => {
     title,
     rounded,
     customStyle,
+    value,
   } = props;
   return (
     // eslint-disable-next-line react/button-has-type
     <button
       type={type}
-      onClick={() => onClick()}
+      onClick={onClick}
+      onChange={onChange}
+      value={value}
       style={[
         styles.base,
         styles[kind],
