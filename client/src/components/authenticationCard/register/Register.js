@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Radium from "radium";
+import { connect, useDispatch } from "react-redux";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
 // styles
 import styles from "./style";
@@ -8,13 +9,16 @@ import Button from "../../../assets/buttons/Button";
 import Input from "../../../assets/form/Input";
 import CloseButton from "../closeButton/CloseButton";
 import { useHistory } from "react-router-dom";
+// Action
+import { hide_modal } from "../../../actions/modalActions";
 
-const Register = () => {
+const Register = ({ hide_modal }) => {
   const window = useWindowDimensions();
   const { width } = window;
   const isMobile = width <= 768;
 
   let history = useHistory();
+  let dispatch = useDispatch();
 
   const [name, setName] = useState();
   const [username, setUsername] = useState();
@@ -47,6 +51,7 @@ const Register = () => {
     }).then((res) => res.json());
 
     history.push("/");
+    dispatch({ type: "HIDE_MODAL", payload: false });
   };
 
   return (
