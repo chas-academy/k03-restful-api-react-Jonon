@@ -50,6 +50,11 @@ const Register = ({ hide_modal }) => {
       headers: { "Content-Type": "application/json" },
     }).then((res) => res.json());
 
+    setName("");
+    setUsername("");
+    setEmail("");
+    setPassword("");
+
     history.push("/");
     dispatch({ type: "HIDE_MODAL", payload: false });
   };
