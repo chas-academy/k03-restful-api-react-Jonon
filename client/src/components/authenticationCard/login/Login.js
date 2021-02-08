@@ -9,9 +9,9 @@ import Input from "../../../assets/form/Input";
 import CloseButton from "../closeButton/CloseButton";
 
 const Login = () => {
-  const window = useWindowDimensions();
-  const { width } = window;
-  const isMobile = width <= 768;
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   return (
     <div style={styles.base}>
@@ -22,6 +22,7 @@ const Login = () => {
           width="90%"
           rounded="true"
           required
+          value={username}
         />
         <Input
           type="password"
@@ -30,6 +31,7 @@ const Login = () => {
           rounded="true"
           required
           marginTop="0.5rem"
+          value={password}
         />
         <Button
           title="Login"
