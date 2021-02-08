@@ -13,6 +13,16 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  const changeUsername = (e) => {
+    setUsername(e.target.value);
+  };
+  const changeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const changePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
   return (
     <div style={styles.base}>
       <form style={styles.container}>
@@ -22,6 +32,7 @@ const Login = () => {
           width="90%"
           rounded="true"
           required
+          onChange={changeUsername}
           value={username}
         />
         <Input
@@ -31,6 +42,7 @@ const Login = () => {
           rounded="true"
           required
           marginTop="0.5rem"
+          onChange={changePassword}
           value={password}
         />
         <Button
