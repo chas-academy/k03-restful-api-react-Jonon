@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Radium from "radium";
-import { connect, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 // styles
 import styles from "./style";
 // components
