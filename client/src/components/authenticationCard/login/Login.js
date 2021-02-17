@@ -23,9 +23,34 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    fetch("/users/login", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("jwtToken", res.token);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    clearForm();
+  };
+
+  const clearForm = () => {
+    setUsername("");
+    setEmail("");
+    setPassword("");
+  };
+
   return (
     <div style={styles.base}>
-      <form style={styles.container}>
+      <form style={styles.container} onSubmit={onSubmit}>
         <Input
           type="text"
           placeholder="Username or E-mail"
@@ -46,13 +71,14 @@ const Login = () => {
           value={password}
         />
         <Button
+          type="submit"
           title="Login"
           kind="tertiary"
-          type="button"
-          width="90%"
+          width="91%"
           marginTop="2rem"
           size="lgToMd"
           rounded
+          value="Submit"
         />
         <CloseButton />
       </form>
