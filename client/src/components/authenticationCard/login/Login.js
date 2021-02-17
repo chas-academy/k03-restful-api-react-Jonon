@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Radium from "radium";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 // styles
 import styles from "./style";
@@ -10,6 +11,7 @@ import CloseButton from "../closeButton/CloseButton";
 
 const Login = () => {
   let history = useHistory();
+  let dispatch = useDispatch();
 
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
@@ -41,8 +43,10 @@ const Login = () => {
         console.log(error);
       });
 
-    history.push("/");
     clearForm();
+
+    history.push("/");
+    dispatch({ type: "HIDE_MODAL", payload: false });
   };
 
   const clearForm = () => {
