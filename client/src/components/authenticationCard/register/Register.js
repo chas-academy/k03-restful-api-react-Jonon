@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Radium from "radium";
 import { connect, useDispatch } from "react-redux";
-import useWindowDimensions from "../../../hooks/useWindowDimensions";
 // styles
 import styles from "./style";
 // components
@@ -13,10 +12,6 @@ import { useHistory } from "react-router-dom";
 import { hide_modal } from "../../../actions/modalActions";
 
 const Register = ({ hide_modal }) => {
-  const window = useWindowDimensions();
-  const { width } = window;
-  const isMobile = width <= 768;
-
   let history = useHistory();
   let dispatch = useDispatch();
 
