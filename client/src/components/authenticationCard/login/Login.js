@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Radium from "radium";
-import useWindowDimensions from "../../../hooks/useWindowDimensions";
+import { useHistory } from "react-router-dom";
 // styles
 import styles from "./style";
 // components
@@ -9,6 +9,8 @@ import Input from "../../../assets/form/Input";
 import CloseButton from "../closeButton/CloseButton";
 
 const Login = () => {
+  let history = useHistory();
+
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -39,6 +41,7 @@ const Login = () => {
         console.log(error);
       });
 
+    history.push("/");
     clearForm();
   };
 
