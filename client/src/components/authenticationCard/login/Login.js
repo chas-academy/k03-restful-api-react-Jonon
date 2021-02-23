@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Radium from "radium";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 // styles
 import styles from "./style";
 // components
@@ -27,7 +28,7 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e, res) => {
     e.preventDefault();
     fetch("/users/login", {
       method: "POST",
@@ -36,10 +37,11 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        localStorage.setItem("jwtToken", res.token);
+        const { token } = res;
+        localStorage.setItem("jwtToken", token);
       })
       .catch((error) => {
+        res.json(error);
         console.log(error);
       });
 
@@ -53,6 +55,19 @@ const Login = () => {
     setUsername("");
     setEmail("");
     setPassword("");
+  };
+
+  useEffect(() => {
+    checkToken();
+  }, []);
+
+  const checkToken = () => {
+    // Check if token exist
+    if (!localStorage.getItem("jwtToken")) {
+    } else if (localStorage.getItem("jwtToken")) {
+      const token = localStorage.getItem("jwtToken");
+      const decoded = jwt_decode(token);
+    }
   };
 
   return (
