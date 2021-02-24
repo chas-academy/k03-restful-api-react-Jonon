@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 // assets
 import Icon from "../../../assets/icons";
 // styles
-import userIconButtonStyle from "./MenuButton.style";
+import MenuButtonStyle from "./MenuButton.style";
 import { show_modal } from "../../../actions/modalActions";
 
 const MenuButton = ({ show_modal }) => {
@@ -22,7 +22,7 @@ const MenuButton = ({ show_modal }) => {
   };
 
   return (
-    <div style={userIconButtonStyle}>
+    <div style={MenuButtonStyle}>
       {!auth ? (
         <p onClick={show_modal}>Sign In</p>
       ) : (

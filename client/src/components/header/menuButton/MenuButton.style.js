@@ -1,6 +1,6 @@
-const userIconButtonStyle = {
+const MenuButtonStyle = {
   marginRight: "1rem",
   cursor: "pointer",
 };
 
-export default userIconButtonStyle;
+export default MenuButtonStyle;
