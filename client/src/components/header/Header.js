@@ -4,7 +4,7 @@ import Radium from "radium";
 
 // components
 import HamburgerMenu from "./hamburgerMenu/HamburgerMenu";
-import UserIconButton from "./userIconButton/UserIconButton";
+import MenuButton from "./menuButton/MenuButton";
 import Cart from "./cart/Cart";
 import DropdownMenu from "../menu/DropdownMenu";
 import CategoryItem from "../menu/categories/categoryItem";
@@ -37,7 +37,7 @@ const Header = () => {
         <Logo />
 
         <div style={[styles.layout.flex, { marginRight: "1rem" }]}>
-          <UserIconButton />
+          <MenuButton />
           <Cart />
         </div>
       </nav>
