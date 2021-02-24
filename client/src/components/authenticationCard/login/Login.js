@@ -42,7 +42,6 @@ const Login = () => {
       })
       .catch((error) => {
         res.json(error);
-        console.log(error);
       });
 
     clearForm();
@@ -64,9 +63,11 @@ const Login = () => {
   const checkToken = () => {
     // Check if token exist
     if (!localStorage.getItem("jwtToken")) {
+      dispatch({ type: "NOT_AUTHENTICATED", payload: false });
     } else if (localStorage.getItem("jwtToken")) {
       const token = localStorage.getItem("jwtToken");
       const decoded = jwt_decode(token);
+      dispatch({ type: "AUTHENTICATED", payload: decoded });
     }
   };
 
