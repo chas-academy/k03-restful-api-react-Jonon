@@ -24,7 +24,9 @@ const MenuButton = ({ show_modal }) => {
   return (
     <div style={MenuButtonStyle}>
       {!auth ? (
-        <p onClick={show_modal}>Sign In</p>
+        <p style={MenuButtonStyle.signIn} onClick={show_modal}>
+          Sign In
+        </p>
       ) : (
         <span
           onMouseEnter={handleMouseEnter}
