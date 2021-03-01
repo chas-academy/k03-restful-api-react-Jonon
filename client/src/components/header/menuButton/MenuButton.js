@@ -7,6 +7,9 @@ import Icon from "../../../assets/icons";
 // styles
 import MenuButtonStyle from "./MenuButton.style";
 import { show_modal } from "../../../actions/modalActions";
+// components
+import DropDownMenu from "../../dropDownMenu/DropDownMenu";
+import UserMenu from "./userMenu/UserMenu";
 
 const MenuButton = ({ show_modal }) => {
   let auth = useSelector((state) => state.authentication.auth);
@@ -28,19 +31,25 @@ const MenuButton = ({ show_modal }) => {
           Sign In
         </p>
       ) : (
-        <span
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          role="button"
-          tabIndex={0}
-        >
-          <Icon
-            icon={hover.onHover}
-            fill="secondary"
-            width="24"
-            customStyle={{ display: "flex", alignItems: "center" }}
-          />
-        </span>
+        <div>
+          <span
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            role="button"
+            tabIndex={0}
+            style={MenuButtonStyle.menuOptionsButton}
+          >
+            <Icon
+              icon={hover.onHover}
+              fill="secondary"
+              width="24"
+              customStyle={{ display: "flex", alignItems: "center" }}
+            />
+          </span>
+          <DropDownMenu>
+            <UserMenu />
+          </DropDownMenu>
+        </div>
       )}
     </div>
   );
