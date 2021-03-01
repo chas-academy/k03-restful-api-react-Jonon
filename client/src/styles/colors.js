@@ -8,6 +8,7 @@ const colors = {
   secondary02: "#006BA7",
   /* ------------------------------------------------------- */
   shades: {
+    black00: "#000000",
     // Cape Cod
     grey00: "#3F474A",
     // Mine Shaft
