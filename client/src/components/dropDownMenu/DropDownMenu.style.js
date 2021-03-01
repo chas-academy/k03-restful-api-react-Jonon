@@ -11,7 +11,6 @@ const dropDownMenuStyle = {
     justifyContent: "flex-end",
   },
   box: {
-    padding: "1rem 5rem",
     backgroundColor: color.shades.white00,
     boxShadow: "1px 0px 4px 0px rgba(0, 0, 0, 0.5)",
   },
