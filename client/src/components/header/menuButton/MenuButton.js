@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 // assets
 import Icon from "../../../assets/icons";
 // styles
@@ -13,6 +13,9 @@ import UserMenu from "./userMenu/UserMenu";
 
 const MenuButton = ({ show_modal }) => {
   let auth = useSelector((state) => state.authentication.auth);
+  let UserDropDownMenu = useSelector((state) => state.dropDownMenu.payload);
+
+  let dispatch = useDispatch();
 
   const [hover, setHover] = useState({ onHover: "useroutline" });
 
@@ -22,6 +25,10 @@ const MenuButton = ({ show_modal }) => {
 
   const handleMouseLeave = () => {
     setHover({ onHover: "useroutline" });
+  };
+
+  const ShowUserDropDown = () => {
+    dispatch({ type: "SHOW", payload: true });
   };
 
   return (
@@ -38,6 +45,7 @@ const MenuButton = ({ show_modal }) => {
             role="button"
             tabIndex={0}
             style={MenuButtonStyle.menuOptionsButton}
+            onClick={ShowUserDropDown}
           >
             <Icon
               icon={hover.onHover}
@@ -46,9 +54,11 @@ const MenuButton = ({ show_modal }) => {
               customStyle={{ display: "flex", alignItems: "center" }}
             />
           </span>
-          <DropDownMenu>
-            <UserMenu />
-          </DropDownMenu>
+          {UserDropDownMenu === true ? (
+            <DropDownMenu>
+              <UserMenu />
+            </DropDownMenu>
+          ) : null}
         </div>
       )}
     </div>
