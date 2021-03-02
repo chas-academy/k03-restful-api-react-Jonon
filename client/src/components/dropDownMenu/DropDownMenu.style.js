@@ -5,6 +5,7 @@ const dropDownMenuStyle = {
     position: "absolute",
     right: "3.2rem",
     top: "3.6rem",
+    zIndex: "101",
   },
   arrowAlignment: {
     display: "flex",
