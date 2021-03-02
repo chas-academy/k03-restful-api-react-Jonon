@@ -27,8 +27,12 @@ const MenuButton = ({ show_modal }) => {
     setHover({ onHover: "useroutline" });
   };
 
-  const ShowUserDropDown = () => {
+  const showUserDropDown = () => {
     dispatch({ type: "SHOW", payload: true });
+  };
+
+  const hideUserDropDown = () => {
+    dispatch({ type: "HIDE", payload: false });
   };
 
   return (
@@ -45,7 +49,7 @@ const MenuButton = ({ show_modal }) => {
             role="button"
             tabIndex={0}
             style={MenuButtonStyle.menuOptionsButton}
-            onClick={ShowUserDropDown}
+            onClick={showUserDropDown}
           >
             <Icon
               icon={hover.onHover}
@@ -55,9 +59,13 @@ const MenuButton = ({ show_modal }) => {
             />
           </span>
           {UserDropDownMenu === true ? (
-            <DropDownMenu>
-              <UserMenu />
-            </DropDownMenu>
+            <div>
+              <DropDownMenu>
+                <UserMenu />
+              </DropDownMenu>
+              {/* Hide Menu on click */}
+              <div style={MenuButtonStyle.backdrop} onClick={hideUserDropDown}></div>
+            </div>
           ) : null}
         </div>
       )}
