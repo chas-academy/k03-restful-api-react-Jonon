@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 // styles
 import styles from "./modal.style";
 // Action
-import { hide_modal } from "../../actions/modalActions";
+import { hide_modal } from "../../redux/actions/modalActions";
 
 const Modal = ({ modal, hide_modal, children }) => {
   return ReactDom.createPortal(

@@ -10,7 +10,7 @@ import Icon from "../../../assets/icons";
 // compnents
 import CategorySubitem from "./categorySubitem";
 // actions
-import { hide_menu } from "../../../actions/menuActions";
+import { hide_menu } from "../../../redux/actions/menuActions";
 
 const CategoryItem = ({ hide_menu }) => {
   const [active, setActive] = useState(null);

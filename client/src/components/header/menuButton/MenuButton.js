@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Icon from "../../../assets/icons";
 // styles
 import MenuButtonStyle from "./MenuButton.style";
-import { show_modal } from "../../../actions/modalActions";
+import { show_modal } from "../../../redux/actions/modalActions";
 // components
 import DropDownMenu from "../../dropDownMenu/DropDownMenu";
 import UserMenu from "./userMenu/UserMenu";

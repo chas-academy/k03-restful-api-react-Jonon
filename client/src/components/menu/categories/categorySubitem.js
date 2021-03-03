@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 // Styles
 import styles from "./categorySubitem.style";
 // actions
-import { hide_menu } from "../../../actions/menuActions";
+import { hide_menu } from "../../../redux/actions/menuActions";
 
 const CategorySubitem = ({ categorySubitem, category, hide_menu }) => {
   return (

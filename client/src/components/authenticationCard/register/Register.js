@@ -9,7 +9,7 @@ import Input from "../../../assets/form/Input";
 import CloseButton from "../closeButton/CloseButton";
 import { useHistory } from "react-router-dom";
 // Action
-import { hide_modal } from "../../../actions/modalActions";
+import { hide_modal } from "../../../redux/actions/modalActions";
 
 const Register = ({ hide_modal }) => {
   let history = useHistory();

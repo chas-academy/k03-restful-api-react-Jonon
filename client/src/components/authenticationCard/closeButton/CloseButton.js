@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 // styles
 import Styles from "./closeButton.style";
 // actions
-import { hide_modal } from "../../../actions/modalActions";
+import { hide_modal } from "../../../redux/actions/modalActions";
 
 const CloseButton = ({ hide_modal }) => {
   return (

@@ -3,7 +3,7 @@ import Radium from "radium";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import styles from "./style";
-import { show_menu } from "../../actions/menuActions";
+import { show_menu } from "../../redux/actions/menuActions";
 
 const DropdownMenu = (props) => {
   const { outside, menu, show_menu, children } = props;

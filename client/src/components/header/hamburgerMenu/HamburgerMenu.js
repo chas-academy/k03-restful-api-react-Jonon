@@ -7,7 +7,7 @@ import Icon from "../../../assets/icons";
 // styles
 import Styles from "./hamburgerMenu.style";
 // actions
-import { show_menu } from "../../../actions/menuActions";
+import { show_menu } from "../../../redux/actions/menuActions";
 
 const HamburgerMenu = ({ show_menu }) => {
   return (
