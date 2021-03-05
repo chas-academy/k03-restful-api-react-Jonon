@@ -39,6 +39,7 @@ const Login = () => {
       .then((res) => {
         const { token } = res;
         localStorage.setItem("jwtToken", token);
+        checkToken();
       })
       .catch((error) => {
         res.json(error);
@@ -56,15 +57,9 @@ const Login = () => {
     setPassword("");
   };
 
-  useEffect(() => {
-    checkToken();
-  }, []);
-
   const checkToken = () => {
     // Check if token exist
-    if (!localStorage.getItem("jwtToken")) {
-      dispatch({ type: "NOT_AUTHENTICATED", payload: false });
-    } else if (localStorage.getItem("jwtToken")) {
+    if (localStorage.getItem("jwtToken")) {
       const token = localStorage.getItem("jwtToken");
       const decoded = jwt_decode(token);
       dispatch({ type: "AUTHENTICATED", payload: decoded });

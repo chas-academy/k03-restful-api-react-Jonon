@@ -6,13 +6,35 @@ import UserMenuStyle from "./UserMenu.style";
 // components
 import UserMenuItems from "./userMenuItems/UserMenuItems";
 
+import { useDispatch } from "react-redux";
+import jwt_decode from "jwt-decode";
+
 const UserMenu = () => {
+  let dispatch = useDispatch();
+
+  const checkToken = () => {
+    // Check if token exist
+    if (!localStorage.getItem("jwtToken")) {
+      dispatch({ type: "NOT_AUTHENTICATED", payload: false });
+    }
+  };
+
+  const logoutUser = () => {
+    localStorage.removeItem("jwtToken");
+    checkToken();
+  };
   return (
     <ul style={UserMenuStyle.box}>
       <div style={UserMenuStyle.list}>
         <UserMenuItems />
       </div>
-      <Button title="Log out" kind="primary" width="100%" size="md" />
+      <Button
+        title="Log out"
+        kind="primary"
+        width="100%"
+        size="md"
+        onClick={logoutUser}
+      />
     </ul>
   );
 };
