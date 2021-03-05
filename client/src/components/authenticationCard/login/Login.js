@@ -49,6 +49,8 @@ const Login = () => {
 
     history.push("/");
     dispatch({ type: "HIDE_MODAL", payload: false });
+    // Hide menu
+    dispatch({ type: "HIDE", payload: false });
   };
 
   const clearForm = () => {
