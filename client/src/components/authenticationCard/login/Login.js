@@ -38,19 +38,20 @@ const Login = () => {
       .then((res) => res.json())
       .then((res) => {
         const { token } = res;
-        localStorage.setItem("jwtToken", token);
-        checkToken();
+        if (typeof token === "undefined") {
+          return console.log("Username or password is wrong");
+        } else {
+          localStorage.setItem("jwtToken", token);
+          checkToken();
+          clearForm();
+
+          history.push("/");
+          dispatch({ type: "HIDE_MODAL", payload: false });
+          // Hide menu
+          dispatch({ type: "HIDE", payload: false });
+        }
       })
-      .catch((error) => {
-        res.json(error);
-      });
-
-    clearForm();
-
-    history.push("/");
-    dispatch({ type: "HIDE_MODAL", payload: false });
-    // Hide menu
-    dispatch({ type: "HIDE", payload: false });
+      .catch((err) => console.log("Fetch error: ", err));
   };
 
   const clearForm = () => {
@@ -58,6 +59,10 @@ const Login = () => {
     setEmail("");
     setPassword("");
   };
+
+  useEffect(() => {
+    checkToken();
+  });
 
   const checkToken = () => {
     // Check if token exist
