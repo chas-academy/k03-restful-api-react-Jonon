@@ -14,17 +14,17 @@ const User = require("../models/User");
 const Order = require("../models/Order");
 
 router.post("/register", (req, res) => {
-  User.findOne({ email: req.body.email }).then(user => {
+  User.findOne({ email: req.body.email }).then((user) => {
     if (user) {
       // Check if user exist
       return res.status(409).json({
-        message: "Mail exist"
+        message: "Mail exist",
       });
     } else {
       bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
         if (err) {
           return res.status(500).json({
-            error: err
+            error: err,
           });
         } else {
           const user = new User({
@@ -32,20 +32,20 @@ router.post("/register", (req, res) => {
             username: req.body.username,
             email: req.body.email,
             password: hash,
-            role: req.body.role
+            role: req.body.role,
           });
           user
             .save()
-            .then(result => {
+            .then((result) => {
               console.log(result);
               res.status(201).json({
-                message: "User Created"
+                message: "User Created",
               });
             })
-            .catch(err => {
+            .catch((err) => {
               console.log(err);
               res.status(500).json({
-                error: err
+                error: err,
               });
             });
         }
@@ -59,21 +59,21 @@ router.post("/login", (req, res) => {
   const password = req.body.password;
   const username = req.body.username;
   User.findOne({ $or: [{ email }, { username }] })
-    .then(user => {
+    .then((user) => {
       if (!user) {
         return res.status(401).json({
-          message: "Auth failed"
+          message: "Auth failed",
         });
       }
       // compare password
-      bcrypt.compare(password, user.password).then(isMatch => {
+      bcrypt.compare(password, user.password).then((isMatch) => {
         if (isMatch) {
           const payload = {
             id: user.id,
             name: user.name,
             username: user.username,
             email: user.email,
-            email: user.role
+            role: user.role,
           };
           jwt.sign(
             payload,
@@ -82,7 +82,7 @@ router.post("/login", (req, res) => {
             (err, token) => {
               res.json({
                 success: true,
-                token: `Bearer ${token}`
+                token: `Bearer ${token}`,
               });
             }
           );
@@ -91,9 +91,9 @@ router.post("/login", (req, res) => {
         }
       });
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json({
-        error: err
+        error: err,
       });
     });
 });
@@ -106,7 +106,7 @@ router.get(
       id: req.user.id,
       name: req.user.name,
       username: req.user.username,
-      email: req.user.email
+      email: req.user.email,
     });
   }
 );
@@ -125,21 +125,21 @@ router.get(
           from: "products",
           localField: "product",
           foreignField: "_id",
-          as: "product"
-        }
+          as: "product",
+        },
       },
       {
         $lookup: {
           from: "users",
           localField: "user",
           foreignField: "_id",
-          as: "user"
-        }
+          as: "user",
+        },
       },
       { $match: { "user.username": req.user.username } },
       // Remove arrays of each element with unwind to make it a one flat array
       {
-        $unwind: "$product"
+        $unwind: "$product",
       },
       { $unwind: "$user" },
       {
@@ -152,23 +152,23 @@ router.get(
           date: { $first: "$date" },
           user: {
             $addToSet: {
-              username: "$user.username"
-            }
+              username: "$user.username",
+            },
           },
           product: {
             $addToSet: {
               title: "$product.title",
               poster: "$product.poster",
-              price: "$product.price"
-            }
-          }
-        }
-      }
+              price: "$product.price",
+            },
+          },
+        },
+      },
     ])
-      .then(orders => {
+      .then((orders) => {
         return res.status(200).json(orders);
       })
-      .catch(err => {
+      .catch((err) => {
         res.json({ message: err });
       });
   }

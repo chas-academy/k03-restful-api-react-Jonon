@@ -5,13 +5,14 @@ const Product = require("../models/Product");
 
 //Get
 router.get("/", (req, res) => {
-  const product = Product.find()
+  //const product = Product.find();
+  const product = Product.find();
+  product
     //Sort title in the ascending order
-    .then(doc => {
-      console.log(doc);
+    .then((doc) => {
       return res.status(200).json(doc);
     })
-    .catch(err => {
+    .catch((err) => {
       res.json({ message: err });
     });
 });
@@ -19,10 +20,10 @@ router.get("/", (req, res) => {
 //get By category
 router.get("/:category", (req, res) => {
   const product = Product.find({ category: req.params.category })
-    .then(doc => {
+    .then((doc) => {
       res.status(200).json(doc);
     })
-    .catch(err => {
+    .catch((err) => {
       res.json({ message: err });
     });
 });
@@ -30,10 +31,10 @@ router.get("/:category", (req, res) => {
 //get By subcategory
 router.get("/:category/:subcategory", (req, res) => {
   const product = Product.find({ series: req.params.subcategory })
-    .then(doc => {
+    .then((doc) => {
       res.status(200).json(doc);
     })
-    .catch(err => {
+    .catch((err) => {
       res.json({ message: err });
     });
 });
@@ -41,10 +42,10 @@ router.get("/:category/:subcategory", (req, res) => {
 // //get By productid
 router.get("/:category/:subcategory/:productId", (req, res) => {
   const product = Product.findById(req.params.productId)
-    .then(doc => {
+    .then((doc) => {
       res.status(200).json(doc);
     })
-    .catch(err => {
+    .catch((err) => {
       res.json({ message: err });
     });
 });
@@ -58,15 +59,15 @@ router.post("/search", (req, res) => {
     title: {
       $regex: query,
       // case insensitive search
-      $options: "i"
-    }
+      $options: "i",
+    },
   })
-    .then(products => {
+    .then((products) => {
       return res.status(200).json(products);
     })
-    .catch(err => {
+    .catch((err) => {
       return res.status(501).json({
-        error: err
+        error: err,
       });
     });
 });

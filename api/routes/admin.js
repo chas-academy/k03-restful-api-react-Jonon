@@ -31,15 +31,15 @@ router.post(
       price: req.body.price,
       inventory: req.body.inventory,
       category: req.body.category,
-      series: req.body.series
+      series: req.body.series,
     });
 
     product
       .save()
-      .then(doc => {
+      .then((doc) => {
         return res.status(201).json(doc);
       })
-      .catch(err => {
+      .catch((err) => {
         res.json({ message: err });
       });
   }
@@ -56,10 +56,10 @@ router.get(
       return res.status(401).json({ Message: "Authentication failed." });
     }
     Product.find()
-      .then(products => {
+      .then((products) => {
         res.status(200).json({ products });
       })
-      .catch(err => {
+      .catch((err) => {
         res.json({ message: err });
       });
   }
@@ -91,14 +91,14 @@ router.patch(
           price: req.body.price,
           inventory: req.body.inventory,
           category: req.body.category,
-          series: req.body.series
-        }
+          series: req.body.series,
+        },
       }
     )
-      .then(doc => {
+      .then((doc) => {
         res.status(200).json(doc);
       })
-      .catch(err => {
+      .catch((err) => {
         res.json({ message: err });
       });
   }
@@ -116,12 +116,12 @@ router.delete(
     }
 
     const removeProduct = Product.deleteOne({
-      _id: req.params.productId
+      _id: req.params.productId,
     })
-      .then(doc => {
+      .then((doc) => {
         res.status(200).json(doc);
       })
-      .catch(err => {
+      .catch((err) => {
         res.json({ message: err });
       });
   }
@@ -138,10 +138,10 @@ router.get(
       return res.status(401).json({ Message: "Authentication failed." });
     }
     const user = User.find()
-      .then(doc => {
+      .then((doc) => {
         return res.status(200).json(doc);
       })
-      .catch(err => {
+      .catch((err) => {
         res.json({ message: err });
       });
   }
@@ -158,7 +158,7 @@ router.delete(
       return res.status(401).json({ Message: "Authentication failed." });
     }
 
-    User.findById({ _id: req.params.userId }).then(user => {
+    User.findById({ _id: req.params.userId }).then((user) => {
       if (!user) {
         return res
           .status(404)
@@ -166,18 +166,17 @@ router.delete(
       }
     });
     User.deleteOne({ _id: req.params.userId })
-      .then(result => {
+      .then((result) => {
         return res.status(200).json({ message: "User deleted" });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         res.status(500).json({
-          Error: err
+          Error: err,
         });
       });
   }
 );
-
 
 // Get all orders
 router.get(
@@ -195,20 +194,20 @@ router.get(
           from: "products",
           localField: "product",
           foreignField: "_id",
-          as: "product"
-        }
+          as: "product",
+        },
       },
       {
         $lookup: {
           from: "users",
           localField: "user",
           foreignField: "_id",
-          as: "user"
-        }
+          as: "user",
+        },
       },
       // Remove arrays of each element with unwind to make it a one flat array
       {
-        $unwind: "$product"
+        $unwind: "$product",
       },
       { $unwind: "$user" },
       {
@@ -221,24 +220,24 @@ router.get(
           date: { $first: "$date" },
           user: {
             $addToSet: {
-              username: "$user.username"
-            }
+              username: "$user.username",
+            },
           },
           product: {
             $addToSet: {
               title: "$product.title",
               poster: "$product.poster",
-              price: "$product.price"
-            }
-          }
-        }
-      }
+              price: "$product.price",
+            },
+          },
+        },
+      },
     ])
-      
-      .then(orders => {
+
+      .then((orders) => {
         return res.status(200).json(orders);
       })
-      .catch(err => {
+      .catch((err) => {
         res.json({ message: err });
       });
   }
@@ -260,14 +259,14 @@ router.patch(
       {
         $set: {
           orderStatus: req.body.orderStatus,
-          quantity: req.body.quantity
-        }
+          quantity: req.body.quantity,
+        },
       }
     )
-      .then(doc => {
+      .then((doc) => {
         res.status(200).json(doc);
       })
-      .catch(err => {
+      .catch((err) => {
         res.json({ message: err });
       });
   }
@@ -283,20 +282,20 @@ router.delete(
     if (!role) {
       return res.status(401).json({ Message: "Authentication failed." });
     }
-    Order.findById({ _id: req.params.orderId }).then(order => {
+    Order.findById({ _id: req.params.orderId }).then((order) => {
       if (!order) {
         return res
           .status(404)
           .json({ message: `Order with ID ${req.params.orderId} Not Found` });
       }
       Order.deleteOne({ _id: req.params.orderId })
-        .then(result => {
+        .then((result) => {
           return res.status(200).json({ message: "Order deleted" });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
           res.status(500).json({
-            Error: err
+            Error: err,
           });
         });
     });
