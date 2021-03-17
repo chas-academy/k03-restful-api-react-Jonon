@@ -17,22 +17,38 @@ const Login = () => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  // Input needed as value in inputfield for being able to erase letters
+  const [input, setInput] = useState();
 
-  const changeUsername = (e) => {
-    setUsername(e.target.value);
+  const changeUsername = (value) => {
+    setUsername(value);
   };
-  const changeEmail = (e) => {
-    setEmail(e.target.value);
+  const changeEmail = (value) => {
+    setEmail(value);
   };
   const changePassword = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleChange = (e) => {
+    let inputValue = e.target.value;
+
+    let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    // Check for valid email
+    if (regEmail.test(inputValue)) {
+      changeEmail(e.target.value);
+    } else {
+      // If not email set as username
+      changeUsername(e.target.value);
+    }
   };
 
   const onSubmit = (e, res) => {
     e.preventDefault();
     fetch("/users/login", {
       method: "POST",
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, email, password }),
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
@@ -58,6 +74,7 @@ const Login = () => {
     setUsername("");
     setEmail("");
     setPassword("");
+    setInput("");
   };
 
   useEffect(() => {
@@ -82,8 +99,8 @@ const Login = () => {
           width="90%"
           rounded="true"
           required
-          onChange={changeUsername}
-          value={username}
+          onChange={handleChange}
+          value={input}
         />
         <Input
           type="password"
