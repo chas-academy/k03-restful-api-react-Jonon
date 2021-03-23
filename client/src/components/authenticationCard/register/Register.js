@@ -25,11 +25,11 @@ const Register = ({ hide_modal }) => {
   };
 
   const changeUsername = (e) => {
-    setUsername(e.target.value);
+    setUsername(e.target.value.toLowerCase());
   };
 
   const changeemail = (e) => {
-    setEmail(e.target.value);
+    setEmail(e.target.value.toLowerCase());
   };
 
   const changePassword = (e) => {

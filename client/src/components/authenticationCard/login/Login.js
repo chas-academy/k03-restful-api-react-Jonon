@@ -21,10 +21,10 @@ const Login = () => {
   const [input, setInput] = useState();
 
   const changeUsername = (value) => {
-    setUsername(value);
+    setUsername(value.toLowerCase());
   };
   const changeEmail = (value) => {
-    setEmail(value);
+    setEmail(value.toLowerCase());
   };
   const changePassword = (e) => {
     setPassword(e.target.value);
