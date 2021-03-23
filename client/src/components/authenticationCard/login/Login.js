@@ -83,10 +83,16 @@ const Login = () => {
 
   const checkToken = () => {
     // Check if token exist
-    if (localStorage.getItem("jwtToken")) {
-      const token = localStorage.getItem("jwtToken");
-      const decoded = jwt_decode(token);
-      dispatch({ type: "AUTHENTICATED", payload: decoded });
+    const accessToken = localStorage.getItem("jwtToken");
+    if (accessToken) {
+      try {
+        const decoded = jwt_decode(accessToken);
+        dispatch({ type: "AUTHENTICATED", payload: decoded });
+      } catch (err) {
+        console.log(err);
+        dispatch({ type: "NOT_AUTHENTICATED", payload: false });
+        localStorage.removeItem("jwtToken");
+      }
     }
   };
 
