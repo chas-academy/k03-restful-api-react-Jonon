@@ -8,8 +8,7 @@ import Icon from "../../../assets/icons";
 import MenuButtonStyle from "./MenuButton.style";
 import { show_modal } from "../../../redux/actions/modalActions";
 // components
-import DropDownMenu from "../../dropDownMenu/DropDownMenu";
-import UserMenu from "./userMenu/UserMenu";
+import DropDownMenu from "./dropDownMenu/DropDownMenu";
 
 const MenuButton = ({ show_modal }) => {
   let auth = useSelector((state) => state.authentication.auth);
@@ -60,9 +59,7 @@ const MenuButton = ({ show_modal }) => {
           </span>
           {UserDropDownMenu === true ? (
             <div>
-              <DropDownMenu>
-                <UserMenu />
-              </DropDownMenu>
+              <DropDownMenu></DropDownMenu>
               {/* Hide Menu on click */}
               <div style={MenuButtonStyle.backdrop} onClick={hideUserDropDown}></div>
             </div>

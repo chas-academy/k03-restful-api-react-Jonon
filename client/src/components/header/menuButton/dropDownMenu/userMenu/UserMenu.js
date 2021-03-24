@@ -1,13 +1,13 @@
 import React from "react";
+import Radium from "radium";
 // Assets
-import Button from "../../../../assets/buttons/Button";
+import Button from "../../../../../assets/buttons/Button";
 // styles
 import UserMenuStyle from "./UserMenu.style";
 // components
 import UserMenuItems from "./userMenuItems/UserMenuItems";
 
 import { useDispatch } from "react-redux";
-import jwt_decode from "jwt-decode";
 
 const UserMenu = () => {
   let dispatch = useDispatch();
@@ -39,4 +39,4 @@ const UserMenu = () => {
   );
 };
 
-export default UserMenu;
+export default Radium(UserMenu);

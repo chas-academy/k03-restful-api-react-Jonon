@@ -1,11 +1,16 @@
-import color from "../../../../styles/colors";
-import font from "../../../../styles/font.style";
+import color from "../../../../../styles/colors";
+import font from "../../../../../styles/font.style";
 const UserMenuStyle = {
   box: {
     listStyle: "none",
     margin: 0,
     padding: 0,
-    width: "15rem",
+    "@media (max-width: 767px)": {
+      width: "100%",
+    },
+    "@media (min-width: 768px)": {
+      width: "15rem",
+    },
   },
   list: {
     display: "flex",

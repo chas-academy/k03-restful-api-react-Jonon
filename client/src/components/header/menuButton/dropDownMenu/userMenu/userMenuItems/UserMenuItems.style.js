@@ -1,4 +1,4 @@
-import color from "../../../../../styles/colors";
+import color from "../../../../../../styles/colors";
 
 const UserMenuItemsStyle = {
   cursor: "pointer",
