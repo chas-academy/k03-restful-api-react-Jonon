@@ -16,21 +16,25 @@ const DropDownMenu = () => {
   };
 
   return (
-    <div
-      style={[
-        dropDownMenuStyle.base,
-        UserDropDownMenu === true
-          ? dropDownMenuStyle.active
-          : dropDownMenuStyle.notActive,
-      ]}
-    >
-      <div style={dropDownMenuStyle.arrowAlignment}>
-        <div style={dropDownMenuStyle.triangleUp}></div>
+    <div>
+      <div
+        style={[
+          dropDownMenuStyle.base,
+          UserDropDownMenu === true
+            ? dropDownMenuStyle.active
+            : dropDownMenuStyle.notActive,
+        ]}
+      >
+        <div style={dropDownMenuStyle.arrowAlignment}>
+          <div style={dropDownMenuStyle.triangleUp}></div>
+        </div>
+        <div style={dropDownMenuStyle.box}>
+          <UserMenu />
+        </div>
       </div>
-      <div style={dropDownMenuStyle.box}>
-        <UserMenu />
-      </div>
-      <div style={dropDownMenuStyle.backdrop} onClick={hideUserDropDown}></div>
+      {UserDropDownMenu === true ? (
+        <div style={[dropDownMenuStyle.backdrop]} onClick={hideUserDropDown}></div>
+      ) : null}
     </div>
   );
 };
