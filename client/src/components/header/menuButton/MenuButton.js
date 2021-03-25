@@ -30,10 +30,6 @@ const MenuButton = ({ show_modal }) => {
     dispatch({ type: "SHOW", payload: true });
   };
 
-  const hideUserDropDown = () => {
-    dispatch({ type: "HIDE", payload: false });
-  };
-
   return (
     <div style={MenuButtonStyle}>
       {!auth ? (
@@ -57,13 +53,7 @@ const MenuButton = ({ show_modal }) => {
               customStyle={{ display: "flex", alignItems: "center" }}
             />
           </span>
-          {UserDropDownMenu === true ? (
-            <div>
-              <DropDownMenu></DropDownMenu>
-              {/* Hide Menu on click */}
-              <div style={MenuButtonStyle.backdrop} onClick={hideUserDropDown}></div>
-            </div>
-          ) : null}
+          <DropDownMenu />
         </div>
       )}
     </div>
