@@ -1,6 +1,7 @@
 import React from "react";
 import Radium from "radium";
 import { useSelector, useDispatch } from "react-redux";
+import { fadeIn, fadeOut } from "react-animations";
 // styles
 import dropDownMenuStyle from "./DropDownMenu.style";
 // components
@@ -15,13 +16,20 @@ const DropDownMenu = () => {
     dispatch({ type: "HIDE", payload: false });
   };
 
+  const styles = {
+    fadeIn: {
+      animation: "x 1s",
+      animationName: Radium.keyframes(fadeIn, "fadeIn"),
+    },
+  };
+
   return (
     <div>
       <div
         style={[
           dropDownMenuStyle.base,
           UserDropDownMenu === true
-            ? dropDownMenuStyle.active
+            ? [dropDownMenuStyle.active, styles.fadeIn]
             : dropDownMenuStyle.notActive,
         ]}
       >
