@@ -1,4 +1,5 @@
 import React from "react";
+import Radium from "radium";
 
 const CartDropdown = () => {
   return (
@@ -8,4 +9,4 @@ const CartDropdown = () => {
   );
 };
 
-export default CartDropdown;
+export default Radium(CartDropdown);
