@@ -3,6 +3,7 @@ import React from "react";
 import Icon from "../../../assets/icons";
 // Components
 import Counter from "./counter/Counter";
+import CartDropDown from "./cartDropdown/CartDropdown";
 
 // styles
 import cartStyle from "./cartStyle";
@@ -12,6 +13,7 @@ const Cart = () => {
     <div style={cartStyle.align}>
       <Icon icon="cart" fill="secondary" width="24" />
       <Counter />
+      <CartDropDown />
     </div>
   );
 };
