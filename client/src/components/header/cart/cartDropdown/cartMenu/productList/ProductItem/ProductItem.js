@@ -1,4 +1,6 @@
 import React from "react";
+//assets
+import Icon from "../../../../../../../assets/icons";
 //styles
 import productItemStyle from "./ProductItem.style";
 
@@ -29,7 +31,7 @@ const ProductItem = () => {
             <div style={productItemStyle.contentContainer}>
               <div style={productItemStyle.flexContainer}>
                 <div style={productItemStyle.title}>{item.title}</div>
-                <div>x</div>
+                <Icon icon="close" width="24" fill="primary" />
               </div>
               <div style={productItemStyle.flexContainer}>
                 <div style={productItemStyle.price}>{item.price}€</div>
