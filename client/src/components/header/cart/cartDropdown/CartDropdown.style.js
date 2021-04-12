@@ -12,7 +12,7 @@ const CartDropdownStyle = {
     "@media (min-width: 768px)": {
       right: "0.5rem",
       top: "2.6rem",
-      width: "15rem",
+      width: "25rem",
     },
   },
   box: {
