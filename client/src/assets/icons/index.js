@@ -2,6 +2,7 @@ import React from "react";
 import {
   Cart,
   Search,
+  Close,
   User,
   UserOutline,
   Logo,
@@ -28,6 +29,10 @@ const Icon = ({ width, height, icon, fill, stroke, customStyle }) => {
           stroke={stroke}
           customStyle={customStyle}
         />
+      );
+    case "close":
+      return (
+        <Close width={width} height={height} fill={fill} customStyle={customStyle} />
       );
     case "user":
       return (

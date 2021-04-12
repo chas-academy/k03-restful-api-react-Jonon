@@ -50,6 +50,27 @@ export const Search = Radium(({ width, height, stroke, customStyle }) => {
   );
 });
 
+export const Close = Radium(({ width, height, fill, customStyle }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill={fill}
+      width={width}
+      height={height}
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="32"
+      class="ionicon"
+      viewBox="0 0 512 512"
+      style={[styles.fill[fill], fill, customStyle]}
+    >
+      <title>Close</title>
+      <path d="M368 368L144 144M368 144L144 368" />
+    </svg>
+  );
+});
+
 export const User = Radium(({ width, height, fill, customStyle }) => {
   return (
     <svg
