@@ -226,3 +226,24 @@ export const Star = Radium(({ width, height, fill, customStyle }) => {
     </svg>
   );
 });
+
+export const Add = Radium(({ width, height, fill, customStyle }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill={fill}
+      width={width}
+      height={height}
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="32"
+      class="ionicon"
+      viewBox="0 0 512 512"
+      style={[styles.fill[fill], fill, customStyle]}
+    >
+      <title>Add</title>
+      <path d="M256 112v288M400 256H112" />
+    </svg>
+  );
+});

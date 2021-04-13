@@ -13,6 +13,7 @@ import {
   YouTube,
   Menu,
   Star,
+  Add,
 } from "./icons";
 
 const Icon = ({ width, height, icon, fill, stroke, customStyle }) => {
@@ -102,6 +103,10 @@ const Icon = ({ width, height, icon, fill, stroke, customStyle }) => {
       );
     case "star":
       return <Star width={width} height={height} fill={fill} />;
+    case "add":
+      return (
+        <Add width={width} height={height} fill={fill} customStyle={customStyle} />
+      );
   }
 };
 
