@@ -3,6 +3,8 @@ import React from "react";
 import Icon from "../../../../../../../assets/icons";
 //styles
 import productItemStyle from "./ProductItem.style";
+//components
+import ProductQuantity from "./productQuantity/ProductQuantity";
 
 const ProductItem = () => {
   let items = [
@@ -35,7 +37,7 @@ const ProductItem = () => {
               </div>
               <div style={productItemStyle.flexContainer}>
                 <div style={productItemStyle.price}>{item.price}€</div>
-                <div>- 5 +</div>
+                <ProductQuantity />
               </div>
             </div>
           </div>
