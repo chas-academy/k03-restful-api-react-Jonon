@@ -5,7 +5,7 @@ const CartDropdownStyle = {
     position: "absolute",
     zIndex: "101",
     "@media (max-width: 768px)": {
-      top: "3.5rem",
+      top: "2.5rem",
       left: 0,
       width: "100%",
     },
