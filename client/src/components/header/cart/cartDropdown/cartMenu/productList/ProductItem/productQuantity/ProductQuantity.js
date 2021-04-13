@@ -5,11 +5,11 @@ import Icon from "../../../../../../../../assets/icons";
 // styles
 import productQuantityStyle from "./ProductQuantity.style";
 
-const AddRemoveProduct = () => {
+const AddRemoveProduct = ({ quantity }) => {
   return (
     <div style={[productQuantityStyle.center, productQuantityStyle.border]}>
       <Icon icon="remove" width="16" />
-      <div style={productQuantityStyle.quantity}>5</div>
+      <div style={productQuantityStyle.quantity}>{quantity}</div>
       <Icon icon="add" width="16" />
     </div>
   );

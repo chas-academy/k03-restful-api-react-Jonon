@@ -14,6 +14,7 @@ const ProductItem = () => {
       image:
         "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/818279/818279._SX1280_QL80_TTD_.jpg",
       price: "0.75",
+      quantity: 2,
     },
     {
       id: 1,
@@ -21,6 +22,7 @@ const ProductItem = () => {
       image:
         "https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/911523/911523._SX1280_QL80_TTD_.jpg",
       price: "4,49",
+      quantity: 3,
     },
   ];
 
@@ -37,7 +39,7 @@ const ProductItem = () => {
               </div>
               <div style={productItemStyle.flexContainer}>
                 <div style={productItemStyle.price}>{item.price}€</div>
-                <ProductQuantity />
+                <ProductQuantity quantity={item.quantity} />
               </div>
             </div>
           </div>
