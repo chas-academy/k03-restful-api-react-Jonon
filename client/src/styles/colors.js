@@ -15,6 +15,8 @@ const colors = {
     grey01: "#303030",
     // Matterhorn
     grey02: "#4B3A39",
+    // Alto
+    grey03: "#D6D6D6",
     /* ------------------------------------------------------- */
     // White
     white00: "#FFFFFF",
