@@ -14,6 +14,7 @@ import {
   Menu,
   Star,
   Add,
+  Remove,
 } from "./icons";
 
 const Icon = ({ width, height, icon, fill, stroke, customStyle }) => {
@@ -106,6 +107,15 @@ const Icon = ({ width, height, icon, fill, stroke, customStyle }) => {
     case "add":
       return (
         <Add width={width} height={height} fill={fill} customStyle={customStyle} />
+      );
+    case "remove":
+      return (
+        <Remove
+          width={width}
+          height={height}
+          fill={fill}
+          customStyle={customStyle}
+        />
       );
   }
 };
