@@ -37,6 +37,21 @@ const CartDropdownStyle = {
       borderBottom: `0.9rem solid ${color.shades.white00}`,
     },
   },
+  backdrop: {
+    width: "100%",
+    height: "100%",
+    position: "fixed",
+    zIndex: "100",
+    left: "0",
+    top: "0",
+    backgroundColor: "rgba(0,0,0,0.5)",
+  },
+  active: {
+    display: "block",
+  },
+  notActive: {
+    display: "none",
+  },
 };
 
 export default CartDropdownStyle;
