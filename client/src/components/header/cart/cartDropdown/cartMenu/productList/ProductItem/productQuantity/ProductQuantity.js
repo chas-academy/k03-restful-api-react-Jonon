@@ -8,9 +8,9 @@ import productQuantityStyle from "./ProductQuantity.style";
 const AddRemoveProduct = ({ quantity }) => {
   return (
     <div style={[productQuantityStyle.center, productQuantityStyle.border]}>
-      <Icon icon="remove" width="16" />
+      <Icon icon="remove" width="1.5rem" />
       <div style={productQuantityStyle.quantity}>{quantity}</div>
-      <Icon icon="add" width="16" />
+      <Icon icon="add" width="1.5rem" />
     </div>
   );
 };
