@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 // Assets
 import Icon from "../../../assets/icons";
 // Components
@@ -9,9 +10,16 @@ import CartDropDown from "./cartDropdown/CartDropdown";
 import cartStyle from "./cartStyle";
 
 const Cart = () => {
+  let dispatch = useDispatch();
+
+  const showCart = () => {
+    dispatch({ type: "SHOW_CART", payload: true });
+  };
   return (
     <div style={cartStyle.align}>
-      <Icon icon="cart" fill="secondary" width="24" />
+      <div onClick={showCart}>
+        <Icon icon="cart" fill="secondary" width="24" />
+      </div>
       <Counter />
       <CartDropDown />
     </div>

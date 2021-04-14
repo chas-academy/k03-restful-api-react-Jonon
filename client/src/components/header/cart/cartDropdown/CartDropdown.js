@@ -1,7 +1,7 @@
 import React from "react";
 import Radium from "radium";
 import CartMenu from "./cartMenu/CartMenu";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 //styles
 import CartDropdownStyle from "./CartDropdown.style";
@@ -9,6 +9,15 @@ import CartDropdownStyle from "./CartDropdown.style";
 const CartDropdown = () => {
   let cart = useSelector((state) => state.cartMenu.payload);
 
+  let auth = useSelector((state) => state.authentication.auth);
+
+  let dispatch = useDispatch();
+
+  const showCart = () => {
+    dispatch({ type: "HIDE_CART", payload: false });
+  };
+
+  console.log(cart);
   return (
     <div>
       <div
@@ -24,7 +33,9 @@ const CartDropdown = () => {
           <CartMenu />
         </div>
       </div>
-      {cart === true ? <div style={CartDropdownStyle.backdrop}></div> : null}
+      {cart === true ? (
+        <div style={CartDropdownStyle.backdrop} onClick={showCart}></div>
+      ) : null}
     </div>
   );
 };
