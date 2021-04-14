@@ -44,7 +44,6 @@ const CartDropdownStyle = {
     zIndex: "100",
     left: "0",
     top: "0",
-    backgroundColor: "rgba(0,0,0,0.5)",
   },
   active: {
     display: "block",
