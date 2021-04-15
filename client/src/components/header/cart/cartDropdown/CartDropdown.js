@@ -1,5 +1,6 @@
 import React from "react";
 import Radium from "radium";
+import { fadeIn } from "react-animations";
 import CartMenu from "./cartMenu/CartMenu";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -17,13 +18,22 @@ const CartDropdown = () => {
     dispatch({ type: "HIDE_CART", payload: false });
   };
 
+  const styles = {
+    fadeIn: {
+      animation: "x 1s",
+      animationName: Radium.keyframes(fadeIn, "fadeIn"),
+    },
+  };
+
   console.log(cart);
   return (
     <div>
       <div
         style={[
           CartDropdownStyle.base,
-          cart === true ? CartDropdownStyle.active : CartDropdownStyle.notActive,
+          cart === true
+            ? [CartDropdownStyle.active, styles.fadeIn]
+            : CartDropdownStyle.notActive,
         ]}
       >
         <div style={CartDropdownStyle.arrowAlignment}>
