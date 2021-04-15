@@ -5,6 +5,11 @@ const cartStyle = {
     alignItems: "center",
     height: "2rem",
   },
+  cartButton: {
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+  },
 };
 
 export default cartStyle;

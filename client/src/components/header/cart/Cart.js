@@ -17,7 +17,7 @@ const Cart = () => {
   };
   return (
     <div style={cartStyle.align}>
-      <div onClick={showCart}>
+      <div onClick={showCart} style={cartStyle.cartButton}>
         <Icon icon="cart" fill="secondary" width="24" />
       </div>
       <Counter />
