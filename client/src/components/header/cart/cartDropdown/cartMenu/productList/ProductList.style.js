@@ -8,6 +8,10 @@ const productListStyle = {
   scroll: {
     overflowY: "scroll",
     height: "23rem",
+    "@media (min-width: 768px)": {
+      // Hide scrollbar
+      width: "26rem",
+    },
   },
 };
 
