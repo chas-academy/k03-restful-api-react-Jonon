@@ -106,14 +106,19 @@ const Icon = ({ width, height, icon, fill, stroke, customStyle }) => {
       return <Star width={width} height={height} fill={fill} />;
     case "add":
       return (
-        <Add width={width} height={height} fill={fill} customStyle={customStyle} />
+        <Add
+          width={width}
+          height={height}
+          stroke={stroke}
+          customStyle={customStyle}
+        />
       );
     case "remove":
       return (
         <Remove
           width={width}
           height={height}
-          fill={fill}
+          stroke={stroke}
           customStyle={customStyle}
         />
       );
