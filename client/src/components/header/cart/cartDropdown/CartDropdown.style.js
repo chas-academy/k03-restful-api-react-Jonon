@@ -5,13 +5,13 @@ const CartDropdownStyle = {
     position: "absolute",
     zIndex: "101",
     "@media (max-width: 768px)": {
-      top: "2.5rem",
+      top: "3.5rem",
       left: 0,
       width: "100%",
     },
     "@media (min-width: 768px)": {
       right: "0.5rem",
-      top: "2.6rem",
+      top: "3.6rem",
       width: "25rem",
     },
   },
@@ -24,7 +24,6 @@ const CartDropdownStyle = {
     display: "flex",
     justifyContent: "flex-end",
     position: "relative",
-    top: "1rem",
   },
   triangleUp: {
     "@media (min-width: 768px)": {
