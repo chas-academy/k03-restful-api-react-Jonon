@@ -4,7 +4,6 @@ const cartButtonsStyle = {
     flexDirection: "column",
     margin: "0 0.5rem",
     paddingBottom: "0.5rem",
-    marginTop: "-1rem",
   },
 };
 
