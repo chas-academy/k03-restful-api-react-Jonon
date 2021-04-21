@@ -35,6 +35,13 @@ const productItemStyle = {
     fontWeight: font.weight.semiBold,
     color: color.shades.grey00,
   },
+  close: {
+    cursor: "pointer",
+    stroke: color.shades.grey04,
+    ":hover": {
+      stroke: color.shades.black00,
+    },
+  },
 };
 
 export default productItemStyle;

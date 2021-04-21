@@ -29,13 +29,18 @@ const ProductItem = () => {
   return (
     <>
       {items.map((item) => (
-        <li style={productItemStyle.list}>
+        <li>
           <div style={productItemStyle.gridContainer}>
             <img style={productItemStyle.poster} src={item.image} />
             <div style={productItemStyle.contentContainer}>
               <div style={productItemStyle.flexContainer}>
                 <div style={productItemStyle.title}>{item.title}</div>
-                <Icon icon="close" width="24" fill="primary" />
+                <Icon
+                  icon="close"
+                  width="24"
+                  fill="primary"
+                  customStyle={productItemStyle.close}
+                />
               </div>
               <div style={productItemStyle.flexContainer}>
                 <div style={productItemStyle.price}>{item.price}€</div>
