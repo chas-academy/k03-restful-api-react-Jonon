@@ -14,6 +14,8 @@ const Cart = () => {
 
   const showCart = () => {
     dispatch({ type: "SHOW_CART", payload: true });
+    // prevent Scroll
+    document.body.style.overflow = "hidden";
   };
   return (
     <div style={cartStyle.align}>

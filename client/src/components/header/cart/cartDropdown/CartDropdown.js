@@ -16,6 +16,8 @@ const CartDropdown = () => {
 
   const showCart = () => {
     dispatch({ type: "HIDE_CART", payload: false });
+    // Toggle scroll
+    document.body.style.overflow = "";
   };
 
   const styles = {
