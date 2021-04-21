@@ -13,6 +13,12 @@ const productQuantityStyle = {
     margin: "0 1rem",
     color: color.secondary,
   },
+  button: {
+    cursor: "pointer",
+    ":hover": {
+      stroke: color.shades.black00,
+    },
+  },
 };
 
 export default productQuantityStyle;
