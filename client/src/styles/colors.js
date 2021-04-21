@@ -17,6 +17,8 @@ const colors = {
     grey02: "#4B3A39",
     // Alto
     grey03: "#D6D6D6",
+    // Grey
+    grey04: "#8D8D8D",
     /* ------------------------------------------------------- */
     // White
     white00: "#FFFFFF",
