@@ -17,6 +17,7 @@ const Button = (props) => {
     rounded,
     customStyle,
     value,
+    id,
   } = props;
   return (
     // eslint-disable-next-line react/button-has-type
@@ -25,6 +26,7 @@ const Button = (props) => {
       onClick={onClick}
       onChange={onChange}
       value={value}
+      id={id}
       style={[
         styles.base,
         styles[kind],
