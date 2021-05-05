@@ -36,6 +36,28 @@ const cartReducer = (state = initialState, action) => {
         };
       }
     }
+    case "DECREASE_QUANTITY": {
+      const itemExist = state.items.find((item) => item._id === action.payload);
+      // Find id of product in items array
+      if (itemExist.quantity === 1) {
+        let totalPrice = (state.total -= itemExist.price);
+        return {
+          ...state,
+          items: state.items.filter((item) => item._id !== action.payload),
+          // If Item quantity is 0 then remove item
+          totalItems: state.totalItems - 1,
+          total: totalPrice,
+        };
+      } else {
+        let quantity = (itemExist.quantity -= 1);
+        let totalPrice = (state.total -= itemExist.price);
+        return {
+          ...state,
+          totalItems: state.totalItems - 1,
+          total: totalPrice,
+        };
+      }
+    }
 
     default:
       return state;
