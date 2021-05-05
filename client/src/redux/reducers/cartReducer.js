@@ -58,6 +58,20 @@ const cartReducer = (state = initialState, action) => {
         };
       }
     }
+    case "INCREASE_QUANTITY": {
+      const itemExist = state.items.find((item) => item._id === action.payload);
+      // Find id of product in items array
+      if (itemExist) {
+        let quantity = (itemExist.quantity += 1);
+        let totalPrice = (state.total += itemExist.price);
+        // Calculate total price
+        return {
+          ...state,
+          totalItems: state.totalItems + 1,
+          total: totalPrice,
+        };
+      }
+    }
 
     default:
       return state;
