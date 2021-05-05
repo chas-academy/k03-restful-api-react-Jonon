@@ -72,7 +72,18 @@ const cartReducer = (state = initialState, action) => {
         };
       }
     }
-
+    case "REMOVE_ITEM": {
+      const itemExist = state.items.find((item) => item._id === action.payload);
+      // Find id of product in items array
+      let totalPrice = (state.total -= itemExist.price * itemExist.quantity);
+      return {
+        ...state,
+        items: state.items.filter((item) => item._id !== action.payload),
+        // Remove item from items array
+        totalItems: state.totalItems - itemExist.quantity,
+        total: totalPrice,
+      };
+    }
     default:
       return state;
   }
