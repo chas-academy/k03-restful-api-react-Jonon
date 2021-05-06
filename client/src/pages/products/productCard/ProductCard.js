@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Radium from "radium";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 // styles
@@ -14,6 +15,8 @@ const ProductList = (props) => {
     items: [],
   });
 
+  let dispatch = useDispatch();
+
   useEffect(() => {
     fetch(`${location.pathname}`)
       .then((res) => res.json())
@@ -24,9 +27,24 @@ const ProductList = (props) => {
       });
   }, [location.pathname]);
 
-  const comics = items.items.map((item) => {
+  const addToCart = async (e) => {
+    try {
+      e.persist();
+      // Persist path url
+      const response = await fetch(
+        `${location.pathname}/${e.target.value}/${e.target.id}`
+      );
+      const data = await response.json();
+      let id = e.target.id;
+      dispatch({ type: "ADD_TO_CART", payload: { data: data, id: id } });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const comics = items.items.map((item, index) => {
     return (
-      <li style={[styles.posterBox]} key={item._id}>
+      <li style={[styles.posterBox]} key={`productcard+${item._id}`}>
         <Link
           style={link.noUnderline}
           to={`${location.pathname}${item.series}/${item._id}`}
@@ -50,6 +68,9 @@ const ProductList = (props) => {
             width="90%"
             size="md"
             rounded="true"
+            id={item._id}
+            value={item.series}
+            onClick={addToCart}
           />
         </div>
       </li>
