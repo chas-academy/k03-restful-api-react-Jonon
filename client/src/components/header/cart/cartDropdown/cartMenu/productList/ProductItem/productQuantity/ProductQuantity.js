@@ -19,19 +19,23 @@ const ProductQuantity = ({ quantity, id }) => {
 
   return (
     <div style={[productQuantityStyle.center, productQuantityStyle.border]}>
-      <Icon
-        icon="remove"
-        width="1.5rem"
-        customStyle={productQuantityStyle.button}
-        stroke="primary"
-      />
+      <div onClick={decreaseQuantity}>
+        <Icon
+          icon="remove"
+          width="1.5rem"
+          customStyle={productQuantityStyle.button}
+          stroke="primary"
+        />
+      </div>
       <div style={productQuantityStyle.quantity}>{quantity} </div>
-      <Icon
-        icon="add"
-        width="1.5rem"
-        customStyle={productQuantityStyle.button}
-        stroke="primary"
-      />
+      <div onClick={increaseQuantity}>
+        <Icon
+          icon="add"
+          width="1.5rem"
+          customStyle={productQuantityStyle.button}
+          stroke="primary"
+        />
+      </div>
     </div>
   );
 };
