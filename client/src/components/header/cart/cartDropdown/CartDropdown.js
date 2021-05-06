@@ -10,8 +10,6 @@ import CartDropdownStyle from "./CartDropdown.style";
 const CartDropdown = () => {
   let cart = useSelector((state) => state.cartMenu.payload);
 
-  let auth = useSelector((state) => state.authentication.auth);
-
   let dispatch = useDispatch();
 
   const showCart = () => {
@@ -27,7 +25,6 @@ const CartDropdown = () => {
     },
   };
 
-  console.log(cart);
   return (
     <div>
       <div
