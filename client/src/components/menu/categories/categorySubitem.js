@@ -16,11 +16,15 @@ const CategorySubitem = ({ categorySubitem, category, hide_menu }) => {
       </Link>
       {categorySubitem.map((subitem) => (
         <Link
+          key={`subitem+link+${subitem._id}`}
           onClick={hide_menu}
           style={styles.link}
           to={`/products/${category}/${subitem.title}`}
         >
-          <li key={subitem._id} style={[styles.subCategory, styles.item]}>
+          <li
+            key={`subitem+${subitem._id}`}
+            style={[styles.subCategory, styles.item]}
+          >
             {subitem.title}
           </li>
         </Link>
