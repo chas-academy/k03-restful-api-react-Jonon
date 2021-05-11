@@ -13,7 +13,7 @@ const navItems = [
 const NavBar = () => {
   return (
     <nav>
-      <ul>
+      <ul style={navBarStyle.navBarContainer}>
         {navItems.map((navItem) => (
           <>
             <li key={navItem.id}>{navItem.name}</li>
