@@ -1,5 +1,6 @@
 import React from "react";
-
+// styles
+import navBarStyle from "./NavBar.style";
 //Assets
 import Icon from "../../../assets/icons/";
 
