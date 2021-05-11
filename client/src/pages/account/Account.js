@@ -1,7 +1,9 @@
 import React from "react";
 
+import NavBar from "./navBar/NavBar";
+
 const Account = () => {
-  return <div></div>;
+  return <NavBar />;
 };
 
 export default Account;
