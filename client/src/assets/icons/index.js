@@ -15,6 +15,7 @@ import {
   Star,
   Add,
   Remove,
+  Cog,
 } from "./icons";
 
 const Icon = ({ width, height, icon, fill, stroke, customStyle }) => {
@@ -121,6 +122,10 @@ const Icon = ({ width, height, icon, fill, stroke, customStyle }) => {
           stroke={stroke}
           customStyle={customStyle}
         />
+      );
+    case "cog":
+      return (
+        <Cog width={width} height={height} fill={fill} customStyle={customStyle} />
       );
   }
 };
