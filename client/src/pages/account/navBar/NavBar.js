@@ -1,4 +1,5 @@
 import React from "react";
+import Radium from "radium";
 // styles
 import navBarStyle from "./NavBar.style";
 //Assets
@@ -25,4 +26,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Radium(NavBar);
