@@ -36,6 +36,9 @@ const navBarStyle = {
       alignContent: "flex-start",
     },
   },
+  navBarActive: {
+    borderBottom: `1.5px solid rgba(0, 163, 255, 0.69)`,
+  },
   navBarItemLi: {
     display: "none",
     "@media (min-width: 768px)": {

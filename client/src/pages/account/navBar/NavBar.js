@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Radium from "radium";
 // styles
 import navBarStyle from "./NavBar.style";
@@ -12,11 +12,29 @@ const navItems = [
 ];
 
 const NavBar = () => {
+  const toggleActive = (e) => {
+    e.preventDefault();
+    let id = e.currentTarget.id;
+    setActive(id);
+    // Set active to clicked item
+  };
+
+  const [active, setActive] = useState();
+
   return (
     <nav>
       <ul style={[navBarStyle.navBarContainer, navBarStyle.navBar]}>
-        {navItems.map((navItem) => (
-          <section key={navItem.id} style={navBarStyle.navBarSection}>
+        {navItems.map((navItem, index) => (
+          <section
+            value={7}
+            id={index}
+            onClick={toggleActive}
+            key={navItem.id}
+            style={[
+              navBarStyle.navBarSection,
+              active == navItem.id ? navBarStyle.navBarActive : null,
+            ]}
+          >
             <Icon icon={navItem.icon} width="1.5rem" />
             <li style={navBarStyle.navBarItemLi}>{navItem.name}</li>
           </section>
