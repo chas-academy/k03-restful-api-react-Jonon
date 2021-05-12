@@ -9,7 +9,7 @@ const navBarStyle = {
   },
   navBarSection: {
     display: "flex",
-
+    justifyContent: "center",
     "@media (min-width: 678px) and (max-width: 1024px)": {
       flexDirection: "column",
       alignItems: "center",
