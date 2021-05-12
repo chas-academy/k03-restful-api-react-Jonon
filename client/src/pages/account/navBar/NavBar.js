@@ -16,9 +16,9 @@ const NavBar = () => {
     <nav>
       <ul style={[navBarStyle.navBarContainer, navBarStyle.navBar]}>
         {navItems.map((navItem) => (
-          <section>
+          <section style={navBarStyle.navBarSection}>
             <li style={navBarStyle.navBarItemLi} key={navItem.id}>
-              {navItem.name}{" "}
+              {navItem.name}
             </li>
             <Icon icon={navItem.icon} width="1.5rem" />
           </section>
