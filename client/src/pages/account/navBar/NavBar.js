@@ -16,11 +16,9 @@ const NavBar = () => {
     <nav>
       <ul style={[navBarStyle.navBarContainer, navBarStyle.navBar]}>
         {navItems.map((navItem) => (
-          <section style={navBarStyle.navBarSection}>
+          <section key={navItem.id} style={navBarStyle.navBarSection}>
             <Icon icon={navItem.icon} width="1.5rem" />
-            <li style={navBarStyle.navBarItemLi} key={navItem.id}>
-              {navItem.name}
-            </li>
+            <li style={navBarStyle.navBarItemLi}>{navItem.name}</li>
           </section>
         ))}
       </ul>
