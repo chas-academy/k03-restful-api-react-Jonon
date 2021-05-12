@@ -17,10 +17,10 @@ const NavBar = () => {
       <ul style={[navBarStyle.navBarContainer, navBarStyle.navBar]}>
         {navItems.map((navItem) => (
           <section style={navBarStyle.navBarSection}>
+            <Icon icon={navItem.icon} width="1.5rem" />
             <li style={navBarStyle.navBarItemLi} key={navItem.id}>
               {navItem.name}
             </li>
-            <Icon icon={navItem.icon} width="1.5rem" />
           </section>
         ))}
       </ul>

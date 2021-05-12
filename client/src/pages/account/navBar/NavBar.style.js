@@ -25,6 +25,9 @@ const navBarStyle = {
     "@media (min-width: 768px)": {
       display: "block",
     },
+    "@media (min-width: 1024px)": {
+      marginLeft: "0.5rem",
+    },
   },
 };
 
