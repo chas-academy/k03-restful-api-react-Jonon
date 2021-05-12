@@ -14,12 +14,12 @@ const navItems = [
 const NavBar = () => {
   return (
     <nav>
-      <ul style={navBarStyle.navBarContainer}>
+      <ul style={[navBarStyle.navBarContainer, navBarStyle.navBar]}>
         {navItems.map((navItem) => (
-          <>
+          <section>
             <li key={navItem.id}>{navItem.name}</li>
             <Icon icon={navItem.icon} width="1.5rem" />
-          </>
+          </section>
         ))}
       </ul>
     </nav>
