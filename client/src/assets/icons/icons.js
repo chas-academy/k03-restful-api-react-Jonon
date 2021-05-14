@@ -268,7 +268,7 @@ export const Remove = Radium(({ width, height, fill, customStyle, stroke }) => {
   );
 });
 
-export const Cog = Radium(({ width, height, fill, customStyle, stroke }) => {
+export const Cog = Radium(({ width, height, fill, customStyle }) => {
   return (
     <svg
       version="1.2"
