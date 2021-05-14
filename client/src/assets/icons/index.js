@@ -104,7 +104,9 @@ const Icon = ({ width, height, icon, fill, stroke, customStyle }) => {
         <Menu width={width} height={height} fill={fill} customStyle={customStyle} />
       );
     case "star":
-      return <Star width={width} height={height} fill={fill} />;
+      return (
+        <Star width={width} height={height} fill={fill} customStyle={customStyle} />
+      );
     case "add":
       return (
         <Add
