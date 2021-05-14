@@ -35,7 +35,7 @@ const NavBar = () => {
               active == navItem.id ? navBarStyle.navBarActive : null,
             ]}
           >
-            <Icon icon={navItem.icon} width="1.5rem" />
+            <Icon icon={navItem.icon} width="1.5rem" fill="primary" />
             <li style={navBarStyle.navBarItemLi}>{navItem.name}</li>
           </section>
         ))}
