@@ -38,7 +38,7 @@ const ProductList = (props) => {
       let id = e.target.id;
       dispatch({ type: "ADD_TO_CART", payload: { data: data, id: id } });
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
 
