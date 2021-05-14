@@ -35,7 +35,7 @@ const ProductList = (props) => {
         `${location.pathname}/${e.target.value}/${e.target.id}`
       );
       const data = await response.json();
-      let id = e.target.id;
+      let id = data._id;
       dispatch({ type: "ADD_TO_CART", payload: { data: data, id: id } });
     } catch (err) {
       console.log(err);
