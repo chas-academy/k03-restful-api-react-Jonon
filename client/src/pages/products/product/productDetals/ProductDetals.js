@@ -23,7 +23,6 @@ const ProductDetals = ({ items }) => {
     }
   };
 
-  console.log(location.pathname);
   return (
     <div>
       <img src={items.poster} style={styles.image} alt="poster" />
