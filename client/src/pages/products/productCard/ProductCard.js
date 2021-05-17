@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Radium from "radium";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 // styles
 import styles from "./productCard.style";
@@ -9,8 +9,8 @@ import link from "../../../styles/link.style";
 // components
 import Button from "../../../assets/buttons/Button";
 
-const ProductList = (props) => {
-  const { location } = props;
+const ProductList = () => {
+  const location = useLocation();
   const [items, setItems] = useState({
     items: [],
   });
@@ -19,7 +19,7 @@ const ProductList = (props) => {
 
   useEffect(() => {
     getproductList();
-  }, [location.pathname]);
+  }, []);
 
   const getproductList = async () => {
     try {
