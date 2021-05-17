@@ -37,7 +37,7 @@ const ProductList = () => {
     try {
       e.persist();
       // Persist path url
-      const url = `${location.pathname}/${e.target.value}/${e.target.id}`;
+      const url = `${location.pathname}${e.target.value}/${e.target.id}`;
       // URL
       const response = await fetch(url, {
         method: "GET",
