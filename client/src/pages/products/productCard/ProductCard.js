@@ -37,9 +37,12 @@ const ProductList = (props) => {
     try {
       e.persist();
       // Persist path url
-      const response = await fetch(
-        `${location.pathname}/${e.target.value}/${e.target.id}`
-      );
+      const url = `${location.pathname}/${e.target.value}/${e.target.id}`;
+      // URL
+      const response = await fetch(url, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
       const data = await response.json();
       let id = data._id;
       dispatch({ type: "ADD_TO_CART", payload: { data: data, id: id } });
