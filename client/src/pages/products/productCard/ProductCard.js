@@ -18,14 +18,20 @@ const ProductList = (props) => {
   let dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`${location.pathname}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setItems({
-          items: data,
-        });
-      });
+    getproductList();
   }, [location.pathname]);
+
+  const getproductList = async () => {
+    try {
+      const res = await fetch(`${location.pathname}`);
+      const data = await res.json();
+      setItems({
+        items: data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const addToCart = async (e) => {
     try {
@@ -37,8 +43,8 @@ const ProductList = (props) => {
       const data = await response.json();
       let id = data._id;
       dispatch({ type: "ADD_TO_CART", payload: { data: data, id: id } });
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   };
 
